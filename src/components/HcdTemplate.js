@@ -1,10 +1,7 @@
 import React from 'react'
-import './Hcd.css'
-import jsPDF from 'jspdf'
+
 function HcdTemplate() {
-    function renderpdf() {
-       
-            }
+   
     return (
         <>
             <div id='Template'>
@@ -119,7 +116,7 @@ function HcdTemplate() {
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary" onClick={renderpdf}>Click Here To Download</button>
+                <button type="button" class="btn btn-primary">Click Here To Download</button>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
                     crossorigin="anonymous"></script>
