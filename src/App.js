@@ -5,7 +5,7 @@ import HcdHome from './components/HcdHome';
 function App() {
   return (
     <div className="App">
-      <HcdHome />
+
     </div>
   );
 }
