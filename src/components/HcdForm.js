@@ -77,7 +77,7 @@ const HcdForm = () => {
           </div>
         </div>
       </div>
-   
+
       <div class="modal " id="openModal" tabindex="-3">
       <div class="modal-dialog ">
         <div class="modal-content">
@@ -89,28 +89,28 @@ const HcdForm = () => {
             <div class="card shadow-sm task__card " >
 
               <div class="card-header d-flex justify-content-end task__card__header">
-        
+
               </div>
               <div class="card-body"  >
                         <img  src="" alt="Card image cap" id="openImage" class="card-img-top " width="height=200rem" />
-              
+
                 <h1 class="task__card__title" id="openTitle"></h1>
                 <p class="description trim-3-lines font-large " id="openDesc" >
-                 
+
                 </p>
                 <div class="tags text-white d-flex flex-wrap">
                   <h3>
                     <span class="badge h1 bg-primary m-1" id="openType"></span>
                   </h3>
-                  
+
                 </div>
               </div>
               <div class="card-footer">
-                
+
               </div>
             </div>
             </div>
-            
+
 
           </div>
           <div class="modal-footer">
