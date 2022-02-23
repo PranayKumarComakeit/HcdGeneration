@@ -7,9 +7,7 @@ import HcdForm from './components/HcdForm';
 function App() {
   return (
     <div className="App">
-      {/* <HcdTemplate /> */}
-      {/* <HcdHome /> */}
-      <HcdForm />
+
     </div>
   );
 }
