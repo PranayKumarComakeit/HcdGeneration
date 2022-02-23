@@ -4,7 +4,7 @@ const HcdHome = () => {
   return (
     <>
     
-    <div className="modal-dialog" show={show}>
+    <div className="modal-dialog">
 
 <div className="modal-content" style={{"borderRadius":"15px"}}>
   <div className="modal-header">
@@ -18,15 +18,6 @@ const HcdHome = () => {
   </div>
   <div className="modal-body">
     <form>
-    <div className="mb-3">
-        <label for="exampleInputEmail1" className="form-label">Client Name</label>
-        <input
-          type="email"
-          className="form-control"
-          id="imageUrl"
-          aria-describedby="emailHelp"
-        />
-      </div>
       <div className="mb-3">
         <label for="exampleInputEmail1" className="form-label">Candidate Name</label>
         <input
