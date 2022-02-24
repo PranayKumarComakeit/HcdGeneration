@@ -1,26 +1,34 @@
-import React, { useState } from 'react'
-import HcdForm from './HcdForm';
+import React, { useState } from "react";
+import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 const HcdHome = () => {
   const [showEmp, setShowEmp] = useState(false);
   const [empdata, setempdata] = useState([]);
-  const datatohcdhome=(data)=>{
+  const datatohcdhome = (data) => {
     console.log(data);
-    setempdata((prevData)=>
-    {
-      return[...prevData,data];
-    })
+    empdata.unshift(data);
+    setempdata(empdata);
     console.log(empdata);
-  }
-  const [signature, setsignature] = useState([]);
-  const onDrop = picture => {
-    signature.unshift(picture[picture.length-1])
-    setsignature(signature);
-    console.log(signature[0])
   };
-  const onSaveEmp = ({ candidateName, applicableVacancy, hourlyRate, startDate }) => {
+  const [signature, setsignature] = useState([]);
+  const onDrop = (picture) => {
+    signature.unshift(picture[picture.length - 1]);
+    setsignature(signature);
+    console.log(signature[0]);
+  };
+  const onSaveEmp = ({
+    candidateName,
+    applicableVacancy,
+    hourlyRate,
+    startDate,
+  }) => {
     setShowEmp([
-      {candidateName: candidateName, applicableVacancy: applicableVacancy, hourlyRate: hourlyRate, startDate : startDate},
+      {
+        candidateName: candidateName,
+        applicableVacancy: applicableVacancy,
+        hourlyRate: hourlyRate,
+        startDate: startDate,
+      },
       ...showEmp,
     ]);
   };
@@ -101,27 +109,24 @@ const HcdHome = () => {
               />
             </div>
             <ImageUploader
-        withIcon={true}
-        buttonText="Upload Signature"
-        onChange={onDrop}
-        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-        maxFileSize={5242880}
-      />
+              withIcon={true}
+              buttonText="Upload Signature"
+              onChange={onDrop}
+              imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+              maxFileSize={5242880}
+            />
             <button
-            onClick={() => setShowEmp(!showEmp)}
-
+              onClick={() => setShowEmp(!showEmp)}
               type="button"
               className="btn btn-sm btn-primary ml-auto"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
               {!showEmp}
-            {showEmp}
+              {showEmp}
               <i className="fas fa-plus me-2"></i>Add Employee
             </button>
-            {
-  showEmp && <HcdForm datatohcdhome={datatohcdhome}/>
-}
+            {showEmp && <HcdForm datatohcdhome={datatohcdhome} />}
           </div>
         </section>
       </div>
