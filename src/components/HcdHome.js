@@ -1,39 +1,43 @@
 import React, { useState } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
+<<<<<<< HEAD
 
 const HcdHome = () => {
 
+=======
+const HcdHome = (props) => {
+>>>>>>> 436dc697072cdd5e9987299a1050ee0a78d1d6bd
   const [showEmp, setShowEmp] = useState(false);
   const [empdata, setempdata] = useState([]);
+  const [signature, setsignature] = useState([]);
+  const [clientname, setclientname] = useState("");
+  const [hiringmanagername, sethiringmanagername] = useState("");
   const datatohcdhome = (data) => {
-    console.log(data);
+    // console.log(data);
     empdata.unshift(data);
     setempdata(empdata);
-    console.log(empdata);
-  };
-  const [signature, setsignature] = useState([]);
+    // console.log(empdata);
+  }
   const onDrop = (picture) => {
     signature.unshift(picture[picture.length - 1]);
     setsignature(signature);
     console.log(signature[0]);
   };
-  const onSaveEmp = ({
-    candidateName,
-    applicableVacancy,
-    hourlyRate,
-    startDate,
-  }) => {
-    setShowEmp([
-      {
-        candidateName: candidateName,
-        applicableVacancy: applicableVacancy,
-        hourlyRate: hourlyRate,
-        startDate: startDate,
-      },
-      ...showEmp,
-    ]);
-  };
+  const onclientnamechange=(e)=>{
+   setclientname(e.target.value);
+  }
+  const onhiringmanagername=(e)=>{
+    sethiringmanagername(e.target.value)
+  }
+  const data={
+      clientname:clientname,
+      hiringmanagername:hiringmanagername,
+      empdata:empdata
+  }
+  const generatePdf=()=>{
+    props.datatoApp(data);
+  }
 
   return (
     <>
@@ -82,6 +86,7 @@ const HcdHome = () => {
                 className="form-control"
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
+                onChange={onclientnamechange}
               />
             </div>
             <div className="input-group mb-3">
@@ -95,6 +100,7 @@ const HcdHome = () => {
                 className="form-control"
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
+                onChange={onhiringmanagername}
               />
             </div>
             <div className="input-group mb-3">
@@ -131,6 +137,8 @@ const HcdHome = () => {
             {showEmp && <HcdForm datatohcdhome={datatohcdhome} />}
           </div>
         </section>
+        <br/> 
+          <button type="button" class="btn btn-primary btn-lg"onClick={generatePdf}>Click Here to Download PDF</button>
       </div>
 
       <div id="Table">
@@ -159,6 +167,5 @@ const HcdHome = () => {
 
     </>
   );
-};
-
+}
 export default HcdHome;

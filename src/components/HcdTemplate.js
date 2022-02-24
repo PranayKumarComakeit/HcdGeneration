@@ -1,7 +1,17 @@
 import React from 'react'
+import './HcdTemplate.css'
 
-function HcdTemplate() {
-   
+function HcdTemplate(props) {
+    const shortid = require('shortid');
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    // console.log(props.data);
+    // console.log(props.condition);
+    // console.log(props);
+    const downloadPdf = () => {
+        var c = document.getElementById("button").style.display = "none";
+        window.print();
+    }
     return (
         <>
             <div id='Template'>
@@ -24,10 +34,11 @@ function HcdTemplate() {
                     </div>
                     <div className="row">
                         <div className="d-flex justify-content-start">
-                            Date: <b>&nbsp; Today</b>
+                            Date: <b>&nbsp;{date
+                            }</b>
                         </div>
                         <div className="d-flex justify-content-start">
-                            Ref: <b>&nbsp; Random Id</b>
+                            Ref: <b>&nbsp; {shortid.generate()}</b>
                         </div>
                     </div>
                     <div className="row">
@@ -38,7 +49,7 @@ function HcdTemplate() {
                         <div>
                             Hereby, we confirm that coMakeIT may start the necessary procedures to hire the employees from the below
                             list of candidates. Estimated CTC Salary mentioned will be kept as a guideline and in case of
-                            differences larger than 15%,<b>Client name</b> will be notified before taking a hiring decision.
+                            differences larger than 15%,<b> {props.data.clientname} </b>will be notified before taking a hiring decision.
                         </div>
                     </div>
                     <br />
@@ -50,35 +61,28 @@ function HcdTemplate() {
                                 <th><b>HOURLY RATE</b></th>
                                 <th><b>TENTATIVE START DATE</b></th>
                             </tr>
-                            <tr>
-                                <td>Sample data</td>
-                                <td>Sample data</td>
-                                <td>Sample data</td>
-                                <td>Sample data</td>
-                            </tr>
-                            <tr>
-                                <td>Sample data</td>
-                                <td>Sample data</td>
-                                <td>Sample data</td>
-                                <td>Sample data</td>
-                            </tr>
-                            <tr>
-                                <td>Sample data</td>
-                                <td>Sample data</td>
-                                <td>Sample data</td>
-                                <td>Sample data</td>
-                            </tr>
+                            {
+                                props.data.empdata.map((element) => {
+                                    return <tr key={element.name}>
+                                        <td>{element.candidatename}</td>
+                                        <td>{element.applicablevacancy}</td>
+                                        <td>{element.hourlyrate}</td>
+                                        <td>{element.tentativestartdate}</td>
+                                    </tr>
+                                }
+                                )
+                            }
                         </table>
                     </div>
                     <br /><br />
                     <div className="row">
                         <div>
-                            <b>Client Name</b> agrees that coMakeIT may take the necessary steps to hire up to the agreed number of
+                            <b>{ props.data.clientname }</b> agrees that coMakeIT may take the necessary steps to hire up to the agreed number of
                             candidates.
-                            <b>Client Name</b> agrees that after successful hiring, an applicable work order for the total number of
+                            <b>{props.data.clientname}</b> agrees that after successful hiring, an applicable work order for the total number of
                             hired
                             candidates will be signed, and that costs associated with the hiring are approved. coMakeIT agrees
-                            it will keep <b>Client Name</b> informed about the status of the hiring process.
+                            it will keep <b>{props.data.clientname}</b> informed about the status of the hiring process.
                         </div>
                     </div>
                     <br />
@@ -96,13 +100,13 @@ function HcdTemplate() {
                                     }} />
                                 <br />
                                 Name of the Hiring Manager : <br />
-                                <b>Hiring Manager Name</b>
+                                <b>{props.data.hiringmanagername}</b>
                             </div>
                         </div>
                         <div className="col-2"></div>
                         <div className="col-5">
                             <div>
-                                For <b>Client Name</b>:
+                                For <b>{props.data.clientname}</b>:
                                 <br />
                                 <img src="https://images.squarespace-cdn.com/content/v1/546d0c43e4b09ba18fd4665b/1564505371807-67QCEYVLKB94MYI5BQTE/image004.gif"
                                     alt="" style={{
@@ -111,12 +115,12 @@ function HcdTemplate() {
                                     }} />
                                 <br />
                                 Name of the Hiring Manager : <br />
-                                <b>Hiring Manager Name</b>
+                                <b>{props.data.hiringmanagername}</b>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary">Click Here To Download</button>
+                <button type="button" class="btn btn-primary" onClick={downloadPdf} id="button">Click Here To Download</button>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
                     crossorigin="anonymous"></script>
