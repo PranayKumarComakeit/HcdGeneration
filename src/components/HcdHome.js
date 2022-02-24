@@ -4,7 +4,7 @@ const HcdHome = () => {
   return (
     <>
     
-    <div className="modal-dialog" show={show}>
+    <div className="modal-dialog">
 
 <div className="modal-content" style={{"borderRadius":"15px"}}>
   <div className="modal-header">
