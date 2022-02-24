@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import HcdForm from './HcdForm';
 const HcdHome = () => {
   const [showEmp, setShowEmp] = useState(false);
-  const onSaveEmp = ({ candidateName, applicableVacancy, hourlyRate, startDate }) => {
-    setShowEmp([
-      {candidateName: candidateName, applicableVacancy: applicableVacancy, hourlyRate: hourlyRate, startDate : startDate},
-      ...showEmp,
-    ]);
-  };
+  const [empdata, setempdata] = useState([]);
+  const datatohcdhome=(data)=>{
+    console.log(data);
+    setempdata((prevData)=>
+    {
+      return[...prevData,data];
+    })
+    console.log(empdata);
+  }
   return (
     <>
       <nav
@@ -98,7 +101,7 @@ const HcdHome = () => {
               <i className="fas fa-plus me-2"></i>Add Employee
             </button>
             {
-  showEmp && <HcdForm onSaveTask={onSaveEmp} />
+  showEmp && <HcdForm datatohcdhome={datatohcdhome}/>
 }
           </div>
         </section>
