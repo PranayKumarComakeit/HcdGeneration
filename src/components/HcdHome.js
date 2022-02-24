@@ -6,10 +6,10 @@ const HcdHome = () => {
   const [empdata, setempdata] = useState([]);
   const datatohcdhome = (data) => {
     console.log(data);
-   empdata.unshift(data);
-   setempdata(empdata);
-   console.log(empdata);
-  }
+    empdata.unshift(data);
+    setempdata(empdata);
+    console.log(empdata);
+  };
   const [signature, setsignature] = useState([]);
   const onDrop = (picture) => {
     signature.unshift(picture[picture.length - 1]);
@@ -132,5 +132,6 @@ const HcdHome = () => {
       </div>
     </>
   );
-  }
+};
+
 export default HcdHome;
