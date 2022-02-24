@@ -69,41 +69,41 @@ const HcdHome = () => {
         </section>
         <section className="mt-1">
           <div className="row task__container">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text" id="inputGroup-sizing-default">
                   Client Name
                 </span>
               </div>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
               />
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text" id="inputGroup-sizing-default">
                   Hiring Manager for coMakeIT
                 </span>
               </div>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
               />
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text" id="inputGroup-sizing-default">
                   Hiring Manager for Client
                 </span>
               </div>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
               />
