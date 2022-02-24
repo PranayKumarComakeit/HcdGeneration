@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
+
 const HcdHome = () => {
+
   const [showEmp, setShowEmp] = useState(false);
   const [empdata, setempdata] = useState([]);
   const datatohcdhome = (data) => {
@@ -130,6 +132,31 @@ const HcdHome = () => {
           </div>
         </section>
       </div>
+
+      <div id="Table">
+        <table>
+          <tbody>
+            <tr>
+              <th>Candidate name</th>
+              <th>Applicable Vacancy</th>
+              <th>Hourly Rate</th>
+              <th>Tentative Start Date</th>
+            </tr>
+            {empdata.map(item => {
+              return (
+                <tr>
+                  <td>{item.candidatename}</td>
+                  <td>{item.vacancy}</td>
+                  <td>{item.hourlyrate}</td>
+                  <td>{item.startdate}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+
     </>
   );
 };

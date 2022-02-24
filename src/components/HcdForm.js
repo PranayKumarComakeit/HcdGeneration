@@ -47,13 +47,13 @@ const onsavehandler=()=>{
             ></button>
           </div>
           <div className="modal-body">
-            <form>
+            <form >
               <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Client Name</label>
+                <label for="exampleInputEmail1" className="form-label">Client Name</label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
-                  id="imageUrl"
+                  id="clientname"
                   aria-describedby="emailHelp"
                   onChange={onClientNameChange}
                   value={clientname}
@@ -64,47 +64,48 @@ const onsavehandler=()=>{
                 <input
                   type="text"
                   className="form-control"
-                  id="imageUrl"
+                  id="candidatename"
                   aria-describedby="emailHelp"
-                  onChange={onCandidatenamechange}
-                  value={candidatename}
+                  onChange={props.handleInputChange}
+                  value={props.candidatename}
                 />
               </div>
               <div className="mb-3">
                 <label className="form-label">Applicable Vacancy</label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
-                  id="taskTitle"
+                  id="vacancy"
                   aria-describedby="emailHelp"
                   placeholder="Job Role"
-                  onChange={onApplicablevacancychange}
-                  value={applicablevacancy}
+                  onChange={props.handleInputChange}
+                  value={props.applicablevacancy}
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Hourly Rate</label>
+                <label for="exampleInputEmail1" className="form-label">Hourly Rate</label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
-                  id="taskType"
+                  id="hourlyrate"
                   aria-describedby="emailHelp"
-                  placeholder="In Euros" onChange={onHourlyratechange}
-                  value={hourlyrate}
+                  placeholder="In Euros" 
+                  onChange={props.handleInputChange}
+                  value={props.hourlyrate}
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Tentative start Date</label>
+                <label for="exampleInputEmail1" className="form-label">Tentative start Date</label>
                 <input
                   type="date"
                   className="form-control"
-                  id="taskDesc"
+                  id="startdate"
                   aria-describedby="emailHelp"
-                  placeholder="DD/MM/YYYY"
-                  onChange={onTentativestartdatechange}
-                  value={tentativestartdate}
+                  placeholder="DD/MM/YYYY" 
+                  onChange={props.handleInputChange}
+                  value={props.tentativestartdate}
                   />
-
+               
               </div>
             </form>
           </div>
@@ -116,10 +117,11 @@ const onsavehandler=()=>{
             >
               Close
             </button>
-            <button data-bs-dismiss="modal" onClick="generatePDF()" type="button" className="btn btn-primary"onClick={onsavehandler}>save details</button>
+            <button data-bs-dismiss="modal" onclick="generatePDF()" type="button" className="btn btn-primary"onClick={onsavehandler}>save details</button>
           </div>
         </div>
       </div>
+
     </>
   )
 }
