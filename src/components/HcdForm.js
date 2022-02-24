@@ -49,7 +49,7 @@ const onsavehandler=()=>{
           <div className="modal-body">
             <form>
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Client Name</label>
+                <label htmlFor="exampleInputEmail1" className="form-label">Client Name</label>
                 <input
                   type="email"
                   className="form-control"
@@ -83,7 +83,7 @@ const onsavehandler=()=>{
                 />
               </div>
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Hourly Rate</label>
+                <label htmlFor="exampleInputEmail1" className="form-label">Hourly Rate</label>
                 <input
                   type="email"
                   className="form-control"
@@ -94,17 +94,17 @@ const onsavehandler=()=>{
                 />
               </div>
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Tentative start Date</label>
+                <label htmlFor="exampleInputEmail1" className="form-label">Tentative start Date</label>
                 <input
                   type="date"
                   className="form-control"
                   id="taskDesc"
                   aria-describedby="emailHelp"
-                  placeholder="DD/MM/YYYY" 
+                  placeholder="DD/MM/YYYY"
                   onChange={onTentativestartdatechange}
                   value={tentativestartdate}
                   />
-               
+
               </div>
             </form>
           </div>
@@ -116,7 +116,7 @@ const onsavehandler=()=>{
             >
               Close
             </button>
-            <button data-bs-dismiss="modal" onclick="generatePDF()" type="button" className="btn btn-primary"onClick={onsavehandler}>save details</button>
+            <button data-bs-dismiss="modal" onClick="generatePDF()" type="button" className="btn btn-primary"onClick={onsavehandler}>save details</button>
           </div>
         </div>
       </div>
