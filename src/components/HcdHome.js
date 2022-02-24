@@ -1,13 +1,21 @@
 import React, { useState } from 'react'
 import HcdForm from './HcdForm';
+import ImageUploader from "react-images-upload";
 const HcdHome = () => {
   const [showEmp, setShowEmp] = useState(false);
+  const [signature, setsignature] = useState([]);
+  const onDrop = picture => {
+    signature.unshift(picture[picture.length-1])
+    setsignature(signature);
+    console.log(signature[0])
+  };
   const onSaveEmp = ({ candidateName, applicableVacancy, hourlyRate, startDate }) => {
     setShowEmp([
       {candidateName: candidateName, applicableVacancy: applicableVacancy, hourlyRate: hourlyRate, startDate : startDate},
       ...showEmp,
     ]);
   };
+
   return (
     <>
       <nav
@@ -60,7 +68,7 @@ const HcdHome = () => {
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroup-sizing-default">
-                  Hiring Manager Name
+                  Hiring Manager for coMakeIT
                 </span>
               </div>
               <input
@@ -72,19 +80,24 @@ const HcdHome = () => {
             </div>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text">Upload Signature</span>
+                <span class="input-group-text" id="inputGroup-sizing-default">
+                  Hiring Manager for Client
+                </span>
               </div>
-              <div class="custom-file">
-                <input
-                  type="file"
-                  class="custom-file-input"
-                  id="inputGroupFile01"
-                />
-                <label class="custom-file-label" for="inputGroupFile01">
-                  Choose file
-                </label>
-              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+              />
             </div>
+            <ImageUploader
+        withIcon={true}
+        buttonText="Upload Signature"
+        onChange={onDrop}
+        imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+        maxFileSize={5242880}
+      />
             <button
             onClick={() => setShowEmp(!showEmp)}
 
