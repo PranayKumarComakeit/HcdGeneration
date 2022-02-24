@@ -6,11 +6,9 @@ const HcdHome = () => {
   const [empdata, setempdata] = useState([]);
   const datatohcdhome=(data)=>{
     console.log(data);
-    setempdata((prevData)=>
-    {
-      return[...prevData,data];
-    })
-    console.log(empdata);
+   empdata.unshift(data);
+   setempdata(empdata);
+   console.log(empdata);
   }
   const [signature, setsignature] = useState([]);
   const onDrop = picture => {
