@@ -16,26 +16,18 @@ const HcdForm = () => {
           </div>
           <div className="modal-body">
             <form>
-            <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Client Name</label>
+            
+              <div className="mb-3">
+                <label className="form-label">Candidate Name</label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
                   id="imageUrl"
                   aria-describedby="emailHelp"
                 />
               </div>
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Candidate Name</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="imageUrl"
-                  aria-describedby="emailHelp"
-                />
-              </div>
-              <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label">Applicable Vacancy</label>
+                <label className="form-label">Applicable Vacancy</label>
                 <input
                   type="email"
                   className="form-control"
@@ -50,14 +42,13 @@ const HcdForm = () => {
                   type="email"
                   className="form-control"
                   id="taskType"
-                  aria-describedby="emailHelp"
                   placeholder="In Euros"
                 />
               </div>
               <div className="mb-3">
                 <label for="exampleInputEmail1" className="form-label">Tentative start Date</label>
                 <input
-                  type="email"
+                  type="date"
                   className="form-control"
                   id="taskDesc"
                   aria-describedby="emailHelp"
@@ -73,7 +64,7 @@ const HcdForm = () => {
             >
               Close
             </button>
-            <button data-bs-dismiss="modal" onclick = "generatePDF()" type="button" className="btn btn-primary">save details</button>
+            <button data-bs-dismiss="modal" type="button" className="btn btn-primary">save details</button>
           </div>
         </div>
       </div>
