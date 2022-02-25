@@ -17,10 +17,7 @@ function HcdTemplate(props) {
             <div id='Template'>
                 <div className="container"
                     style={{
-                        border: '1px solid black',
                         height: '100%',
-                        marginTop: '30px',
-                        marginBottom: '30px',
                         padding: '30px 30px 30px 30px'
                     }}>
                     <div className="row">
@@ -91,15 +88,15 @@ function HcdTemplate(props) {
                     <div className="row">
                         <div className="col-5 justify-content-start">
                             <div>
-                                For coMakeIT:
+                                For <b>coMakeIT</b>
                                 <br />
-                                <img src="https://images.squarespace-cdn.com/content/v1/546d0c43e4b09ba18fd4665b/1564505371807-67QCEYVLKB94MYI5BQTE/image004.gif"
+                                <img src={props.data.url  }
                                     alt="" style={{
                                         width: '70px',
                                         height: '30px'
                                     }} />
                                 <br />
-                                Name of the Hiring Manager : <br />
+                                Name of the Hiring Manager  <br />
                                 <b>{props.data.hiringmanagername}</b>
                             </div>
                         </div>
@@ -115,7 +112,6 @@ function HcdTemplate(props) {
                                     }} />
                                 <br />
                                 Name of the Hiring Manager : <br />
-                                <b>{props.data.hiringmanagername}</b>
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ import './HcdTemplate.css'
 import ImageUploader from "react-images-upload";
 const HcdHome = (props) => {
   const [showEmp, setShowEmp] = useState(false);
+  const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
   const [signature, setsignature] = useState([]);
   const [clientname, setclientname] = useState("");
@@ -22,6 +23,8 @@ const HcdHome = (props) => {
     signature.unshift(picture[picture.length - 1]);
     setsignature(signature);
     console.log(signature[0]);
+    seturl(URL.createObjectURL(signature[0]))
+    console.log(url);
   };
   const onclientnamechange=(e)=>{
    setclientname(e.target.value);
@@ -32,7 +35,8 @@ const HcdHome = (props) => {
   const data={
       clientname:clientname,
       hiringmanagername:hiringmanagername,
-      empdata:empdata
+      empdata:empdata,
+      url:url
   }
   const generatePdf=()=>{
     props.datatoApp(data);
@@ -102,27 +106,16 @@ const HcdHome = (props) => {
                 onChange={onhiringmanagername}
               />
             </div>
-            <div className="input-group mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-default">
-                  Hiring Manager for Client
-                </span>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                aria-label="Default"
-                aria-describedby="inputGroup-sizing-default"
-              />
-            </div>
+
             <ImageUploader
               withIcon={true}
+              withPreview={true}
               buttonText="Upload Signature"
               onChange={onDrop}
-              imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+              imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
               maxFileSize={5242880}
             />
-            
+
             {
               condition &&  <table style={{ width: '90%' }}>
               <tr>
@@ -144,7 +137,7 @@ const HcdHome = (props) => {
                               }
           </table>
             }
-            
+
             <button
               onClick={() => setShowEmp(!showEmp)}
               type="button"
@@ -159,7 +152,7 @@ const HcdHome = (props) => {
             {showEmp && <HcdForm datatohcdhome={datatohcdhome} />}
           </div>
         </section>
-        <br/> 
+        <br/>
           <button type="button" class="btn btn-primary btn-lg"onClick={generatePdf}>Click Here to Download PDF</button>
       </div>
     </>
