@@ -41,9 +41,6 @@ const HcdHome = (props) => {
   const generatePdf = () => {
     props.datatoApp(data);
   }
-  // const test=()=>{
-  //   console.log("Hellllooooooooooooooooooooo");
-  // }
   return (
     <>
       <nav
@@ -168,7 +165,7 @@ const HcdHome = (props) => {
         Add Employee
       </button>
 
-      {modalOpen && <HcdForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}  test={test} data={"vijay"} />}
+      {modalOpen && <HcdForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}   />}
            
           </div>
         </section>
