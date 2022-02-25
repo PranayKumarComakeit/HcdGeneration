@@ -48,17 +48,7 @@ const onsavehandler=()=>{
           </div>
           <div className="modal-body">
             <form>
-              <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Client Name</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="imageUrl"
-                  aria-describedby="emailHelp"
-                  onChange={onClientNameChange}
-                  value={clientname}
-                />
-              </div>
+
               <div className="mb-3">
                 <label className="form-label">Candidate Name</label>
                 <input
