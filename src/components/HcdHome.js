@@ -4,6 +4,7 @@ import ImageUploader from "react-images-upload";
 const HcdHome = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [showEmp, setShowEmp] = useState(false);
+  const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
   const [signature, setsignature] = useState([]);
   const [clientname, setclientname] = useState("");
@@ -22,6 +23,8 @@ const HcdHome = (props) => {
     signature.unshift(picture[picture.length - 1]);
     setsignature(signature);
     console.log(signature[0]);
+    seturl(URL.createObjectURL(signature[0]))
+    console.log(url);
   };
   const onclientnamechange = (e) => {
     setclientname(e.target.value);
@@ -29,17 +32,18 @@ const HcdHome = (props) => {
   const onhiringmanagername = (e) => {
     sethiringmanagername(e.target.value)
   }
-  const data = {
-    clientname: clientname,
-    hiringmanagername: hiringmanagername,
-    empdata: empdata
+  const data={
+      clientname:clientname,
+      hiringmanagername:hiringmanagername,
+      empdata:empdata,
+      url:url
   }
   const generatePdf = () => {
     props.datatoApp(data);
   }
-  const test=()=>{
-    console.log("Hellllooooooooooooooooooooo");
-  }
+  // const test=()=>{
+  //   console.log("Hellllooooooooooooooooooooo");
+  // }
   return (
     <>
       <nav
@@ -104,27 +108,15 @@ const HcdHome = (props) => {
                 onChange={onhiringmanagername}
               />
             </div>
-            <div className="input-group mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-default">
-                  Hiring Manager for Client
-                </span>
-              </div>
-              <input
-                type="text"
-                className="form-control"
-                aria-label="Default"
-                aria-describedby="inputGroup-sizing-default"
-              />
-            </div>
+
             <ImageUploader
               withIcon={true}
+              withPreview={true}
               buttonText="Upload Signature"
               onChange={onDrop}
-              imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+              imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
               maxFileSize={5242880}
             />
-            <br />
             {
               condition && <table class="table table-striped" style={{ width: '90%', border:'none' }}>
                 <thead>
@@ -180,8 +172,8 @@ const HcdHome = (props) => {
            
           </div>
         </section>
-        <br />
-        <button type="button" className="btn btn-primary btn-lg" onClick={generatePdf}>Click Here to Download PDF</button>
+        <br/>
+          <button type="button" class="btn btn-primary btn-lg"onClick={generatePdf}>Click Here to Download PDF</button>
       </div>
     </>
   );
