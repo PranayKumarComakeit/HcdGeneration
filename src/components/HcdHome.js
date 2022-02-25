@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import HcdForm from "./HcdForm";
+import './HcdTemplate.css'
 import ImageUploader from "react-images-upload";
 const HcdHome = (props) => {
   const [showEmp, setShowEmp] = useState(false);
   const [empdata, setempdata] = useState([]);
   const [signature, setsignature] = useState([]);
   const [clientname, setclientname] = useState("");
+  const [condition, setcondition] = useState(false);
+  const forceUpdate = React.useReducer(bool => !bool)[1];
   const [hiringmanagername, sethiringmanagername] = useState("");
   const datatohcdhome = (data) => {
-    // console.log(data);
+    //console.log(data);
     empdata.unshift(data);
     setempdata(empdata);
-    // console.log(empdata);
+    setcondition(true);
+    forceUpdate();
+    //console.log(empdata);
   }
   const onDrop = (picture) => {
     signature.unshift(picture[picture.length - 1]);
@@ -117,6 +122,29 @@ const HcdHome = (props) => {
               imgExtension={[".jpg", ".gif", ".png", ".gif"]}
               maxFileSize={5242880}
             />
+            
+            {
+              condition &&  <table style={{ width: '90%' }}>
+              <tr>
+                  <th><b>CANDIDATE NAME</b></th>
+                  <th><b>APPLICABLE VACANCY</b></th>
+                  <th><b>HOURLY RATE</b></th>
+                  <th><b>TENTATIVE START DATE</b></th>
+              </tr>
+               {
+               empdata.map((element) => {
+                                    return <tr key={element.name}>
+                                        <td>{element.candidatename}</td>
+                                        <td>{element.applicablevacancy}</td>
+                                        <td>{element.hourlyrate}</td>
+                                        <td>{element.tentativestartdate}</td>
+                                    </tr>
+                                }
+                                )
+                              }
+          </table>
+            }
+            
             <button
               onClick={() => setShowEmp(!showEmp)}
               type="button"
