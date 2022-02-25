@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import HcdForm from "./HcdForm";
-import './HcdTemplate.css'
 import ImageUploader from "react-images-upload";
-<<<<<<< HEAD
-
-const HcdHome = () => {
-
-=======
 const HcdHome = (props) => {
->>>>>>> 436dc697072cdd5e9987299a1050ee0a78d1d6bd
+  const [modalOpen, setModalOpen] = useState(false);
   const [showEmp, setShowEmp] = useState(false);
   const [empdata, setempdata] = useState([]);
   const [signature, setsignature] = useState([]);
@@ -29,21 +23,23 @@ const HcdHome = (props) => {
     setsignature(signature);
     console.log(signature[0]);
   };
-  const onclientnamechange=(e)=>{
-   setclientname(e.target.value);
+  const onclientnamechange = (e) => {
+    setclientname(e.target.value);
   }
-  const onhiringmanagername=(e)=>{
+  const onhiringmanagername = (e) => {
     sethiringmanagername(e.target.value)
   }
-  const data={
-      clientname:clientname,
-      hiringmanagername:hiringmanagername,
-      empdata:empdata
+  const data = {
+    clientname: clientname,
+    hiringmanagername: hiringmanagername,
+    empdata: empdata
   }
-  const generatePdf=()=>{
+  const generatePdf = () => {
     props.datatoApp(data);
   }
-
+  const test=()=>{
+    console.log("Hellllooooooooooooooooooooo");
+  }
   return (
     <>
       <nav
@@ -128,30 +124,37 @@ const HcdHome = (props) => {
               imgExtension={[".jpg", ".gif", ".png", ".gif"]}
               maxFileSize={5242880}
             />
-            
+            <br />
             {
-              condition &&  <table style={{ width: '90%' }}>
-              <tr>
-                  <th><b>CANDIDATE NAME</b></th>
-                  <th><b>APPLICABLE VACANCY</b></th>
-                  <th><b>HOURLY RATE</b></th>
-                  <th><b>TENTATIVE START DATE</b></th>
-              </tr>
-               {
-               empdata.map((element) => {
-                                    return <tr key={element.name}>
-                                        <td>{element.candidatename}</td>
-                                        <td>{element.applicablevacancy}</td>
-                                        <td>{element.hourlyrate}</td>
-                                        <td>{element.tentativestartdate}</td>
-                                    </tr>
-                                }
-                                )
-                              }
-          </table>
+              condition && <table class="table table-striped" style={{ width: '90%', border:'none' }}>
+                <thead>
+                  <tr>
+                    <th><b>CANDIDATE NAME</b></th>
+                    <th><b>APPLICABLE VACANCY</b></th>
+                    <th><b>HOURLY RATE</b></th>
+                    <th><b>TENTATIVE START DATE</b></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {
+                    empdata.map((element) => {
+                      return <tr class="table" key={element.name}>
+                        <td>{element.candidatename}</td>
+                        <td>{element.applicablevacancy}</td>
+                        <td>{element.hourlyrate}</td>
+                        <td>{element.tentativestartdate}</td>
+                      </tr>
+                    }
+                    )
+                  }
+                </tbody>
+
+              </table>
+
             }
-            
-            <button
+            <br />
+            {/* <button
               onClick={() => setShowEmp(!showEmp)}
               type="button"
               className="btn btn-sm btn-primary ml-auto"
@@ -161,38 +164,25 @@ const HcdHome = (props) => {
               {!showEmp}
               {showEmp}
               <i className="fas fa-plus me-2"></i>Add Employee
-            </button>
-            {showEmp && <HcdForm datatohcdhome={datatohcdhome} />}
+            </button> */}
+            <button
+            style={{"color":"white","fontSize":"25px"}}
+            className="btn btn-primary btn-lg"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+      <i className="fas fa-plus me-2"></i>
+        Add Employee
+      </button>
+
+      {modalOpen && <HcdForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}  test={test} data={"vijay"} />}
+           
           </div>
         </section>
-        <br/> 
-          <button type="button" class="btn btn-primary btn-lg"onClick={generatePdf}>Click Here to Download PDF</button>
+        <br />
+        <button type="button" className="btn btn-primary btn-lg" onClick={generatePdf}>Click Here to Download PDF</button>
       </div>
-
-      <div id="Table">
-        <table>
-          <tbody>
-            <tr>
-              <th>Candidate name</th>
-              <th>Applicable Vacancy</th>
-              <th>Hourly Rate</th>
-              <th>Tentative Start Date</th>
-            </tr>
-            {empdata.map(item => {
-              return (
-                <tr>
-                  <td>{item.candidatename}</td>
-                  <td>{item.vacancy}</td>
-                  <td>{item.hourlyrate}</td>
-                  <td>{item.startdate}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-
-
     </>
   );
 }
