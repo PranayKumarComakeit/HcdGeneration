@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import HcdForm from "./HcdForm";
-import './HcdTemplate.css'
 import ImageUploader from "react-images-upload";
 const HcdHome = (props) => {
+  const [modalOpen, setModalOpen] = useState(false);
   const [showEmp, setShowEmp] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
@@ -26,10 +26,10 @@ const HcdHome = (props) => {
     seturl(URL.createObjectURL(signature[0]))
     console.log(url);
   };
-  const onclientnamechange=(e)=>{
-   setclientname(e.target.value);
+  const onclientnamechange = (e) => {
+    setclientname(e.target.value);
   }
-  const onhiringmanagername=(e)=>{
+  const onhiringmanagername = (e) => {
     sethiringmanagername(e.target.value)
   }
   const data={
@@ -38,10 +38,12 @@ const HcdHome = (props) => {
       empdata:empdata,
       url:url
   }
-  const generatePdf=()=>{
+  const generatePdf = () => {
     props.datatoApp(data);
   }
-
+  // const test=()=>{
+  //   console.log("Hellllooooooooooooooooooooo");
+  // }
   return (
     <>
       <nav
@@ -115,30 +117,36 @@ const HcdHome = (props) => {
               imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
               maxFileSize={5242880}
             />
-
             {
-              condition &&  <table style={{ width: '90%' }}>
-              <tr>
-                  <th><b>CANDIDATE NAME</b></th>
-                  <th><b>APPLICABLE VACANCY</b></th>
-                  <th><b>HOURLY RATE</b></th>
-                  <th><b>TENTATIVE START DATE</b></th>
-              </tr>
-               {
-               empdata.map((element) => {
-                                    return <tr key={element.name}>
-                                        <td>{element.candidatename}</td>
-                                        <td>{element.applicablevacancy}</td>
-                                        <td>{element.hourlyrate}</td>
-                                        <td>{element.tentativestartdate}</td>
-                                    </tr>
-                                }
-                                )
-                              }
-          </table>
-            }
+              condition && <table class="table table-striped" style={{ width: '90%', border:'none' }}>
+                <thead>
+                  <tr>
+                    <th><b>CANDIDATE NAME</b></th>
+                    <th><b>APPLICABLE VACANCY</b></th>
+                    <th><b>HOURLY RATE</b></th>
+                    <th><b>TENTATIVE START DATE</b></th>
+                  </tr>
+                </thead>
+                <tbody>
 
-            <button
+                  {
+                    empdata.map((element) => {
+                      return <tr class="table" key={element.name}>
+                        <td>{element.candidatename}</td>
+                        <td>{element.applicablevacancy}</td>
+                        <td>{element.hourlyrate}</td>
+                        <td>{element.tentativestartdate}</td>
+                      </tr>
+                    }
+                    )
+                  }
+                </tbody>
+
+              </table>
+
+            }
+            <br />
+            {/* <button
               onClick={() => setShowEmp(!showEmp)}
               type="button"
               className="btn btn-sm btn-primary ml-auto"
@@ -148,8 +156,20 @@ const HcdHome = (props) => {
               {!showEmp}
               {showEmp}
               <i className="fas fa-plus me-2"></i>Add Employee
-            </button>
-            {showEmp && <HcdForm datatohcdhome={datatohcdhome} />}
+            </button> */}
+            <button
+            style={{"color":"white","fontSize":"25px"}}
+            className="btn btn-primary btn-lg"
+        onClick={() => {
+          setModalOpen(true);
+        }}
+      >
+      <i className="fas fa-plus me-2"></i>
+        Add Employee
+      </button>
+
+      {modalOpen && <HcdForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}  test={test} data={"vijay"} />}
+           
           </div>
         </section>
         <br/>

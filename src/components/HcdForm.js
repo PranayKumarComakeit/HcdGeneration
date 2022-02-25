@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-
-const HcdForm = (props) => {
+import React, { PropTypes, Component, useState } from 'react'
+import HcdHome from './HcdHome';
+import './Modal.css'
+  const HcdForm = ( props) => {
   const [clientname, setClientname] = useState("");
   const [candidatename, setCandidatename] = useState("");
   const [applicablevacancy, setApplicablevacancy] = useState("");
@@ -21,7 +22,7 @@ const HcdForm = (props) => {
   var onTentativestartdatechange = (e) => {
     setTentativestartdate(e.target.value);
   }
-const onsavehandler=()=>{
+  const onsavehandler=()=>{
     const empdata=
       {
         clientname:clientname,
@@ -29,26 +30,29 @@ const onsavehandler=()=>{
         applicablevacancy:applicablevacancy,
         hourlyrate:hourlyrate,
         tentativestartdate:tentativestartdate
-      }
-    props.datatohcdhome(empdata);
+      } 
+      props.datatohcdhome(empdata); 
+      props.setOpenModal(false);
 }
 
   return (
     <>
-      <div className="modal-dialog">
-        <div className="modal-content" style={{ "borderRadius": "15px" }}>
-          <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">Add Employee Details</h5>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="modal-body">
-            <form>
-
+      <div className="modalBackground">
+    <div className="modalContainer">
+        <div className="titleCloseBtn">
+          <button
+            onClick={() => {
+              props.setOpenModal(false);
+            }}
+          >
+            X
+          </button>
+        </div>
+        <div className="title">
+          <h1>Add Employee Details</h1>
+        </div>
+        <div className="body">
+        
               <div className="mb-3">
                 <label className="form-label">Candidate Name</label>
                 <input
@@ -79,7 +83,8 @@ const onsavehandler=()=>{
                   className="form-control"
                   id="taskType"
                   aria-describedby="emailHelp"
-                  placeholder="In Euros" onChange={onHourlyratechange}
+                  placeholder="In Euros" 
+                  onChange={onHourlyratechange}
                   value={hourlyrate}
                 />
               </div>
@@ -96,9 +101,22 @@ const onsavehandler=()=>{
                   />
 
               </div>
-            </form>
-          </div>
-          <div className="modal-footer">
+        </div>
+        <div className="footer">
+          <button
+            onClick={() => {
+              props.setOpenModal(false);
+            }}
+            id="cancelBtn"
+          >
+            Cancel
+          </button>
+          <button data-bs-dismiss="modal" type="button" onClick={onsavehandler}>save details</button>
+         
+        </div>
+      </div>
+    </div>
+          {/* <div className="modal-footer">
             <button
               type="button"
               className="btn btn-secondary"
@@ -106,10 +124,9 @@ const onsavehandler=()=>{
             >
               Close
             </button>
-            <button data-bs-dismiss="modal" onClick="generatePDF()" type="button" className="btn btn-primary"onClick={onsavehandler}>save details</button>
-          </div>
-        </div>
-      </div>
+            <button data-bs-dismiss="modal" onClick="generatePDF()" type="button" className="btn btn-primary" onClick={onsavehandler}>save details</button>
+          </div> */}
+        
     </>
   )
 }
