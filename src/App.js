@@ -17,7 +17,7 @@ function App() {
   }
   return (
     <div className="App">
-      {!condition && <HcdHome datatoApp={datatoApp}/> }
+      {!condition && <HcdHome datatoApp={datatoApp} />}
       {condition && <HcdTemplate data={data} condition={"Pranay"}/>}
     </div>
   );
