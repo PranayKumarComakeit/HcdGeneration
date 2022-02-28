@@ -11,6 +11,7 @@ const HcdHome = (props) => {
   const [condition, setcondition] = useState(false);
   const forceUpdate = React.useReducer(bool => !bool)[1];
   const [hiringmanagername, sethiringmanagername] = useState("");
+  const [filename, setfilename] = useState("");
   const datatohcdhome = (data) => {
     //console.log(data);
     empdata.unshift(data);
@@ -23,6 +24,8 @@ const HcdHome = (props) => {
     signature.unshift(picture[picture.length - 1]);
     setsignature(signature);
     console.log(signature[0]);
+    setfilename(signature[0].name)
+    console.log(filename)
     seturl(URL.createObjectURL(signature[0]))
     console.log(url);
   };
@@ -106,14 +109,17 @@ const HcdHome = (props) => {
               />
             </div>
 
-            <ImageUploader
+           <div className="container">
+           <ImageUploader
               withIcon={true}
-              withPreview={true}
               buttonText="Upload Signature"
               onChange={onDrop}
               imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
               maxFileSize={5242880}
             />
+            <div style={{fontSize:'20px',fontWeight:'bold'}}>{filename}</div>
+           </div>
+
             {
               condition && <table class="table table-striped" style={{ width: '90%', border:'none' }}>
                 <thead>
@@ -166,7 +172,7 @@ const HcdHome = (props) => {
       </button>
 
       {modalOpen && <HcdForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}   />}
-           
+
           </div>
         </section>
         <br/>
