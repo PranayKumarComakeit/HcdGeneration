@@ -30,8 +30,8 @@ import './Modal.css'
         applicablevacancy:applicablevacancy,
         hourlyrate:hourlyrate,
         tentativestartdate:tentativestartdate
-      } 
-      props.datatohcdhome(empdata); 
+      }
+      props.datatohcdhome(empdata);
       props.setOpenModal(false);
 }
   // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -84,9 +84,6 @@ import './Modal.css'
                   value={candidatename}
                   required
                 />
-                <div class="invalid-feedback">
-      Looks good!
-    </div>
               </div>
               <div className="mb-3">
                 <label className="form-label">Applicable Vacancy</label>
@@ -107,7 +104,7 @@ import './Modal.css'
                   className="form-control"
                   id="taskType"
                   aria-describedby="emailHelp"
-                  placeholder="In Euros" 
+                  placeholder="In Euros"
                   onChange={onHourlyratechange}
                   value={hourlyrate}
                 />
@@ -135,23 +132,13 @@ import './Modal.css'
           >
             Cancel
           </button>
-          <button data-bs-dismiss="modal" type="submit" onSubmit={onsavehandler} onClick={onsavehandler}>save details</button>
-         
+          <button data-bs-dismiss="modal" type="button" onClick={onsavehandler}>save details</button>
+
         </div>
         </form>
       </div>
     </div>
-          {/* <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button data-bs-dismiss="modal" onClick="generatePDF()" type="button" className="btn btn-primary" onClick={onsavehandler}>save details</button>
-          </div> */}
-        
+
     </>
   )
 }
