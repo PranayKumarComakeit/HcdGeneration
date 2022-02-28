@@ -63,7 +63,7 @@ const HcdHome = (props) => {
             HCD generation App
           </a>
           <button
-            className="navbar-toggler bg-primary"
+            className="navbar-toggler bg-dark"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarColor01"
@@ -100,6 +100,7 @@ const HcdHome = (props) => {
                 required
               />
             </div>
+            
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-default">
