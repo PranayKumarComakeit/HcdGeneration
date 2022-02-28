@@ -108,7 +108,6 @@ const HcdHome = (props) => {
                 onChange={onhiringmanagername}
               />
             </div>
-
            <div className="container">
            <ImageUploader
               withIcon={true}
@@ -144,9 +143,7 @@ const HcdHome = (props) => {
                     )
                   }
                 </tbody>
-
               </table>
-
             }
             <br />
             <button
@@ -160,9 +157,7 @@ const HcdHome = (props) => {
       <i className="fas fa-plus me-2"></i>
         Add Employee
       </button>
-
       {modalOpen && <HcdForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}   />}
-
           </div>
         </section>
         <br/>
@@ -170,6 +165,6 @@ const HcdHome = (props) => {
         </form>
       </div>
     </>
-  );
-}
-export default HcdHome;
+  )
+      }
+      export default HcdHome;

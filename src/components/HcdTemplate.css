@@ -6,6 +6,9 @@ td {
     border-collapse: collapse;
     padding: 2px 2px 2px 2px;
 }
+th{
+    font-weight: normal;
+}
 @media print {
     @page {
         max-height: 100%;
