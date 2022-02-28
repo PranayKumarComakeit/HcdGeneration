@@ -34,9 +34,29 @@ import './Modal.css'
       props.datatohcdhome(empdata); 
       props.setOpenModal(false);
 }
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
 
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
   return (
     <>
+    
       <div className="modalBackground">
     <div className="modalContainer">
         <div className="titleCloseBtn">
@@ -51,10 +71,10 @@ import './Modal.css'
         <div className="title">
           <h1>Add Employee Details</h1>
         </div>
+        <form class="row g-3 needs-validation" novalidate>
         <div className="body">
-        
               <div className="mb-3">
-                <label className="form-label">Candidate Name</label>
+                <label className="form-label" htmlFor="validationCustom01">Candidate Name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -62,14 +82,18 @@ import './Modal.css'
                   aria-describedby="emailHelp"
                   onChange={onCandidatenamechange}
                   value={candidatename}
+                  required
                 />
+                <div class="invalid-feedback">
+      Looks good!
+    </div>
               </div>
               <div className="mb-3">
                 <label className="form-label">Applicable Vacancy</label>
                 <input
                   type="email"
                   className="form-control"
-                  id="taskTitle"
+                  id="validationCustom01"
                   aria-describedby="emailHelp"
                   placeholder="Job Role"
                   onChange={onApplicablevacancychange}
@@ -111,9 +135,10 @@ import './Modal.css'
           >
             Cancel
           </button>
-          <button data-bs-dismiss="modal" type="button" onClick={onsavehandler}>save details</button>
+          <button data-bs-dismiss="modal" type="submit" onSubmit={onsavehandler} onClick={onsavehandler}>save details</button>
          
         </div>
+        </form>
       </div>
     </div>
           {/* <div className="modal-footer">

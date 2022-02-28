@@ -59,7 +59,7 @@ const HcdHome = (props) => {
             HCD generation App
           </a>
           <button
-            className="navbar-toggler bg-primary"
+            className="navbar-toggler bg-dark"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarColor01"
@@ -77,7 +77,7 @@ const HcdHome = (props) => {
             <div className="col-md-6 col-lg-4 mt-3"></div>
           </div>
         </section>
-        <section className="mt-1" sty>
+        <section className="mt-1">
           <div className="row task__container">
             <div className="input-group mb-3">
               <div className="input-group-prepend">
@@ -93,6 +93,7 @@ const HcdHome = (props) => {
                 onChange={onclientnamechange}
               />
             </div>
+            
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-default">
