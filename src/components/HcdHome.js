@@ -49,10 +49,9 @@ const HcdHome = (props) => {
       >
         <div className="container-fluid">
           <a
-            className="navbar-brand fw-bold text-primary"
+            className="navbar-brand fw-bold text-dark"
             id="mainText"
             href="#"
-            style={{}}
           >
             HCD generation App
           </a>
@@ -75,7 +74,7 @@ const HcdHome = (props) => {
             <div className="col-md-6 col-lg-4 mt-3"></div>
           </div>
         </section>
-        <section className="mt-1">
+        <section className="mt-1" sty>
           <div className="row task__container">
             <div className="input-group mb-3">
               <div className="input-group-prepend">
@@ -155,8 +154,9 @@ const HcdHome = (props) => {
               <i className="fas fa-plus me-2"></i>Add Employee
             </button> */}
             <button
-            style={{"color":"white","fontSize":"25px"}}
-            className="btn btn-primary btn-lg"
+            type="button"
+            style={{"color":"white","fontSize":"20px","marginLeft":  "10px","width":"98%"}}
+            class="btn btn-dark"
         onClick={() => {
           setModalOpen(true);
         }}
@@ -170,7 +170,7 @@ const HcdHome = (props) => {
           </div>
         </section>
         <br/>
-          <button type="button" class="btn btn-primary btn-lg"onClick={generatePdf}>Click Here to Download PDF</button>
+          <button type="button" className="btn btn-primary btn-dark" onClick={generatePdf}>Click Here to Download PDF</button>
       </div>
     </>
   );

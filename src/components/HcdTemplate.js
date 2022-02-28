@@ -6,9 +6,6 @@ function HcdTemplate(props) {
   var today = new Date();
   var date =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-  // console.log(props.data);
-  // console.log(props.condition);
-  // console.log(props);
   const downloadPdf = () => {
     var c = (document.getElementById("button").style.display = "none");
     window.print();
@@ -159,9 +156,10 @@ function HcdTemplate(props) {
         </div>
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary btn-dark"
           onClick={downloadPdf}
           id="button"
+          style={{marginLeft:'17%'}}
         >
           Click Here To Download
         </button>
