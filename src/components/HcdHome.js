@@ -77,6 +77,7 @@ const HcdHome = (props) => {
             <div className="col-md-6 col-lg-4 mt-3"></div>
           </div>
         </section>
+        <form >
         <section className="mt-1" sty>
           <div className="row task__container">
             <div className="input-group mb-3">
@@ -166,6 +167,7 @@ const HcdHome = (props) => {
         </section>
         <br/>
           <button type="button" className="btn btn-primary btn-dark" onClick={generatePdf}>Click Here to Download PDF</button>
+        </form>
       </div>
     </>
   );
