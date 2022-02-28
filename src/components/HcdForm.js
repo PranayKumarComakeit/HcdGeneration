@@ -30,8 +30,8 @@ import './Modal.css'
         applicablevacancy:applicablevacancy,
         hourlyrate:hourlyrate,
         tentativestartdate:tentativestartdate
-      } 
-      props.datatohcdhome(empdata); 
+      }
+      props.datatohcdhome(empdata);
       props.setOpenModal(false);
 }
 
@@ -52,7 +52,7 @@ import './Modal.css'
           <h1>Add Employee Details</h1>
         </div>
         <div className="body">
-        
+
               <div className="mb-3">
                 <label className="form-label">Candidate Name</label>
                 <input
@@ -83,7 +83,7 @@ import './Modal.css'
                   className="form-control"
                   id="taskType"
                   aria-describedby="emailHelp"
-                  placeholder="In Euros" 
+                  placeholder="In Euros"
                   onChange={onHourlyratechange}
                   value={hourlyrate}
                 />
@@ -112,7 +112,7 @@ import './Modal.css'
             Cancel
           </button>
           <button data-bs-dismiss="modal" type="button" onClick={onsavehandler}>save details</button>
-         
+
         </div>
       </div>
     </div>
@@ -126,7 +126,7 @@ import './Modal.css'
             </button>
             <button data-bs-dismiss="modal" onClick="generatePDF()" type="button" className="btn btn-primary" onClick={onsavehandler}>save details</button>
           </div> */}
-        
+
     </>
   )
 }
