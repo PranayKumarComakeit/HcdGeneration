@@ -42,7 +42,11 @@ const HcdHome = (props) => {
       url:url
   }
   const generatePdf = () => {
-    props.datatoApp(data);
+    let cname = document.forms["homeform"]["cname"].value;
+    let managername = document.forms["homeform"]["mname"].value;
+    if(cname!=="" && managername!==""){
+      props.datatoApp(data);
+    }
   }
   return (
     <>
@@ -77,7 +81,7 @@ const HcdHome = (props) => {
             <div className="col-md-6 col-lg-4 mt-3"></div>
           </div>
         </section>
-        <form >
+        <form className="row g-3 needs-validation" name="homeform" method="POST">
         <section className="mt-1" sty>
           <div className="row task__container">
             <div className="input-group mb-3">
@@ -87,11 +91,13 @@ const HcdHome = (props) => {
                 </span>
               </div>
               <input
+              name="cname"
                 type="text"
                 className="form-control"
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
                 onChange={onclientnamechange}
+                required
               />
             </div>
             <div className="input-group mb-3">
@@ -101,11 +107,13 @@ const HcdHome = (props) => {
                 </span>
               </div>
               <input
+              name="mname"
                 type="text"
                 className="form-control"
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
                 onChange={onhiringmanagername}
+                required
               />
             </div>
            <div className="container">
@@ -161,7 +169,7 @@ const HcdHome = (props) => {
           </div>
         </section>
         <br/>
-          <button type="button" className="btn btn-primary btn-dark" onClick={generatePdf}>Click Here to Download PDF</button>
+          <button type="submit" className="btn btn-primary btn-dark" onClick={generatePdf}>Click Here to Download PDF</button>
         </form>
       </div>
     </>
