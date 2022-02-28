@@ -122,18 +122,11 @@ function HcdTemplate(props) {
             <div className="col-2"></div>
             <div className="col-5">
               <div>
-                For <b>{props.data.clientname}</b>:
+                For <b>{props.data.clientname}</b>
                 <br />
-                <img
-                  src="https://images.squarespace-cdn.com/content/v1/546d0c43e4b09ba18fd4665b/1564505371807-67QCEYVLKB94MYI5BQTE/image004.gif"
-                  alt=""
-                  style={{
-                    width: "70px",
-                    height: "30px",
-                  }}
-                />
+
                 <br />
-                Name of the Hiring Manager : <br />
+                Name of the Hiring Manager  <br />
               </div>
             </div>
           </div>
