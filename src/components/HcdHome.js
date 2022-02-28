@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
+import { useNavigate } from "react-router-dom";   //this goes on top
+
 const HcdHome = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [showEmp, setShowEmp] = useState(false);
@@ -41,9 +43,33 @@ const HcdHome = (props) => {
       empdata:empdata,
       url:url
   }
-  const generatePdf = () => {
+
+  const navigate = useNavigate();
+  const generatePdf = (event) => {
+    event.preventDefault()
     props.datatoApp(data);
+    navigate('/pdfgen');
   }
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
   return (
     <>
       <nav
@@ -77,7 +103,8 @@ const HcdHome = (props) => {
             <div className="col-md-6 col-lg-4 mt-3"></div>
           </div>
         </section>
-        <form >
+
+        <form className="row g-3 needs-validation" novalidate>
         <section className="mt-1" sty>
           <div className="row task__container">
             <div className="input-group mb-3">
@@ -87,11 +114,14 @@ const HcdHome = (props) => {
                 </span>
               </div>
               <input
+              class="form-control"
+               id="validationCustom01"
                 type="text"
                 className="form-control"
                 aria-label="Default"
                 aria-describedby="inputGroup-sizing-default"
                 onChange={onclientnamechange}
+                required
               />
             </div>
             <div className="input-group mb-3">
@@ -117,20 +147,21 @@ const HcdHome = (props) => {
               imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
               maxFileSize={5242880}
             />
-            <div style={{fontSize:'20px',fontWeight:'bold'}}>{filename}</div>
+            <div style={{fontWeight:'bold'}}>{filename}</div>
            </div>
 
             {
               condition && <table className="table table-striped" >
-                <thead>
-                  <tr>
-                    <th><b>CANDIDATE NAME</b></th>
-                    <th><b>APPLICABLE VACANCY</b></th>
-                    <th><b>HOURLY RATE</b></th>
-                    <th><b>TENTATIVE START DATE</b></th>
-                  </tr>
-                </thead>
+
+
+
                 <tbody>
+                <tr style={{fontWeight:'0'}}>
+                    <td>CANDIDATE NAME</td>
+                    <td><b>APPLICABLE VACANCY</b></td>
+                    <td><b>HOURLY RATE</b></td>
+                    <td><b>TENTATIVE START DATE</b></td>
+                  </tr>
 
                   {
                     empdata.map((element) => {
@@ -166,7 +197,7 @@ const HcdHome = (props) => {
           </div>
         </section>
         <br/>
-          <button type="button" className="btn btn-primary btn-dark" onClick={generatePdf}>Click Here to Download PDF</button>
+          <button type="Submit" className="btn btn-primary btn-dark" onSubmit={generatePdf}>Click Here to Download PDF</button>
         </form>
       </div>
     </>
