@@ -4,12 +4,23 @@ import "./HcdTemplate.css";
 function HcdTemplate(props) {
   const shortid = require("shortid");
   var today = new Date();
-  var date =
-    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+  var dd = today.getDate();
+  var mm = today.getMonth() + 1;
+
+  var yyyy = today.getFullYear();
+  if (dd < 10) {
+    dd = '0' + dd;
+  }
+  if (mm < 10) {
+    mm = '0' + mm;
+  }
+
+  var today = dd + '/' + mm + '/' + yyyy;
   const downloadPdf = () => {
     var c = (document.getElementById("button").style.display = "none");
     window.print();
   };
+
   return (
     <>
       <div id="Template">
@@ -21,6 +32,9 @@ function HcdTemplate(props) {
           }}
         >
           <div className="row">
+            <div className="d-flex justify-content-start" style={{color:'#D3D3D3'}}>
+            <b> HR/F/8</b>
+            </div>
             <div className="d-flex justify-content-end">
               <img
                 src="https://www.telligent.com/content/uploads/2019/08/coMakeIT-Logo.jpg"
@@ -34,25 +48,19 @@ function HcdTemplate(props) {
           </div>
           <div className="row">
             <div className="d-flex justify-content-start">
-              Date: <b>&nbsp;{date}</b>
+              Date: <b>&nbsp;{today}</b>
             </div>
-            <div className="d-flex justify-content-start">
-              Ref: <b>&nbsp; {shortid.generate()}</b>
-            </div>
-          </div>
+          </div><br/>
           <div className="row">
-            <div className="d-flex justify-content-center">
-              <b>HIRING CONFIRMATION DOCUMENT(HCD)</b>
+            <div className="d-flex">
+              <b>Hiring confirmation form</b>
             </div>
-          </div>
+          </div><br/>
           <div className="row">
             <div>
-              Hereby, we confirm that coMakeIT may start the necessary
-              procedures to hire the employees from the below list of
-              candidates. Estimated CTC Salary mentioned will be kept as a
-              guideline and in case of differences larger than 15%,
-              <b> {props.data.clientname} </b>will be notified before taking a
-              hiring decision.
+              Hereby, we confirm that coMakeIT may start the necessary procedures to on-board the below Software Engineer to the <b> {props.data.clientname} </b> India team <br /><br />
+              The monthly gross salary of the candidate mentioned in the document is final and <b> {props.data.clientname} </b> will be notified in case there are any deviations in the costs.
+
             </div>
           </div>
           <br />
@@ -63,22 +71,22 @@ function HcdTemplate(props) {
                   <b>CANDIDATE NAME</b>
                 </th>
                 <th>
-                  <b>APPLICABLE VACANCY</b>
+                  <b>Monthly Gross Salary(Indian Rupees)</b>
                 </th>
                 <th>
-                  <b>HOURLY RATE</b>
+                  <b>Date of joining</b>
                 </th>
                 <th>
-                  <b>TENTATIVE START DATE</b>
+                  <b>Remarks</b>
                 </th>
               </tr>
               {props.data.empdata.map((element) => {
                 return (
                   <tr key={element.name}>
                     <td>{element.candidatename}</td>
-                    <td>{element.applicablevacancy}</td>
-                    <td>{element.hourlyrate}</td>
+                    <td>{element.grossSalary}</td>
                     <td>{element.tentativestartdate}</td>
+                    <td>{element.remarks}</td>
                   </tr>
                 );
               })}
@@ -88,14 +96,8 @@ function HcdTemplate(props) {
           <br />
           <div className="row">
             <div>
-              <b>{props.data.clientname}</b> agrees that coMakeIT may take the
-              necessary steps to hire up to the agreed number of candidates.
-              <b>{props.data.clientname}</b> agrees that after successful
-              hiring, an applicable work order for the total number of hired
-              candidates will be signed, and that costs associated with the
-              hiring are approved. coMakeIT agrees it will keep{" "}
-              <b>{props.data.clientname}</b> informed about the status of the
-              hiring process.
+              <b>{props.data.clientname}</b> agrees that coMakeIT may take the necessary steps to on-board the engineer to the team. 
+                CoMakeIT agrees to keep the customer informed of the progress with on boarding process.
             </div>
           </div>
           <br />
@@ -104,7 +106,7 @@ function HcdTemplate(props) {
           <div className="row">
             <div className="col-5 justify-content-start">
               <div>
-                For <b>coMakeIT</b>
+                For coMakeIT India
                 <br />
                 <img
                   src={props.data.url}
@@ -114,9 +116,12 @@ function HcdTemplate(props) {
                     height: "30px",
                   }}
                 />
-                <br />
-                Name of the Hiring Manager <br />
+                <br /><br />
+                Name:
                 <b>{props.data.hiringmanagername}</b>
+                <br /><br />
+                Designation:
+                <b>{props.data.Mdesignation}</b>
               </div>
             </div>
             <div className="col-2"></div>
@@ -124,35 +129,53 @@ function HcdTemplate(props) {
               <div>
                 For <b>{props.data.clientname}</b>
                 <br />
+                <img
+                  
+                  alt=""
+                  style={{
+                    width: "70px",
+                    height: "30px",
+                  }}
+                />
+                <br /><br/>
+                Name:  <br /><br />
+                Designation: 
 
-                <br />
-                Name of the Hiring Manager  <br />
               </div>
             </div>
           </div>
-          <div style={{fontSize:'10px',
-          position: 'fixed',
-          right: '10px',
-          bottom:'20px'
-        }}>
-            <div
-              className="website"
-              style={{ color: "orange", fontWeight: "bold", fontSize:'15px' }}
-            >
-              www.coMakeIT.com
+          <div class="row" style={{position:'fixed',bottom:'0',marginBottom:'10px',fontSize:'10px',color:'#D3D3D3'}}>
+            <div className="col">
+            www.comakeit.com
             </div>
-            <div className="loc">
-              THE NETHERLANDS, INDIA, AUSTRALIA, UK ISO <br /> 9001:2015 ISO /
-              IEC 27001:2013
+          <div className="col">
+            <b>NETHERLANDS</b><br/>
+            coMakeIT B.V
+            Stationsplein 62, 3743 KM Baarn
+            The Netherlands
+            <b>P</b> +31 35 303 5630
+
+          </div>
+          <div className="col">
+              
+            <b>INDIA</b><br/>
+            Plot No.654/4 39, Road No.92, Jubilee Hills,
+            Hyderabad 500 03, India
+            <br/><br/>
+            9th Floor, A wing, Aurobindo Galaxy, Madhapur, Hyderabad 500019, India
+            <b>P</b> +91 40 40351000, +91 45454757
+
             </div>
           </div>
-        </div>
+
+          </div>
+        
         <button
           type="button"
           className="btn btn-primary btn-dark"
           onClick={downloadPdf}
           id="button"
-          style={{marginLeft:'17%'}}
+          style={{ marginLeft: '17%' }}
         >
           Click Here To Download
         </button>
