@@ -161,13 +161,12 @@ const HcdHome = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-
                   {
                     empdata.map((element) => {
                       return <tr className="table" key={element.name}>
                         <td>{element.candidatename}</td>
                         <td>{element.grossSalary}</td>
-                        <td>{element.tentativestartdate}</td>
+                        <td>{element.tentativestartdate[8] + '' + element.tentativestartdate[9] + '/' + element.tentativestartdate[5] + '' + element.tentativestartdate[6] + '/' + element.tentativestartdate[0] + '' + element.tentativestartdate[1] + '' + element.tentativestartdate[2] + '' + element.tentativestartdate[3]}</td>
                         <td>{element.remarks}</td>
                       </tr>
                     }
