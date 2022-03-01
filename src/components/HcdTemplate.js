@@ -16,6 +16,7 @@ function HcdTemplate(props) {
   }
 
   var today = dd + '/' + mm + '/' + yyyy;
+
   const downloadPdf = () => {
     var c = (document.getElementById("button").style.display = "none");
     window.print();
@@ -32,8 +33,8 @@ function HcdTemplate(props) {
           }}
         >
           <div className="row">
-            <div className="d-flex justify-content-start" style={{color:'#D3D3D3'}}>
-            <b> HR/F/8</b>
+            <div className="d-flex justify-content-start" style={{ color: '#D3D3D3' }}>
+              <b> HR/F/8</b>
             </div>
             <div className="d-flex justify-content-end">
               <img
@@ -50,12 +51,12 @@ function HcdTemplate(props) {
             <div className="d-flex justify-content-start">
               Date: <b>&nbsp;{today}</b>
             </div>
-          </div><br/>
+          </div><br />
           <div className="row">
             <div className="d-flex">
               <b>Hiring confirmation form</b>
             </div>
-          </div><br/>
+          </div><br />
           <div className="row">
             <div>
               Hereby, we confirm that coMakeIT may start the necessary procedures to on-board the below Software Engineer to the <b> {props.data.clientname} </b> India team <br /><br />
@@ -85,7 +86,7 @@ function HcdTemplate(props) {
                   <tr key={element.name}>
                     <td>{element.candidatename}</td>
                     <td>{element.grossSalary}</td>
-                    <td>{element.tentativestartdate}</td>
+                    <td>{element.tentativestartdate[8] + '' + element.tentativestartdate[9] + '/' + element.tentativestartdate[5] + '' + element.tentativestartdate[6] + '/' + element.tentativestartdate[0] + '' + element.tentativestartdate[1] + '' + element.tentativestartdate[2] + '' + element.tentativestartdate[3]}</td>
                     <td>{element.remarks}</td>
                   </tr>
                 );
@@ -96,8 +97,8 @@ function HcdTemplate(props) {
           <br />
           <div className="row">
             <div>
-              <b>{props.data.clientname}</b> agrees that coMakeIT may take the necessary steps to on-board the engineer to the team. 
-                CoMakeIT agrees to keep the customer informed of the progress with on boarding process.
+              <b>{props.data.clientname}</b> agrees that coMakeIT may take the necessary steps to on-board the engineer to the team.
+              CoMakeIT agrees to keep the customer informed of the progress with on boarding process.
             </div>
           </div>
           <br />
@@ -130,46 +131,46 @@ function HcdTemplate(props) {
                 For <b>{props.data.clientname}</b>
                 <br />
                 <img
-                  
+
                   alt=""
                   style={{
                     width: "70px",
                     height: "30px",
                   }}
                 />
-                <br /><br/>
+                <br /><br />
                 Name:  <br /><br />
-                Designation: 
+                Designation:
 
               </div>
             </div>
           </div>
-          <div class="row" style={{position:'fixed',bottom:'0',marginBottom:'10px',fontSize:'10px',color:'#D3D3D3'}}>
+          <div class="row" style={{ position: 'fixed', bottom: '0', marginBottom: '10px', fontSize: '10px', color: '#D3D3D3' }}>
             <div className="col">
-            www.comakeit.com
+              www.comakeit.com
             </div>
-          <div className="col">
-            <b>NETHERLANDS</b><br/>
-            coMakeIT B.V
-            Stationsplein 62, 3743 KM Baarn
-            The Netherlands
-            <b>P</b> +31 35 303 5630
-
-          </div>
-          <div className="col">
-              
-            <b>INDIA</b><br/>
-            Plot No.654/4 39, Road No.92, Jubilee Hills,
-            Hyderabad 500 03, India
-            <br/><br/>
-            9th Floor, A wing, Aurobindo Galaxy, Madhapur, Hyderabad 500019, India
-            <b>P</b> +91 40 40351000, +91 45454757
+            <div className="col">
+              <b>NETHERLANDS</b><br />
+              coMakeIT B.V
+              Stationsplein 62, 3743 KM Baarn
+              The Netherlands <br/>
+              <b>P</b> +31 35 303 5630
 
             </div>
+            <div className="col">
+
+              <b>INDIA</b><br />
+              Plot No.654/4 39, Road No.92, Jubilee Hills,
+              Hyderabad 500 03, India
+              <br /><br />
+              9th Floor, A wing, Aurobindo Galaxy, Madhapur, Hyderabad 500019, India <br/>
+              <b>P</b> +91 40 40351000, +91 45454757
+
+            </div>
           </div>
 
-          </div>
-        
+        </div>
+
         <button
           type="button"
           className="btn btn-primary btn-dark"
