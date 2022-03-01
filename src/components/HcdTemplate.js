@@ -96,7 +96,7 @@ function HcdTemplate(props) {
           <br />
           <div className="row">
             <div>
-              <b>{props.data.clientname}</b> agrees that coMakeIT may take the necessary steps to on-board the engineer to the team. 
+              <b>{props.data.clientname}</b> agrees that coMakeIT may take the necessary steps to on-board the engineer to the team.
                 CoMakeIT agrees to keep the customer informed of the progress with on boarding process.
             </div>
           </div>
@@ -130,7 +130,7 @@ function HcdTemplate(props) {
                 For <b>{props.data.clientname}</b>
                 <br />
                 <img
-                  
+
                   alt=""
                   style={{
                     width: "70px",
@@ -139,7 +139,7 @@ function HcdTemplate(props) {
                 />
                 <br /><br/>
                 Name:  <br /><br />
-                Designation: 
+                Designation:
 
               </div>
             </div>
@@ -157,7 +157,7 @@ function HcdTemplate(props) {
 
           </div>
           <div className="col">
-              
+
             <b>INDIA</b><br/>
             Plot No.654/4 39, Road No.92, Jubilee Hills,
             Hyderabad 500 03, India
@@ -169,7 +169,7 @@ function HcdTemplate(props) {
           </div>
 
           </div>
-        
+
         <button
           type="button"
           className="btn btn-primary btn-dark"

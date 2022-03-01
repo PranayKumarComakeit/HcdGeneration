@@ -8,6 +8,9 @@ import {
   BrowserRouter as Router
 } from "react-router-dom";
 import { Routes, Route } from 'react-router-dom';
+import HcdHourlyHome from './components/HcdHourlyHome';
+import HcdHourlyForm from './components/HcdHourlyForm';
+import HCDHourlyTemplate from './components/HCDHourlyTemplate';
 function App() {
   const [data, setEmpdata] = useState({});
   const [condition, setcondition] = useState(false);
@@ -17,8 +20,8 @@ function App() {
   }
   return (
     <div className="App">
-      {!condition && <HcdHome datatoApp={datatoApp} />}
-      {condition && <HcdTemplate data={data} condition={"Pranay"}/>}
+      {!condition && <HcdHourlyHome datatoApp={datatoApp} />}
+      {condition && <HCDHourlyTemplate data={data} condition={"Pranay"}/>}
     </div>
   );
 }
