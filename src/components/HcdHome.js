@@ -11,6 +11,7 @@ const HcdHome = (props) => {
   const [condition, setcondition] = useState(false);
   const forceUpdate = React.useReducer(bool => !bool)[1];
   const [hiringmanagername, sethiringmanagername] = useState("");
+  const [Mdesignation, setMdesignation] = useState("");
   const [filename, setfilename] = useState("");
   const datatohcdhome = (data) => {
     //console.log(data);
@@ -35,16 +36,21 @@ const HcdHome = (props) => {
   const onhiringmanagername = (e) => {
     sethiringmanagername(e.target.value)
   }
+  const onMdesignation = (e) => {
+    setMdesignation(e.target.value)
+  }
   const data={
       clientname:clientname,
       hiringmanagername:hiringmanagername,
+      Mdesignation:Mdesignation,
       empdata:empdata,
       url:url
   }
   const generatePdf = () => {
     let cname = document.forms["homeform"]["cname"].value;
     let managername = document.forms["homeform"]["mname"].value;
-    if(cname!=="" && managername!==""){
+    let mDesignation=document.forms["homeform"]["mDesignation"].value;
+    if(cname!=="" && managername!=="" && mDesignation!==""){
       props.datatoApp(data);
     }
   }
@@ -117,6 +123,22 @@ const HcdHome = (props) => {
                 required
               />
             </div>
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text" id="inputGroup-sizing-default">
+                  <b>Designation of Hiring Manager</b>
+                </span>
+              </div>
+              <input
+              name="mDesignation"
+                type="text"
+                className="form-control"
+                aria-label="Default"
+                aria-describedby="inputGroup-sizing-default"
+                onChange={onMdesignation}
+                required
+              />
+            </div>
            <div className="container">
            <ImageUploader
               withIcon={true}
@@ -132,10 +154,10 @@ const HcdHome = (props) => {
               condition && <table className="table table-striped" >
                 <thead>
                   <tr>
-                    <th><b>CANDIDATE NAME</b></th>
-                    <th><b>APPLICABLE VACANCY</b></th>
-                    <th><b>HOURLY RATE</b></th>
-                    <th><b>TENTATIVE START DATE</b></th>
+                    <th><b>Candidate Name</b></th>
+                    <th><b>Monthly Gross Salary(Indian Rupees)</b></th>
+                    <th><b>Date of joining</b></th>
+                    <th><b>Remarks</b></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -144,9 +166,9 @@ const HcdHome = (props) => {
                     empdata.map((element) => {
                       return <tr className="table" key={element.name}>
                         <td>{element.candidatename}</td>
-                        <td>{element.applicablevacancy}</td>
-                        <td>{element.hourlyrate}</td>
+                        <td>{element.grossSalary}</td>
                         <td>{element.tentativestartdate}</td>
+                        <td>{element.remarks}</td>
                       </tr>
                     }
                     )
