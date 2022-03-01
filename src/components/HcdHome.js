@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, use } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
+import HcdTemplate from '../components/HcdTemplate';
+import {
+  Link, useNavigate
+} from "react-router-dom";
 const HcdHome = (props) => {
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [showEmp, setShowEmp] = useState(false);
   const [url, seturl] = useState();
@@ -13,6 +18,7 @@ const HcdHome = (props) => {
   const [hiringmanagername, sethiringmanagername] = useState("");
   const [Mdesignation, setMdesignation] = useState("");
   const [filename, setfilename] = useState("");
+  const [clicked, setclicked] = useState(false);
   const datatohcdhome = (data) => {
     //console.log(data);
     empdata.unshift(data);
@@ -52,22 +58,43 @@ const HcdHome = (props) => {
     let mDesignation=document.forms["homeform"]["mDesignation"].value;
     if(cname!=="" && managername!=="" && mDesignation!==""){
       props.datatoApp(data);
+      navigate("/OpenTemplate")
     }
+
+
+
   }
   return (
     <>
       <nav
-        className="px-1 navbar navbar-expand-lg navbar-dark bg-light"
+        className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
       >
-        <div className="container-fluid">
-          <a
-            className="navbar-brand fw-bold text-dark"
+        <div >
+        <div
+            className="navbar-brand  "
             id="mainText"
-            href="#"
+            style={{color:'#2E86C1'}}
           >
-            HCD generation App
-          </a>
+            <span style={{fontWeight:'bolder'}} >
+            HCD generation
+            </span>
+            <Link
+            className="navbar-brand fw-bold text-lg"
+            id="mainText"
+            to="/"
+            style={{marginLeft:'50px'}}
+          >
+            HCD Open
+          </Link>
+          <Link
+            className="navbar-brand  text-lg"
+            id="mainText"
+            to="/HCDHourly"
+          >
+            HCD Hourly
+          </Link>
+          </div>
           <button
             className="navbar-toggler bg-dark"
             type="button"
@@ -106,7 +133,7 @@ const HcdHome = (props) => {
                 required
               />
             </div>
-            
+
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-default">
@@ -161,13 +188,12 @@ const HcdHome = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-
                   {
                     empdata.map((element) => {
                       return <tr className="table" key={element.name}>
                         <td>{element.candidatename}</td>
                         <td>{element.grossSalary}</td>
-                        <td>{element.tentativestartdate}</td>
+                        <td>{element.tentativestartdate[8] + '' + element.tentativestartdate[9] + '/' + element.tentativestartdate[5] + '' + element.tentativestartdate[6] + '/' + element.tentativestartdate[0] + '' + element.tentativestartdate[1] + '' + element.tentativestartdate[2] + '' + element.tentativestartdate[3]}</td>
                         <td>{element.remarks}</td>
                       </tr>
                     }
@@ -193,6 +219,7 @@ const HcdHome = (props) => {
         </section>
         <br/>
           <button type="submit" className="btn btn-primary btn-dark" onClick={generatePdf}>Click Here to Download PDF</button>
+
         </form>
       </div>
     </>

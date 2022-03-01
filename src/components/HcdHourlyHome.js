@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdHourlyForm from "./HcdHourlyForm";
+import {
+  Link, useNavigate
+} from "react-router-dom";
 const HCDHourlyHome = (props) => {
+  const navigate = useNavigate();
     const [modalOpen, setModalOpen] = useState(false);
   const [showEmp, setShowEmp] = useState(false);
   const [url, seturl] = useState();
@@ -53,22 +57,41 @@ const HCDHourlyHome = (props) => {
     let mDesignation=document.forms["homeform"]["mDesignation"].value;
     if(cname!=="" && managername!=="" && mDesignation!==""){
       props.datatoApp(data);
+      navigate("/HourlyTemplate")
     }
   }
   return (
     <>
       <nav
-        className="px-1 navbar navbar-expand-lg navbar-dark bg-light"
+        className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
       >
-        <div className="container-fluid">
-          <a
-            className="navbar-brand fw-bold text-dark"
+        <div >
+          <div
+            className="navbar-brand  "
             id="mainText"
-            href="#"
+            style={{color:'#2E86C1'}}
           >
-            HCD generation App
-          </a>
+            <span style={{fontWeight:'bolder'}} >
+            HCD generation
+            </span>
+            <Link
+            className="navbar-brand  text-lg"
+            id="mainText"
+            to="/"
+            style={{marginLeft:'50px'}}
+          >
+            HCD Open
+          </Link>
+          <Link
+            className="navbar-brand fw-bold text-lg"
+            id="mainText"
+            to="/HCDHourly"
+          >
+            HCD Hourly
+          </Link>
+          </div>
+
           <button
             className="navbar-toggler bg-dark"
             type="button"
@@ -172,7 +195,9 @@ const HCDHourlyHome = (props) => {
                         <td>{element.role}</td>
                         <td>{element.hourlyRate}</td>
                         <td>{element.monthlyCost}</td>
-                        <td>{element.billableDate}</td>
+                        <td>
+                        {element.billableDate[8] + '' + element.billableDate[9] + '/' + element.billableDate[5] + '' + element.billableDate[6] + '/' + element.billableDate[0] + '' + element.billableDate[1] + '' + element.billableDate[2] + '' + element.billableDate[3]}
+                        </td>
                         <td>{element.remarks}</td>
                       </tr>
                     }

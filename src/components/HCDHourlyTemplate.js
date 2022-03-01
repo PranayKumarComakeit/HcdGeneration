@@ -50,13 +50,13 @@ const HcdHourlyTemplate = (props) => {
                 </div>
               </div>
               <div className="row">
-            <div className="d-flex">
-              <b>Hiring confirmation form</b>
+            <div className="d-flex justify-content-center">
+              <b>Hiring Confirmation Form</b>
             </div>
           </div> <br />
               <div className="row">
                 <div>
-                Hereby, we confirm that coMakeIT may start the necessary procedures to hire COUNT employees from the below list. The hourly costs of the candidates mentioned in the document are final and {props.data.clientname} will be notified in case there are any deviations in the costs.
+                Hereby, we confirm that coMakeIT may start the necessary procedures to hire {props.data.empdata.rows.length} employees from the below list. The hourly costs of the candidates mentioned in the document are final and {props.data.clientname} will be notified in case there are any deviations in the costs.
                 </div>
               </div>
               <br />
@@ -89,7 +89,7 @@ const HcdHourlyTemplate = (props) => {
                         <td>{element.role}</td>
                         <td>{element.hourlyRate}</td>
                         <td>{element.monthlyCost}</td>
-                        <td>{element.billableDate}</td>
+                        <td>{element.billableDate[8] + '' + element.billableDate[9] + '/' + element.billableDate[5] + '' + element.billableDate[6] + '/' + element.billableDate[0] + '' + element.billableDate[1] + '' + element.billableDate[2] + '' + element.billableDate[3]}</td>
                         <td>{element.remarks}</td>
                       </tr>
                     );
@@ -119,7 +119,7 @@ const HcdHourlyTemplate = (props) => {
                         height: "30px",
                       }}
                     />
-                    <br />
+                    <br /> <br />
                     Name: <b>{props.data.hiringmanagername}</b> <br />
                     Designation: <b>{props.data.Mdesignation}</b> <br />
                   </div>
@@ -127,17 +127,16 @@ const HcdHourlyTemplate = (props) => {
                 <div className="col-2"></div>
                 <div className="col-5">
                   <div>
-                    For Client<b></b>
+                    For {props.data.clientname}<b></b>
                     <br />
-                    <img
+                    <div
 
                   alt=""
                   style={{
                     width: "70px",
                     height: "30px",
                   }}
-                />
-                    <br /> <br />
+                /> <br />
                     Name:  <br />
                     Designation:  <br />
                   </div>

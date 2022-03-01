@@ -128,7 +128,7 @@ const HcdHourlyForm = (props) => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="validationCustom03" className="form-label">Billabe Date</label>
+              <label htmlFor="validationCustom03" className="form-label">Billable Date</label>
               <input
                 type="date"
                 name="billableDate"
