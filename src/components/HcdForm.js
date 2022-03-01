@@ -4,39 +4,43 @@ import './Modal.css'
   const HcdForm = ( props) => {
   const [clientname, setClientname] = useState("");
   const [candidatename, setCandidatename] = useState("");
-  const [applicablevacancy, setApplicablevacancy] = useState("");
-  const [hourlyrate, setHourlyrate] = useState("");
+  const [grossSalary, setGrossSalary] = useState("");
+  const [remarks, setRemarks] = useState("");
   const [tentativestartdate, setTentativestartdate] = useState("");
-  var onClientNameChange = (e) => {
-    setClientname(e.target.value);
-  }
   var onCandidatenamechange = (e) => {
     setCandidatename(e.target.value);
   }
-  var onApplicablevacancychange = (e) => {
-    setApplicablevacancy(e.target.value);
+  var onGrosschange = (e) => {
+    setGrossSalary(e.target.value);
   }
-  var onHourlyratechange = (e) => {
-    setHourlyrate(e.target.value);
+  var onRemarkchange = (e) => {
+    setRemarks(e.target.value);
   }
   var onTentativestartdatechange = (e) => {
     setTentativestartdate(e.target.value);
   }
   const onsavehandler=()=>{
-    const empdata=
+    let cname = document.forms["empForm"]["cname"].value;
+    let grossSalary = document.forms["empForm"]["grossSalary"].value;
+    let remarks = document.forms["empForm"]["remarks"].value;
+    let startDate = document.forms["empForm"]["startDate"].value;
+    if(cname!=="" && grossSalary!=="" && remarks!=="" && startDate!==""){
+      const empdata=
       {
         clientname:clientname,
         candidatename:candidatename,
-        applicablevacancy:applicablevacancy,
-        hourlyrate:hourlyrate,
-        tentativestartdate:tentativestartdate
+        grossSalary:grossSalary,
+        tentativestartdate:tentativestartdate,
+        remarks:remarks
       }
       props.datatohcdhome(empdata);
       props.setOpenModal(false);
+    }
+    
 }
-
   return (
     <>
+    
       <div className="modalBackground">
     <div className="modalContainer">
         <div className="titleCloseBtn">
@@ -51,55 +55,62 @@ import './Modal.css'
         <div className="title">
           <h1>Add Employee Details</h1>
         </div>
+        <form class="row g-3 needs-validation" name="empForm" novalidate>
         <div className="body">
-
               <div className="mb-3">
-                <label className="form-label">Candidate Name</label>
+                <label className="form-label" htmlFor="validationCustom01">Candidate Name</label>
                 <input
                   type="text"
+                  name="cname"
                   className="form-control"
                   id="imageUrl"
-                  aria-describedby="emailHelp"
+                  aria-describedby="textHelp"
                   onChange={onCandidatenamechange}
                   value={candidatename}
+                  required
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Applicable Vacancy</label>
+                <label htmlFor="validationCustom02" className="form-label">Monthly Gross Salary(Indian Rupees)</label>
                 <input
-                  type="email"
+                  type="number"
+                  name="grossSalary"
                   className="form-control"
-                  id="taskTitle"
-                  aria-describedby="emailHelp"
-                  placeholder="Job Role"
-                  onChange={onApplicablevacancychange}
-                  value={applicablevacancy}
+                  id="validationCustom01"
+                  aria-describedby="textHelp"
+                  placeholder="price in numbers"
+                  onChange={onGrosschange}
+                  value={grossSalary}
+                  required
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Hourly Rate</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="taskType"
-                  aria-describedby="emailHelp"
-                  placeholder="In Euros"
-                  onChange={onHourlyratechange}
-                  value={hourlyrate}
-                />
-              </div>
-              <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" className="form-label">Tentative start Date</label>
+                <label htmlFor="validationCustom03" className="form-label">Date of joining</label>
                 <input
                   type="date"
+                  name="startDate"
                   className="form-control"
                   id="taskDesc"
-                  aria-describedby="emailHelp"
+                  aria-describedby="textHelp"
                   placeholder="DD/MM/YYYY"
                   onChange={onTentativestartdatechange}
                   value={tentativestartdate}
+                  required
                   />
-
+                </div>
+              <div className="mb-3">
+                <label htmlFor="validationCustom04" className="form-label">Remarks</label>
+                <input
+                  type="text"
+                  name="remarks"
+                  className="form-control"
+                  id="taskType"
+                  aria-describedby="textHelp"
+                  placeholder="Remarks if any"
+                  onChange={onRemarkchange}
+                  value={remarks}
+                  required
+                />
               </div>
         </div>
         <div className="footer">
@@ -111,21 +122,12 @@ import './Modal.css'
           >
             Cancel
           </button>
-          <button data-bs-dismiss="modal" type="button" onClick={onsavehandler}>save details</button>
+          <button data-bs-dismiss="modal" type="submit" onClick={onsavehandler}>Save</button>
 
         </div>
+        </form>
       </div>
     </div>
-          {/* <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button data-bs-dismiss="modal" onClick="generatePDF()" type="button" className="btn btn-primary" onClick={onsavehandler}>save details</button>
-          </div> */}
 
     </>
   )
