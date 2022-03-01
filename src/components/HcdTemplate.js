@@ -53,7 +53,7 @@ function HcdTemplate(props) {
             </div>
           </div><br />
           <div className="row">
-            <div className="d-flex">
+            <div className="d-flex justify-content-center">
               <b>Hiring confirmation form</b>
             </div>
           </div><br />
@@ -69,7 +69,7 @@ function HcdTemplate(props) {
             <table style={{ width: "90%" }}>
               <tr>
                 <th>
-                  <b>CANDIDATE NAME</b>
+                  <b>Candidate Name</b>
                 </th>
                 <th>
                   <b>Monthly Gross Salary(Indian Rupees)</b>
@@ -120,7 +120,7 @@ function HcdTemplate(props) {
                 <br /><br />
                 Name:
                 <b>{props.data.hiringmanagername}</b>
-                <br /><br />
+                <br />
                 Designation:
                 <b>{props.data.Mdesignation}</b>
               </div>
@@ -128,9 +128,9 @@ function HcdTemplate(props) {
             <div className="col-2"></div>
             <div className="col-5">
               <div>
-                For <b>{props.data.clientname}</b>
+                For {props.data.clientname}
                 <br />
-                <img
+                <div
 
                   alt=""
                   style={{
@@ -138,8 +138,8 @@ function HcdTemplate(props) {
                     height: "30px",
                   }}
                 />
-                <br /><br />
-                Name:  <br /><br />
+                <br />
+                Name:  <br />
                 Designation:
 
               </div>

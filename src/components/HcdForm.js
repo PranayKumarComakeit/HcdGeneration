@@ -36,11 +36,11 @@ import './Modal.css'
       props.datatohcdhome(empdata);
       props.setOpenModal(false);
     }
-    
+
 }
   return (
     <>
-    
+
       <div className="modalBackground">
     <div className="modalContainer">
         <div className="titleCloseBtn">
@@ -55,7 +55,7 @@ import './Modal.css'
         <div className="title">
           <h1>Add Employee Details</h1>
         </div>
-        <form class="row g-3 needs-validation" name="empForm" novalidate>
+        <form class="row g-3 needs-validation" name="empForm" method='post' novalidate>
         <div className="body">
               <div className="mb-3">
                 <label className="form-label" htmlFor="validationCustom01">Candidate Name</label>

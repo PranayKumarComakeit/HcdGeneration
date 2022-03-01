@@ -1,13 +1,13 @@
-import React, { useState, use } from "react";
+import React, { useState } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
-import HcdTemplate from '../components/HcdTemplate';
+import HcdHourlyForm from "./HcdHourlyForm";
 import {
   Link, useNavigate
 } from "react-router-dom";
-const HcdHome = (props) => {
+const HCDHourlyHome = (props) => {
   const navigate = useNavigate();
-  const [modalOpen, setModalOpen] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false);
   const [showEmp, setShowEmp] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
@@ -18,7 +18,6 @@ const HcdHome = (props) => {
   const [hiringmanagername, sethiringmanagername] = useState("");
   const [Mdesignation, setMdesignation] = useState("");
   const [filename, setfilename] = useState("");
-  const [clicked, setclicked] = useState(false);
   const datatohcdhome = (data) => {
     //console.log(data);
     empdata.unshift(data);
@@ -58,11 +57,8 @@ const HcdHome = (props) => {
     let mDesignation=document.forms["homeform"]["mDesignation"].value;
     if(cname!=="" && managername!=="" && mDesignation!==""){
       props.datatoApp(data);
-      navigate("/OpenTemplate")
+      navigate("/HourlyTemplate")
     }
-
-
-
   }
   return (
     <>
@@ -71,7 +67,7 @@ const HcdHome = (props) => {
         id="navbar"
       >
         <div >
-        <div
+          <div
             className="navbar-brand  "
             id="mainText"
             style={{color:'#2E86C1'}}
@@ -80,7 +76,7 @@ const HcdHome = (props) => {
             HCD generation
             </span>
             <Link
-            className="navbar-brand fw-bold text-lg"
+            className="navbar-brand  text-lg"
             id="mainText"
             to="/"
             style={{marginLeft:'50px'}}
@@ -88,13 +84,14 @@ const HcdHome = (props) => {
             HCD Open
           </Link>
           <Link
-            className="navbar-brand  text-lg"
+            className="navbar-brand fw-bold text-lg"
             id="mainText"
             to="/HCDHourly"
           >
             HCD Hourly
           </Link>
           </div>
+
           <button
             className="navbar-toggler bg-dark"
             type="button"
@@ -182,18 +179,25 @@ const HcdHome = (props) => {
                 <thead>
                   <tr>
                     <th><b>Candidate Name</b></th>
-                    <th><b>Monthly Gross Salary(Indian Rupees)</b></th>
-                    <th><b>Date of joining</b></th>
+                    <th><b>Role</b></th>
+                    <th><b>Hourly Rate</b></th>
+                    <th><b>Monthly Cost</b></th>
+                    <th><b>Billable Date</b></th>
                     <th><b>Remarks</b></th>
                   </tr>
                 </thead>
                 <tbody>
+
                   {
                     empdata.map((element) => {
                       return <tr className="table" key={element.name}>
                         <td>{element.candidatename}</td>
-                        <td>{element.grossSalary}</td>
-                        <td>{element.tentativestartdate[8] + '' + element.tentativestartdate[9] + '/' + element.tentativestartdate[5] + '' + element.tentativestartdate[6] + '/' + element.tentativestartdate[0] + '' + element.tentativestartdate[1] + '' + element.tentativestartdate[2] + '' + element.tentativestartdate[3]}</td>
+                        <td>{element.role}</td>
+                        <td>{element.hourlyRate}</td>
+                        <td>{element.monthlyCost}</td>
+                        <td>
+                        {element.billableDate[8] + '' + element.billableDate[9] + '/' + element.billableDate[5] + '' + element.billableDate[6] + '/' + element.billableDate[0] + '' + element.billableDate[1] + '' + element.billableDate[2] + '' + element.billableDate[3]}
+                        </td>
                         <td>{element.remarks}</td>
                       </tr>
                     }
@@ -214,15 +218,15 @@ const HcdHome = (props) => {
       <i className="fas fa-plus me-2"></i>
         Add Employee
       </button>
-      {modalOpen && <HcdForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}   />}
+      {modalOpen && <HcdHourlyForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}   />}
           </div>
         </section>
         <br/>
           <button type="submit" className="btn btn-primary btn-dark" onClick={generatePdf}>Click Here to Download PDF</button>
-
         </form>
       </div>
     </>
   )
-      }
-      export default HcdHome;
+}
+
+export default HCDHourlyHome
