@@ -75,7 +75,7 @@ const HCDHourlyHome = (props) => {
           <div
             className="navbar-brand  "
             id="mainText"
-            style={{color:'#2E86C1'}}
+            style={{color:'#0096FF'}}
           >
             <span style={{fontWeight:'bolder'}} >
             HCD generation
@@ -92,6 +92,7 @@ const HCDHourlyHome = (props) => {
             className="navbar-brand fw-bold text-lg"
             id="mainText"
             to="/HCDHourly"
+            style={{ color:'yellow'}}
           >
             HCD Hourly
           </Link>
@@ -111,11 +112,15 @@ const HCDHourlyHome = (props) => {
         </div>
       </nav>
       <div className="container">
+      <div className="d-flex justify-content-center" >
+              <h1>HCD Hourly Format</h1>
+            </div>
         <section className="mt-4">
           <div className="row justify-content-center mt-4">
             <div className="col-md-6 col-lg-4 mt-3"></div>
           </div>
         </section>
+
         <form className="row g-3 needs-validation" name="homeform" method="POST">
         <section className="mt-1" sty>
           <div className="row task__container">
