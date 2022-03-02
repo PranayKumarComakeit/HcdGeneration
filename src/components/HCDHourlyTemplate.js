@@ -56,7 +56,7 @@ const HcdHourlyTemplate = (props) => {
           </div> <br />
               <div className="row">
                 <div>
-                Hereby, we confirm that coMakeIT may start the necessary procedures to hire {props.data.empdata.length} employees from the below list. The hourly costs of the candidates mentioned in the document are final and {props.data.clientname} will be notified in case there are any deviations in the costs.
+                Hereby, we confirm that coMakeIT may start the necessary procedures to hire {props.data.empdata.length} employees from the below list. The hourly costs of the candidates mentioned in the document are final and {props.data.clientname[0]} will be notified in case there are any deviations in the costs.
                 </div>
               </div>
               <br />
@@ -100,7 +100,7 @@ const HcdHourlyTemplate = (props) => {
               <br />
               <div className="row">
                 <div>
-                Rates are adjusted every year based on a general inflation indexation as specified in the contract.  coMakeIT may invoice {props.data.clientname} based on the above-mentioned hourly costs on commencement of the proposed engagement. Payment terms remain as per the standard contract.
+                Rates are adjusted every year based on a general inflation indexation as specified in the contract.  coMakeIT may invoice {props.data.clientname[0]} based on the above-mentioned hourly costs on commencement of the proposed engagement. Payment terms remain as per the standard contract.
                 </div>
               </div>
               <br />
@@ -127,7 +127,7 @@ const HcdHourlyTemplate = (props) => {
                 <div className="col-2"></div>
                 <div className="col-5">
                   <div>
-                    For {props.data.clientname}<b></b>
+                    For {props.data.clientname[0]}<b></b>
                     <br />
                     <div
 
