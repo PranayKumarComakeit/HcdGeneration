@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdHourlyForm from "./HcdHourlyForm";
+import './Modal.css'
 import {
   Link, useNavigate
 } from "react-router-dom";
@@ -18,6 +19,7 @@ const HCDHourlyHome = (props) => {
   const [hiringmanagername, sethiringmanagername] = useState("");
   const [Mdesignation, setMdesignation] = useState("");
   const [filename, setfilename] = useState("");
+  const [rowcnt, setrowcnt] = useState("Aditya");
   const datatohcdhome = (data) => {
     //console.log(data);
     empdata.unshift(data);
@@ -49,17 +51,20 @@ const HCDHourlyHome = (props) => {
       hiringmanagername:hiringmanagername,
       Mdesignation:Mdesignation,
       empdata:empdata,
-      url:url
+      url:url,
+      rowcnt: rowcnt
   }
   const generatePdf = () => {
     let cname = document.forms["homeform"]["cname"].value;
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation=document.forms["homeform"]["mDesignation"].value;
     if(cname!=="" && managername!=="" && mDesignation!==""){
+
       props.datatoApp(data);
       navigate("/HourlyTemplate")
     }
   }
+
   return (
     <>
       <nav
@@ -175,7 +180,7 @@ const HCDHourlyHome = (props) => {
            </div>
 
             {
-              condition && <table className="table table-striped" >
+              condition && <table className="table table-striped" id="empTable">
                 <thead>
                   <tr>
                     <th><b>Candidate Name</b></th>
@@ -202,6 +207,7 @@ const HCDHourlyHome = (props) => {
                       </tr>
                     }
                     )
+
                   }
                 </tbody>
               </table>

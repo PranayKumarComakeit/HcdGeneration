@@ -56,7 +56,7 @@ const HcdHourlyTemplate = (props) => {
           </div> <br />
               <div className="row">
                 <div>
-                Hereby, we confirm that coMakeIT may start the necessary procedures to hire 20 employees from the below list. The hourly costs of the candidates mentioned in the document are final and {props.data.clientname} will be notified in case there are any deviations in the costs.
+                Hereby, we confirm that coMakeIT may start the necessary procedures to hire {props.data.empdata.length} employees from the below list. The hourly costs of the candidates mentioned in the document are final and {props.data.clientname} will be notified in case there are any deviations in the costs.
                 </div>
               </div>
               <br />
