@@ -2,6 +2,8 @@ import React, { useState, use } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdTemplate from "../components/HcdTemplate";
+import Select from "react-select";
+
 import { Link, useNavigate } from "react-router-dom";
 const HcdHome = (props) => {
   const navigate = useNavigate();
@@ -10,7 +12,7 @@ const HcdHome = (props) => {
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
   const [signature, setsignature] = useState([]);
-  const [clientname, setclientname] = useState("");
+  const [clientname, setclientname] = useState([]);
   const [condition, setcondition] = useState(false);
   const forceUpdate = React.useReducer((bool) => !bool)[1];
   const [hiringmanagername, sethiringmanagername] = useState("");
@@ -52,6 +54,10 @@ const HcdHome = (props) => {
   };
   const generatePdf = () => {
     let cname = document.forms["homeform"]["cname"].value;
+    // alert(cname)
+    clientname.unshift(cname);
+    setclientname(clientname)
+    // alert(clientname)
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation = document.forms["homeform"]["mDesignation"].value;
     if (cname !== "" && managername !== "" && mDesignation !== "") {
@@ -59,6 +65,31 @@ const HcdHome = (props) => {
       navigate("/OpenTemplate");
     }
   };
+
+  const [value, setValue] = useState("");
+  const options = [
+    {
+      detterCode: "121",
+      clientName: "Client 1"
+    },
+    {
+      detterCode: "122",
+      clientName: "Client 2"
+    },
+    {
+      detterCode: "123",
+      clientName: "Client 3"
+    },
+    {
+      detterCode: "124",
+      clientName: "Client 4"
+    },
+    {
+      detterCode: "125",
+      clientName: "Client 5"
+    }
+    // ...
+  ];
   return (
     <>
       <nav
@@ -89,7 +120,7 @@ const HcdHome = (props) => {
             </Link>
           </div>
           <button
-            className="navbar-toggler bg-dark"
+            className="navbar-toggler bg-dark hide__mobile"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarColor01"
@@ -127,7 +158,18 @@ const HcdHome = (props) => {
                     <b>Client Name</b>
                   </span>
                 </div>
-                <input
+                <div style={{width:'90.6%'}}>
+              <Select
+        name="cname"
+        options={options}
+        value={value}
+        onChange={setValue}
+        getOptionLabel={(option) => option.clientName}
+        getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
+      />
+
+              </div>
+                {/* <input
                   name="cname"
                   type="text"
                   className="form-control"
@@ -135,7 +177,7 @@ const HcdHome = (props) => {
                   aria-describedby="inputGroup-sizing-default"
                   onChange={onclientnamechange}
                   required
-                />
+                /> */}
               </div>
 
               <div className="input-group mb-3">
