@@ -54,10 +54,9 @@ const HcdHome = (props) => {
   };
   const generatePdf = () => {
     let cname = document.forms["homeform"]["cname"].value;
-    // alert(cname)
     clientname.unshift(cname);
     setclientname(clientname)
-    // alert(clientname)
+    let detName=document
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation = document.forms["homeform"]["mDesignation"].value;
     if (cname !== "" && managername !== "" && mDesignation !== "") {
@@ -70,23 +69,23 @@ const HcdHome = (props) => {
   const options = [
     {
       detterCode: "121",
-      clientName: "Client 1"
+      clientName: "FLYER"
     },
     {
       detterCode: "122",
-      clientName: "Client 2"
+      clientName: "VP-FISCAL"
     },
     {
       detterCode: "123",
-      clientName: "Client 3"
+      clientName: "VP-BMS"
     },
     {
       detterCode: "124",
-      clientName: "Client 4"
+      clientName: "RAM TECH"
     },
     {
       detterCode: "125",
-      clientName: "Client 5"
+      clientName: "FIC"
     }
     // ...
   ];
@@ -160,13 +159,13 @@ const HcdHome = (props) => {
                 </div>
                 <div style={{width:'90.6%'}}>
               <Select
-        name="cname"
-        options={options}
-        value={value}
-        onChange={setValue}
-        getOptionLabel={(option) => option.clientName}
-        getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
-      />
+                name="cname"
+                options={options}
+                value={value}
+                onChange={setValue}
+                getOptionLabel={(option) => option.clientName}
+                getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
+              />
 
               </div>
                 {/* <input

@@ -69,23 +69,23 @@ const HCDHourlyHome = (props) => {
   const options = [
     {
       detterCode: "121",
-      clientName: "Client 1"
+      clientName: "FLYER"
     },
     {
       detterCode: "122",
-      clientName: "Client 2"
+      clientName: "VP-FISCAL"
     },
     {
       detterCode: "123",
-      clientName: "Client 3"
+      clientName: "VP-BMS"
     },
     {
       detterCode: "124",
-      clientName: "Client 4"
+      clientName: "RAM TECH"
     },
     {
       detterCode: "125",
-      clientName: "Client 5"
+      clientName: "FIC"
     }
     // ...
   ];
