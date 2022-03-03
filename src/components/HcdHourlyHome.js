@@ -157,6 +157,7 @@ const HCDHourlyHome = (props) => {
               options={options}
               value={value}
               onChange={setValue}
+              placeholder="Select Client Name"
               getOptionLabel={(option) => option.clientName}
               getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
             />

@@ -145,7 +145,7 @@ const HcdHome = (props) => {
           <section className="mt-1" >
             <div className="row task__container" >
               <div className="input-group mb-3">
-                <div className="input-group-prepend" > 
+                <div className="input-group-prepend" >
                   <span
                     className="input-group-text"
                     id="inputGroup-sizing-default"
@@ -160,6 +160,7 @@ const HcdHome = (props) => {
               name="cname"
               options={options}
               value={value}
+              placeholder="Select Client Name"
               onChange={setValue}
               getOptionLabel={(option) => option.clientName}
               getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
