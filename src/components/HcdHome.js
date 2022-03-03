@@ -8,7 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 const HcdHome = (props) => {
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
-  const [showEmp, setShowEmp] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
   const [signature, setsignature] = useState([]);
@@ -137,14 +136,15 @@ const HcdHome = (props) => {
           method="POST"
         >
           <section className="mt-1" >
-            <div className="row task__container">
+            <div className="row task__container" >
               <div className="input-group mb-3">
-                <div className="input-group-prepend">
+                <div className="input-group-prepend" > 
                   <span
                     className="input-group-text"
                     id="inputGroup-sizing-default"
                   >
-                    <b>Client Name</b>
+                    <b>Client Name </b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                   </span>
                 </div>
                 <div className="form-control"
@@ -175,7 +175,8 @@ const HcdHome = (props) => {
                     className="input-group-text"
                     id="inputGroup-sizing-default"
                   >
-                    <b>Hiring Manager for coMakeIT</b>
+                    <b>Hiring Manager for coMakeIT</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                   </span>
                 </div>
                 <input
@@ -194,7 +195,8 @@ const HcdHome = (props) => {
                     className="input-group-text"
                     id="inputGroup-sizing-default"
                   >
-                    <b>Designation of Hiring Manager</b>
+                    <b>Designation of Hiring Manager</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                   </span>
                 </div>
                 <input
@@ -283,7 +285,8 @@ const HcdHome = (props) => {
                 }}
               >
                 <i className="fas fa-plus me-2"></i>
-                Add Employee
+                Add Employee&nbsp;
+                    <i style={{color:'red'}}>*</i>
               </button>
               {modalOpen && (
                 <HcdForm
