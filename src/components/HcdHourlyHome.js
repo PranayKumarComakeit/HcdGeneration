@@ -51,7 +51,7 @@ const HCDHourlyHome = (props) => {
       empdata:empdata,
       url:url
   }
-  const generatePdf = () => {
+  const generatePdf = (event) => {
     let cname = document.forms["homeform"]["cname"].value;
     // alert(cname)
     clientname.unshift(cname);
@@ -59,10 +59,17 @@ const HCDHourlyHome = (props) => {
     // alert(clientname)
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation=document.forms["homeform"]["mDesignation"].value;
-    if(cname!=="" && managername!=="" && mDesignation!==""){
+    let sign = signature.length
+    // console.log(sign)
+    let edata = empdata.length
+    if(cname!=="" && managername!=="" && mDesignation!=="" && sign!==0 && edata!== 0){
 
       props.datatoApp(data);
       navigate("/HourlyTemplate")
+    }
+    else{
+      event.preventDefault();
+      alert("Please enter the required fields")
     }
   }
   const [value, setValue] = useState("");
@@ -150,6 +157,7 @@ const HCDHourlyHome = (props) => {
               options={options}
               value={value}
               onChange={setValue}
+              placeholder="Select Client Name"
               getOptionLabel={(option) => option.clientName}
               getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
             />

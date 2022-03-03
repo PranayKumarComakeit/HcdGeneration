@@ -51,16 +51,23 @@ const HcdHome = (props) => {
     empdata: empdata,
     url: url,
   };
-  const generatePdf = () => {
+  const generatePdf = (event) => {
     let cname = document.forms["homeform"]["cname"].value;
     clientname.unshift(cname);
     setclientname(clientname)
-    let detName=document
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation = document.forms["homeform"]["mDesignation"].value;
-    if (cname !== "" && managername !== "" && mDesignation !== "") {
+    let sign = signature.length
+    // console.log(sign)
+    let edata = empdata.length
+    if (cname !== "" && managername !== "" && mDesignation !== "" && sign!==0 && edata!==0) {
       props.datatoApp(data);
       navigate("/OpenTemplate");
+
+    }
+    else{
+      event.preventDefault();
+      alert("Please enter the required fields")
     }
   };
 
@@ -138,7 +145,7 @@ const HcdHome = (props) => {
           <section className="mt-1" >
             <div className="row task__container" >
               <div className="input-group mb-3">
-                <div className="input-group-prepend" > 
+                <div className="input-group-prepend" >
                   <span
                     className="input-group-text"
                     id="inputGroup-sizing-default"
@@ -153,6 +160,7 @@ const HcdHome = (props) => {
               name="cname"
               options={options}
               value={value}
+              placeholder="Select Client Name"
               onChange={setValue}
               getOptionLabel={(option) => option.clientName}
               getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
