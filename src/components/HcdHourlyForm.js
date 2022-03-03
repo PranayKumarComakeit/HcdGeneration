@@ -165,7 +165,7 @@ const HcdHourlyForm = (props) => {
         >
           Cancel
         </button>
-        <button data-bs-dismiss="modal" type="submit" onClick={onsavehandler}>Save</button>
+        <button data-bs-dismiss="modal" className='btn btn-success' type="submit" onClick={onsavehandler}>Save</button>
 
       </div>
       </form>

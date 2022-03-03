@@ -94,7 +94,6 @@ const HCDHourlyHome = (props) => {
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
-        sty
       >
         <div >
           <div
@@ -122,18 +121,6 @@ const HCDHourlyHome = (props) => {
             HCD Hourly
           </Link>
           </div>
-
-          <button
-            className="navbar-toggler bg-dark"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarColor01"
-            aria-controls="navbarColor01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
         </div>
       </nav>
       <div className="container">
@@ -157,9 +144,7 @@ const HCDHourlyHome = (props) => {
               </div>
               <div className="form-control"
               style={{padding:'0', borderRadius:'100%'}}>
-<Select
-
-
+            <Select
               name="cname"
               options={options}
               value={value}
