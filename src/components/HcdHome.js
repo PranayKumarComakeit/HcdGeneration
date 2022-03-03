@@ -8,7 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 const HcdHome = (props) => {
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
-  const [showEmp, setShowEmp] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
   const [signature, setsignature] = useState([]);
@@ -126,17 +125,6 @@ const HcdHome = (props) => {
               HCD Hourly
             </Link>
           </div>
-          <button
-            className="navbar-toggler bg-dark hide__mobile"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarColor01"
-            aria-controls="navbarColor01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
         </div>
       </nav>
       <div className="container">
@@ -155,21 +143,20 @@ const HcdHome = (props) => {
           method="POST"
         >
           <section className="mt-1" >
-            <div className="row task__container">
+            <div className="row task__container" >
               <div className="input-group mb-3">
-                <div className="input-group-prepend">
+                <div className="input-group-prepend" > 
                   <span
                     className="input-group-text"
                     id="inputGroup-sizing-default"
                   >
-                    <b>Client Name</b>
+                    <b>Client Name </b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                   </span>
                 </div>
                 <div className="form-control"
               style={{padding:'0', borderRadius:'100%'}}>
-<Select
-
-
+            <Select
               name="cname"
               options={options}
               value={value}
@@ -195,7 +182,8 @@ const HcdHome = (props) => {
                     className="input-group-text"
                     id="inputGroup-sizing-default"
                   >
-                    <b>Hiring Manager for coMakeIT</b>
+                    <b>Hiring Manager for coMakeIT</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                   </span>
                 </div>
                 <input
@@ -214,7 +202,8 @@ const HcdHome = (props) => {
                     className="input-group-text"
                     id="inputGroup-sizing-default"
                   >
-                    <b>Designation of Hiring Manager</b>
+                    <b>Designation of Hiring Manager</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                   </span>
                 </div>
                 <input
@@ -303,7 +292,8 @@ const HcdHome = (props) => {
                 }}
               >
                 <i className="fas fa-plus me-2"></i>
-                Add Employee
+                Add Employee&nbsp;
+                    <i style={{color:'red'}}>*</i>
               </button>
               {modalOpen && (
                 <HcdForm

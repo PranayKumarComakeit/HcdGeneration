@@ -101,7 +101,6 @@ const HCDHourlyHome = (props) => {
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
-        sty
       >
         <div >
           <div
@@ -129,18 +128,6 @@ const HCDHourlyHome = (props) => {
             HCD Hourly
           </Link>
           </div>
-
-          <button
-            className="navbar-toggler bg-dark"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarColor01"
-            aria-controls="navbarColor01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
         </div>
       </nav>
       <div className="container">
@@ -159,14 +146,13 @@ const HCDHourlyHome = (props) => {
             <div className="input-group mb-3">
               <div className="input-group-inline">
                 <span className="input-group-text" id="inputGroup-sizing-default">
-                  <b>Client Name</b>
+                  <b>Client Name</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                 </span>
               </div>
               <div className="form-control"
               style={{padding:'0', borderRadius:'100%'}}>
-<Select
-
-
+            <Select
               name="cname"
               options={options}
               value={value}
@@ -190,11 +176,12 @@ const HCDHourlyHome = (props) => {
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-default">
-                  <b>Hiring Manager for coMakeIT</b>
+                  <b>Hiring Manager for coMakeIT</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                 </span>
               </div>
               <input
-              name="mname"
+                name="mname"
                 type="text"
                 className="form-control"
                 aria-label="Default"
@@ -206,7 +193,8 @@ const HCDHourlyHome = (props) => {
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-default">
-                  <b>Designation of Hiring Manager</b>
+                  <b>Designation of Hiring Manager</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                 </span>
               </div>
               <input
@@ -273,7 +261,8 @@ const HCDHourlyHome = (props) => {
         }}
       >
       <i className="fas fa-plus me-2"></i>
-        Add Employee
+        Add Employee&nbsp;
+                    <i style={{color:'red'}}>*</i>
       </button>
       {modalOpen && <HcdHourlyForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}   />}
           </div>
