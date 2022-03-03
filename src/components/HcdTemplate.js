@@ -59,8 +59,8 @@ function HcdTemplate(props) {
           </div><br />
           <div className="row">
             <div>
-              Hereby, we confirm that coMakeIT may start the necessary procedures to on-board the below Software Engineer to the <b> {props.data.clientname} </b> India team <br /><br />
-              The monthly gross salary of the candidate mentioned in the document is final and <b> {props.data.clientname} </b> will be notified in case there are any deviations in the costs.
+              Hereby, we confirm that coMakeIT may start the necessary procedures to on-board the below Software Engineer to the <b> {props.data.clientname[0]} </b> India team <br /><br />
+              The monthly gross salary of the candidate mentioned in the document is final and <b> {props.data.clientname[0]} </b> will be notified in case there are any deviations in the costs.
 
             </div>
           </div>
@@ -97,7 +97,7 @@ function HcdTemplate(props) {
           <br />
           <div className="row">
             <div>
-              <b>{props.data.clientname}</b> agrees that coMakeIT may take the necessary steps to on-board the engineer to the team.
+              <b>{props.data.clientname[0]}</b> agrees that coMakeIT may take the necessary steps to on-board the engineer to the team.
               CoMakeIT agrees to keep the customer informed of the progress with on boarding process.
             </div>
           </div>
@@ -128,7 +128,7 @@ function HcdTemplate(props) {
             <div className="col-2"></div>
             <div className="col-5">
               <div>
-                For {props.data.clientname}
+                For {props.data.clientname[0]}
                 <br />
                 <div
 
