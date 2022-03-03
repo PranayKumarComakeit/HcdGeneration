@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "./HcdTemplate.css";
 const HcdHourlyTemplate = (props) => {
   var today = new Date();
   var dd = today.getDate();
@@ -168,21 +168,23 @@ const HcdHourlyTemplate = (props) => {
 
           </div>
 
-        <button
-          type="button"
-          className="btn btn-primary btn-dark"
-          onClick={downloadPdf}
-          id="button"
-          style={{ marginLeft: '17%' }}
-        >
-          Click Here To Download
-        </button>
+        
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"
         ></script>
+
           </div>
+          <button
+          type="button"
+          className="btn btn-primary btn-dark"
+          onClick={downloadPdf}
+          id="button"
+          style={{ right:'0',bottom:'0', position: 'absolute', marginRight:'10px', marginBottom:'10px' }}
+        >
+          Click Here To Download
+        </button>
         </>
       );
 }

@@ -146,7 +146,7 @@ const HcdHome = (props) => {
           name="homeform"
           method="POST"
         >
-          <section className="mt-1" sty>
+          <section className="mt-1" >
             <div className="row task__container">
               <div className="input-group mb-3">
                 <div className="input-group-prepend">
