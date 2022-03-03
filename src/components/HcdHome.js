@@ -94,6 +94,7 @@ const HcdHome = (props) => {
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
+        style={{maxWidth:'100%'}}
       >
         <div>
           <div

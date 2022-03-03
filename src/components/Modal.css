@@ -2,16 +2,17 @@
     position: absolute;
     background-image: linear-gradient(rgba(235,242,255,0.5), rgba(235,242,255,0.5));
     flood-opacity: 0.5;
-    padding-left: 20%;
-    overflow-x: auto;
-    overflow-y: auto;
-  }
+   width: 100%;
+   left: 0;
+     padding-left: 30%;
+     }
 
   .modalContainer {
-    width: 500px;
+    margin-bottom: 100px;
+   width: 60%;
     border-radius: 12px;
     background-color: white;
-
+    border: 2px solid grey;
     display: flex;
     flex-direction: column;
     padding: 25px;

@@ -94,6 +94,7 @@ const HCDHourlyHome = (props) => {
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
+        sty
       >
         <div >
           <div
