@@ -157,16 +157,18 @@ const HcdHome = (props) => {
                     <b>Client Name</b>
                   </span>
                 </div>
-                <div style={{width:'90.6%'}}>
-              <Select
-                name="cname"
-                options={options}
-                value={value}
-                onChange={setValue}
-                getOptionLabel={(option) => option.clientName}
-                getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
-              />
+                <div className="form-control"
+              style={{padding:'0', borderRadius:'100%'}}>
+<Select
 
+
+              name="cname"
+              options={options}
+              value={value}
+              onChange={setValue}
+              getOptionLabel={(option) => option.clientName}
+              getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
+            />
               </div>
                 {/* <input
                   name="cname"

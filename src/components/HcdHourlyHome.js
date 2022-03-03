@@ -149,22 +149,25 @@ const HCDHourlyHome = (props) => {
         <section className="mt-1" sty>
           <div className="row task__container">
             <div className="input-group mb-3">
-              <div className="input-group-prepend">
+              <div className="input-group-inline">
                 <span className="input-group-text" id="inputGroup-sizing-default">
                   <b>Client Name</b>
                 </span>
               </div>
-              <div style={{width:'90.6%'}}>
-              <Select
-        name="cname"
-        options={options}
-        value={value}
-        onChange={setValue}
-        getOptionLabel={(option) => option.clientName}
-        getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
-      />
+              <div className="form-control"
+              style={{padding:'0', borderRadius:'100%'}}>
+<Select
 
+
+              name="cname"
+              options={options}
+              value={value}
+              onChange={setValue}
+              getOptionLabel={(option) => option.clientName}
+              getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
+            />
               </div>
+
               {/* <input
               name="cname"
                 type="text"
