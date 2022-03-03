@@ -139,7 +139,8 @@ const HCDHourlyHome = (props) => {
             <div className="input-group mb-3">
               <div className="input-group-inline">
                 <span className="input-group-text" id="inputGroup-sizing-default">
-                  <b>Client Name</b>
+                  <b>Client Name</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                 </span>
               </div>
               <div className="form-control"
@@ -168,11 +169,12 @@ const HCDHourlyHome = (props) => {
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-default">
-                  <b>Hiring Manager for coMakeIT</b>
+                  <b>Hiring Manager for coMakeIT</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                 </span>
               </div>
               <input
-              name="mname"
+                name="mname"
                 type="text"
                 className="form-control"
                 aria-label="Default"
@@ -184,7 +186,8 @@ const HCDHourlyHome = (props) => {
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span className="input-group-text" id="inputGroup-sizing-default">
-                  <b>Designation of Hiring Manager</b>
+                  <b>Designation of Hiring Manager</b>&nbsp;
+                    <i style={{color:'red'}}>*</i>
                 </span>
               </div>
               <input
@@ -251,7 +254,8 @@ const HCDHourlyHome = (props) => {
         }}
       >
       <i className="fas fa-plus me-2"></i>
-        Add Employee
+        Add Employee&nbsp;
+                    <i style={{color:'red'}}>*</i>
       </button>
       {modalOpen && <HcdHourlyForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome}   />}
           </div>
