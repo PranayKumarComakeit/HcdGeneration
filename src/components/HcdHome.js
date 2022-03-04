@@ -33,22 +33,20 @@ const HcdHome = (props) => {
     forceUpdate();
     //console.log(empdata);
   };
-  const findindex=(obj)=>{
-     for(let i=0;i<empdata.length;i++)
-     {
-       if(empdata[i].candidatename===obj.candidatename)
-       return i;
-     }
+  const findindex = (obj) => {
+    for (let i = 0; i < empdata.length; i++) {
+      if (empdata[i].candidatename === obj.candidatename)
+        return i;
+    }
   }
-  const deletedata=(data)=>{
-    let index= findindex(data);
+  const deletedata = (data) => {
+    let index = findindex(data);
 
     if (index > -1) {
       empdata.splice(index, 1);
     }
     setempdata(empdata);
-    if(empdata.length===0)
-    {
+    if (empdata.length === 0) {
       setcondition(false);
     }
     forceUpdate();
@@ -88,18 +86,19 @@ const HcdHome = (props) => {
     let sign = signature.length
     // console.log(sign)
     let edata = empdata.length
-    if (cname !== "" && managername !== "" && mDesignation !== "" && sign!==0 && edata!==0) {
+    if (cname !== "" && managername !== "" && mDesignation !== "" && sign !== 0 && edata !== 0) {
       props.datatoApp(data);
       navigate("/OpenTemplate");
 
     }
-    else{
+    else {
       event.preventDefault();
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Please Enter all the required* feilds',
-      })    }
+      })
+    }
   };
 
   const [value, setValue] = useState("");
@@ -131,7 +130,7 @@ const HcdHome = (props) => {
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
-        style={{maxWidth:'100%'}}
+        style={{ maxWidth: '100%' }}
       >
         <div>
           <div
@@ -144,7 +143,7 @@ const HcdHome = (props) => {
               className="navbar-brand fw-bold text-lg"
               id="mainText"
               to="/"
-              style={{ marginLeft: "50px", color:'yellow' }}
+              style={{ marginLeft: "50px", color: 'yellow' }}
             >
               HCD Open
             </Link>
@@ -182,21 +181,21 @@ const HcdHome = (props) => {
                     id="inputGroup-sizing-default"
                   >
                     <b>Client Name </b>&nbsp;
-                    <i style={{color:'red'}}>*</i>
+                    <i style={{ color: 'red' }}>*</i>
                   </span>
                 </div>
                 <div className="form-control"
-              style={{padding:'0', borderRadius:'100%'}}>
-            <Select
-              name="cname"
-              options={options}
-              value={value}
-              placeholder="Select Client Name"
-              onChange={setValue}
-              getOptionLabel={(option) => option.clientName}
-              getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
-            />
-              </div>
+                  style={{ padding: '0', borderRadius: '100%' }}>
+                  <Select
+                    name="cname"
+                    options={options}
+                    value={value}
+                    placeholder="Select Client Name"
+                    onChange={setValue}
+                    getOptionLabel={(option) => option.clientName}
+                    getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
+                  />
+                </div>
                 {/* <input
                   name="cname"
                   type="text"
@@ -215,7 +214,7 @@ const HcdHome = (props) => {
                     id="inputGroup-sizing-default"
                   >
                     <b>Hiring Manager for coMakeIT</b>&nbsp;
-                    <i style={{color:'red'}}>*</i>
+                    <i style={{ color: 'red' }}>*</i>
                   </span>
                 </div>
                 <input
@@ -235,7 +234,7 @@ const HcdHome = (props) => {
                     id="inputGroup-sizing-default"
                   >
                     <b>Designation of Hiring Manager</b>&nbsp;
-                    <i style={{color:'red'}}>*</i>
+                    <i style={{ color: 'red' }}>*</i>
                   </span>
                 </div>
                 <input
@@ -303,7 +302,7 @@ const HcdHome = (props) => {
                               element.tentativestartdate[3]}
                           </td>
                           <td>{element.remarks}</td>
-                        <td style={{  border:'0px', borderColor:'#ebf2ff', padding:'0', margin:'0px'}}><i style={{paddingLeft:'50px', paddingTop:'10px'}} onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
+                          <td style={{ border: '0px', borderColor: '#ebf2ff', padding: '0', margin: '0px' }}><i style={{ paddingLeft: '50px', paddingTop: '10px' }} onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
                         </tr>
                       );
                     })}
@@ -326,7 +325,7 @@ const HcdHome = (props) => {
               >
                 <i className="fas fa-plus me-2"></i>
                 Add Employee&nbsp;
-                    <i style={{color:'red'}}>*</i>
+                <i style={{ color: 'red' }}>*</i>
               </button>
               {modalOpen && (
                 <HcdForm
@@ -346,7 +345,7 @@ const HcdHome = (props) => {
           </button>
         </form>
       </div>
-      <Toaster/>
+      <Toaster />
     </>
   );
 };
