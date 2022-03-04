@@ -47,6 +47,10 @@ const HcdHome = (props) => {
       empdata.splice(index, 1);
     }
     setempdata(empdata);
+    if(empdata.length===0)
+    {
+      setcondition(false);
+    }
     forceUpdate();
     console.log(index);
   }
@@ -299,7 +303,7 @@ const HcdHome = (props) => {
                               element.tentativestartdate[3]}
                           </td>
                           <td>{element.remarks}</td>
-                        <td style={{ width:'50px', border:'0', borderColor:'#ebf2ff'}}><i onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
+                        <td style={{  border:'0px', borderColor:'#ebf2ff', padding:'0', margin:'0px'}}><i style={{paddingLeft:'50px', paddingTop:'10px'}} onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
                         </tr>
                       );
                     })}
