@@ -6,6 +6,8 @@ import Select from "react-select";
 import Swal from "sweetalert2";
 import shortid from "shortid";
 import toast, { Toaster } from 'react-hot-toast';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Link, useNavigate } from "react-router-dom";
 const HcdHome = (props) => {
   const navigate = useNavigate();
@@ -40,7 +42,7 @@ const HcdHome = (props) => {
   }
   const deletedata=(data)=>{
     let index= findindex(data);
-    
+
     if (index > -1) {
       empdata.splice(index, 1);
     }
@@ -297,7 +299,7 @@ const HcdHome = (props) => {
                               element.tentativestartdate[3]}
                           </td>
                           <td>{element.remarks}</td>
-                        <td><button onClick={() => deletedata(element)}><i style={{color:'red'}} className="fa-solid fa-circle-trash"></i></button></td>
+                        <td style={{ width:'50px', border:'0', borderColor:'#ebf2ff'}}><i onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
                         </tr>
                       );
                     })}
