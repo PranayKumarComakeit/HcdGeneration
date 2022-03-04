@@ -4,6 +4,8 @@ import ImageUploader from "react-images-upload";
 import HcdTemplate from "../components/HcdTemplate";
 import Select from "react-select";
 import Swal from "sweetalert2";
+import shortid from "shortid";
+import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from "react-router-dom";
 const HcdHome = (props) => {
   const navigate = useNavigate();
@@ -22,10 +24,30 @@ const HcdHome = (props) => {
     //console.log(data);
     empdata.unshift(data);
     setempdata(empdata);
+    toast.success('Employee added succesfully', {
+      position: 'bottom-center',
+    });
     setcondition(true);
     forceUpdate();
     //console.log(empdata);
   };
+  const findindex=(obj)=>{
+     for(let i=0;i<empdata.length;i++)
+     {
+       if(empdata[i].candidatename===obj.candidatename)
+       return i;
+     }
+  }
+  const deletedata=(data)=>{
+    let index= findindex(data);
+    
+    if (index > -1) {
+      empdata.splice(index, 1);
+    }
+    setempdata(empdata);
+    forceUpdate();
+    console.log(index);
+  }
   const onDrop = (picture) => {
     signature.unshift(picture[picture.length - 1]);
     setsignature(signature);
@@ -254,7 +276,7 @@ const HcdHome = (props) => {
                   <tbody>
                     {empdata.map((element) => {
                       return (
-                        <tr className="table" key={element.name}>
+                        <tr className="table" key={shortid.generate}>
                           <td>{element.candidatename}</td>
                           <td>{element.grossSalary}</td>
                           <td>
@@ -275,6 +297,7 @@ const HcdHome = (props) => {
                               element.tentativestartdate[3]}
                           </td>
                           <td>{element.remarks}</td>
+                        <td><button onClick={() => deletedata(element)}><i style={{color:'red'}} className="fa-solid fa-circle-trash"></i></button></td>
                         </tr>
                       );
                     })}
@@ -317,6 +340,7 @@ const HcdHome = (props) => {
           </button>
         </form>
       </div>
+      <Toaster/>
     </>
   );
 };

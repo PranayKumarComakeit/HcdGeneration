@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdHourlyForm from "./HcdHourlyForm";
+import toast, { Toaster } from 'react-hot-toast';
 import './Modal.css'
 import Select from "react-select";
 import Swal from "sweetalert2";
@@ -25,6 +26,9 @@ const HCDHourlyHome = (props) => {
     //console.log(data);
     empdata.unshift(data);
     setempdata(empdata);
+    toast.success('Employee added succesfully', {
+      position: 'bottom-center',
+    });
     setcondition(true);
     forceUpdate();
     //console.log(empdata);
@@ -276,6 +280,7 @@ const HCDHourlyHome = (props) => {
           <button type="submit" className="btn btn-primary btn-dark" onClick={generatePdf}>Click Here to Download PDF</button>
         </form>
       </div>
+      <Toaster/>
     </>
   )
 }
