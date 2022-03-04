@@ -3,7 +3,7 @@ import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdTemplate from "../components/HcdTemplate";
 import Select from "react-select";
-
+import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 const HcdHome = (props) => {
   const navigate = useNavigate();
@@ -67,8 +67,11 @@ const HcdHome = (props) => {
     }
     else{
       event.preventDefault();
-      alert("Please enter the required fields")
-    }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please Enter all the required* feilds',
+      })    }
   };
 
   const [value, setValue] = useState("");

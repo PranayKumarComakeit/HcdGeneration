@@ -4,6 +4,7 @@ import ImageUploader from "react-images-upload";
 import HcdHourlyForm from "./HcdHourlyForm";
 import './Modal.css'
 import Select from "react-select";
+import Swal from "sweetalert2";
 import {
   Link, useNavigate
 } from "react-router-dom";
@@ -69,8 +70,11 @@ const HCDHourlyHome = (props) => {
     }
     else{
       event.preventDefault();
-      alert("Please enter the required fields")
-    }
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please Enter all the required* feilds',
+      })      }
   }
   const [value, setValue] = useState("");
   const options = [
