@@ -297,7 +297,7 @@ const HcdHome = (props) => {
                               element.tentativestartdate[3]}
                           </td>
                           <td>{element.remarks}</td>
-                        <td><button onClick={() => deletedata(element)}><i style={{color:'red'}} className="fa-solid fa-circle-trash"></i></button></td>
+                        <td><button onClick={() => deletedata(element)}><FontAwesomeIcon icon="fa-solid fa-circle-minus" /></button></td>
                         </tr>
                       );
                     })}
