@@ -42,7 +42,25 @@ const HCDHourlyHome = (props) => {
     seturl(URL.createObjectURL(signature[0]))
     console.log(url);
   };
-
+  const deletedata = (data) => {
+    let index = findindex(data);
+  
+    if (index > -1) {
+      empdata.splice(index, 1);
+    }
+    setempdata(empdata);
+    if (empdata.length === 0) {
+      setcondition(false);
+    }
+    forceUpdate();
+    console.log(index);
+  }
+  const findindex = (obj) => {
+    for (let i = 0; i < empdata.length; i++) {
+      if (empdata[i].candidatename === obj.candidatename)
+        return i;
+    }
+  }
   const onhiringmanagername = (e) => {
     sethiringmanagername(e.target.value)
   }
@@ -252,6 +270,7 @@ const HCDHourlyHome = (props) => {
                         {element.billableDate[8] + '' + element.billableDate[9] + '/' + element.billableDate[5] + '' + element.billableDate[6] + '/' + element.billableDate[0] + '' + element.billableDate[1] + '' + element.billableDate[2] + '' + element.billableDate[3]}
                         </td>
                         <td>{element.remarks}</td>
+                        <td style={{  border:'0px', borderColor:'#ebf2ff', padding:'0', margin:'0px'}}><i style={{paddingLeft:'50px', paddingTop:'10px'}} onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
                       </tr>
                     }
                     )
