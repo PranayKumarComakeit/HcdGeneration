@@ -1,12 +1,13 @@
 import React, { useState, use } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
-import {FontAwesomeIcon} from "react-fontawesome";
 import HcdTemplate from "../components/HcdTemplate";
 import Select from "react-select";
 import Swal from "sweetalert2";
 import shortid from "shortid";
 import toast, { Toaster } from 'react-hot-toast';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Link, useNavigate } from "react-router-dom";
 const HcdHome = (props) => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const HcdHome = (props) => {
   }
   const deletedata=(data)=>{
     let index= findindex(data);
-    
+
     if (index > -1) {
       empdata.splice(index, 1);
     }
@@ -302,7 +303,7 @@ const HcdHome = (props) => {
                               element.tentativestartdate[3]}
                           </td>
                           <td>{element.remarks}</td>
-                        <td><button type="button" class="btn btn-default btn-sm" onClick={() => deletedata(element)}><span className="glyphicon glyphicon-trash"></span></button></td>
+                        <td style={{  border:'0px', borderColor:'#ebf2ff', padding:'0', margin:'0px'}}><i style={{paddingLeft:'50px', paddingTop:'10px'}} onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
                         </tr>
                       );
                     })}
