@@ -1,6 +1,7 @@
 import React, { useState, use } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
+import {FontAwesomeIcon} from "react-fontawesome";
 import HcdTemplate from "../components/HcdTemplate";
 import Select from "react-select";
 import Swal from "sweetalert2";
@@ -45,6 +46,10 @@ const HcdHome = (props) => {
       empdata.splice(index, 1);
     }
     setempdata(empdata);
+    if(empdata.length===0)
+    {
+      setcondition(false);
+    }
     forceUpdate();
     console.log(index);
   }
@@ -297,7 +302,7 @@ const HcdHome = (props) => {
                               element.tentativestartdate[3]}
                           </td>
                           <td>{element.remarks}</td>
-                        <td><button onClick={() => deletedata(element)}><i style={{color:'red'}} className="fa-solid fa-circle-trash"></i></button></td>
+                        <td><button type="button" class="btn btn-default btn-sm" onClick={() => deletedata(element)}><span className="glyphicon glyphicon-trash"></span></button></td>
                         </tr>
                       );
                     })}
