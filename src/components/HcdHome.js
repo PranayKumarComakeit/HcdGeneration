@@ -258,9 +258,10 @@ const HcdHome = (props) => {
               </div>
 
               {condition && (
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
+                <table className="table table-striped caption-top table-hover">
+                  <caption>List of Employee's</caption>
+                  <thead >
+                    <tr className="table-dark">
                       <th>
                         <b>Candidate Name</b>
                       </th>
@@ -299,7 +300,7 @@ const HcdHome = (props) => {
                               element.tentativestartdate[3]}
                           </td>
                           <td>{element.remarks}</td>
-                          <td style={{ border: '0px', borderColor: '#ebf2ff', padding: '0', margin: '0px' }}><i style={{ paddingLeft: '50px', paddingTop: '10px' }} onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
+                          <td style={{ border: '0px', borderColor: '#ebf2ff', padding: '0', margin: '0px',cursor: "pointer"}}><i style={{ paddingLeft: '50px', paddingTop: '10px' }} onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
                         </tr>
                       );
                     })}
