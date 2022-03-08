@@ -159,7 +159,7 @@ const HCDHourlyHome = (props) => {
       <div className="container">
       <div className="d-flex justify-content-center" >
               <h1>HCD Hourly Format</h1>
-            </div>
+      </div>
         <section className="mt-4">
           <div className="row justify-content-center mt-4">
             <div className="col-md-6 col-lg-4 mt-3"></div>
@@ -187,17 +187,7 @@ const HCDHourlyHome = (props) => {
               getOptionLabel={(option) => option.clientName}
               getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
             />
-              </div>
-
-              {/* <input
-              name="cname"
-                type="text"
-                className="form-control"
-                aria-label="Default"
-                aria-describedby="inputGroup-sizing-default"
-                onChange={onclientnamechange}
-                required
-              /> */}
+          </div>
             </div>
 
             <div className="input-group mb-3">

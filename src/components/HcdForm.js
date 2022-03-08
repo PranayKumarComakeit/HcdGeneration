@@ -1,7 +1,7 @@
-import React, { PropTypes, Component, useState } from 'react'
+import React, { useState } from 'react'
 import HcdHome from './HcdHome';
 import './Modal.css'
-  const HcdForm = ( props) => {
+const HcdForm = ( props) => {
   const [clientname, setClientname] = useState("");
   const [candidatename, setCandidatename] = useState("");
   const [grossSalary, setGrossSalary] = useState("");
@@ -41,8 +41,8 @@ import './Modal.css'
   return (
     <>
 
-      <div className="modalBackground">
-    <div className="modalContainer">
+    <div className="modalBackground">
+      <div className="modalContainer">
         <div className="titleCloseBtn">
           <button
             onClick={() => {
@@ -56,7 +56,7 @@ import './Modal.css'
           <h1>Add Employee Details</h1>
         </div>
         <form class="row g-3 needs-validation" name="empForm" method='post' novalidate>
-        <div className="body">
+           <div className="body">
               <div className="mb-3">
                 <label className="form-label" htmlFor="validationCustom01">Candidate Name</label>
                 <input
