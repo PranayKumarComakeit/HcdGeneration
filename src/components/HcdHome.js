@@ -1,14 +1,12 @@
 import React, { useState, use } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
-import HcdTemplate from "../components/HcdTemplate";
 import Select from "react-select";
 import Swal from "sweetalert2";
 import shortid from "shortid";
 import toast, { Toaster } from 'react-hot-toast';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { Link, useNavigate } from "react-router-dom";
+
 const HcdHome = (props) => {
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,7 +19,6 @@ const HcdHome = (props) => {
   const [hiringmanagername, sethiringmanagername] = useState("");
   const [Mdesignation, setMdesignation] = useState("");
   const [filename, setfilename] = useState("");
-  const [clicked, setclicked] = useState(false);
   const datatohcdhome = (data) => {
     //console.log(data);
     empdata.unshift(data);
@@ -104,23 +101,23 @@ const HcdHome = (props) => {
   const [value, setValue] = useState("");
   const options = [
     {
-      detterCode: "121",
+      debtorCode: "121",
       clientName: "FLYER"
     },
     {
-      detterCode: "122",
+      debtorCode: "122",
       clientName: "VP-FISCAL"
     },
     {
-      detterCode: "123",
+      debtorCode: "123",
       clientName: "VP-BMS"
     },
     {
-      detterCode: "124",
+      debtorCode: "124",
       clientName: "RAM TECH"
     },
     {
-      detterCode: "125",
+      debtorCode: "125",
       clientName: "FIC"
     }
     // ...
