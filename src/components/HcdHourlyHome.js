@@ -236,9 +236,10 @@ const HCDHourlyHome = (props) => {
            </div>
 
             {
-              condition && <table className="table table-striped" id="empTable">
+              condition && <table className="table table-striped caption-top table-hover" id="empTable">
+                <caption>List of Employee's</caption>
                 <thead>
-                  <tr>
+                  <tr className="table-dark">
                     <th><b>Candidate Name</b></th>
                     <th><b>Role</b></th>
                     <th><b>Hourly Rate</b></th>
