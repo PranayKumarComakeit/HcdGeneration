@@ -15,8 +15,9 @@ const HcdHourlyTemplate = (props) => {
 
   var today = dd + '/' + mm + '/' + yyyy;
     const downloadPdf = () => {
-        var c = (document.getElementById("button").style.display = "none");
-        window.print();
+      var c = (document.getElementById("button").style.display = "none");
+      window.print();
+      var c = (document.getElementById("button").style.display = "block");
       };
       return (
         <>
