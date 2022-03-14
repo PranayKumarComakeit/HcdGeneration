@@ -11,6 +11,7 @@ import { Routes, Route } from 'react-router-dom';
 import HcdHourlyHome from './components/HcdHourlyHome';
 import HcdHourlyForm from './components/HcdHourlyForm';
 import HCDHourlyTemplate from './components/HCDHourlyTemplate';
+import ErrorPage from './components/ErrorPage';
 function App() {
   const [data, setEmpdata] = useState({});
   const [condition, setcondition] = useState(false);
@@ -20,14 +21,15 @@ function App() {
   }
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter>
       <Routes>
       <Route exact path="/" element={<HcdHome datatoApp={datatoApp} />}/>
          <Route exact path="/HCDHourly" element={<HcdHourlyHome datatoApp={datatoApp} />}/>
          <Route exact path="/OpenTemplate" element={<HcdTemplate data={data} condition={"Pranay"}/>}/>
          <Route exact path="/HourlyTemplate" element={<HCDHourlyTemplate data={data} condition={"Pranay"}/>}/>
       </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <ErrorPage />
 {/* {!condition && <HcdHome datatoApp={datatoApp} />}
       {condition && <HcdTemplate data={data} condition={"Pranay"}/>}
        */}
