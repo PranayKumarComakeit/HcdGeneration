@@ -21,15 +21,16 @@ function App() {
   }
   return (
     <div className="App">
-      {/* <BrowserRouter>
+      <BrowserRouter>
       <Routes>
       <Route exact path="/" element={<HcdHome datatoApp={datatoApp} />}/>
          <Route exact path="/HCDHourly" element={<HcdHourlyHome datatoApp={datatoApp} />}/>
-         <Route exact path="/OpenTemplate" element={<HcdTemplate data={data} condition={"Pranay"}/>}/>
-         <Route exact path="/HourlyTemplate" element={<HCDHourlyTemplate data={data} condition={"Pranay"}/>}/>
+         <Route exact path="/OpenTemplate" element={<HcdTemplate data={data} />}/>
+         <Route exact path="/HourlyTemplate" element={<HCDHourlyTemplate data={data} />}/>
+         <Route exact path="/Error" element={<ErrorPage />}/>
       </Routes>
-      </BrowserRouter> */}
-      <ErrorPage />
+      </BrowserRouter>
+
 {/* {!condition && <HcdHome datatoApp={datatoApp} />}
       {condition && <HcdTemplate data={data} condition={"Pranay"}/>}
        */}
