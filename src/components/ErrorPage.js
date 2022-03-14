@@ -2,10 +2,10 @@ import React from 'react'
 import './Error.css'
 const ErrorPage = () => {
   return (
-    <div className='container'>
-        
+    <div >
+
        <svg id="mainImage_create" data-name="mainImage" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.2 81.5">
-          
+
           <path id="c-1" className="changeColor cls-1" d="M46.62,52.5c5.78,4.9,21.14,8.4,39.19,8.4s33.41-3.5,39.19-8.4c-5.78-4.9-21.14-8.4-39.19-8.4S52.41,47.6,46.62,52.5Z" style={{fill: 'rgb(71, 120, 212)'}}></path>
           <path className="cls-2" d="M99.73,47.71H68.65a7.13,7.13,0,0,0-7.13,7.13V60a152.58,152.58,0,0,0,24.3,1.83,157.87,157.87,0,0,0,21.05-1.35V54.84A7.13,7.13,0,0,0,99.73,47.71Z"></path>
           <path className="cls-3" d="M123.56,55.81C115,58.94,101.27,61,85.81,61c-26,0-47-5.71-47-12.76,0-3.45,5.05-6.58,13.25-8.88"></path>
@@ -73,8 +73,8 @@ const ErrorPage = () => {
           <text id="title" transform="matrix(1 0 0 1 44.7249 78)">404 Page not found</text>
         </svg>
 
-       
-      
+
+
     </div>
   )
 }
