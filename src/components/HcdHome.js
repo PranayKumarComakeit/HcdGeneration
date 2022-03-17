@@ -67,17 +67,23 @@ const HcdHome = (props) => {
   const onMdesignation = (e) => {
     setMdesignation(e.target.value);
   };
+  const [debtorcode, setdebtorcode] = useState([]);
   const data = {
     clientname: clientname,
     hiringmanagername: hiringmanagername,
     Mdesignation: Mdesignation,
     empdata: empdata,
     url: url,
+    debtorcode: debtorcode
   };
   const generatePdf = (event) => {
     let cname = document.forms["homeform"]["cname"].value;
     clientname.unshift(cname);
     setclientname(clientname)
+    let option = options.find(option => option.clientName === cname)
+    debtorcode.unshift(option.debtorCode)
+    setdebtorcode(debtorcode)
+    //alert(debtorcode)
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation = document.forms["homeform"]["mDesignation"].value;
     let sign = signature.length

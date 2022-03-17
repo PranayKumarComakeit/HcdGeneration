@@ -44,7 +44,7 @@ const HCDHourlyHome = (props) => {
   };
   const deletedata = (data) => {
     let index = findindex(data);
-  
+
     if (index > -1) {
       empdata.splice(index, 1);
     }
@@ -67,19 +67,26 @@ const HCDHourlyHome = (props) => {
   const onMdesignation = (e) => {
     setMdesignation(e.target.value)
   }
+  const [debtorcode, setdebtorcode] = useState([]);
   const data={
       clientname:clientname,
       hiringmanagername:hiringmanagername,
       Mdesignation:Mdesignation,
       empdata:empdata,
-      url:url
+      url:url,
+      debtorcode:debtorcode
   }
+
+
   const generatePdf = (event) => {
     let cname = document.forms["homeform"]["cname"].value;
-    // alert(cname)
+
     clientname.unshift(cname);
     setclientname(clientname)
-    // alert(clientname)
+    let option = options.find(option => option.clientName === cname)
+    debtorcode.unshift(option.debtorCode)
+    setdebtorcode(debtorcode)
+
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation=document.forms["homeform"]["mDesignation"].value;
     let sign = signature.length
@@ -96,28 +103,31 @@ const HCDHourlyHome = (props) => {
         icon: 'error',
         title: 'Oops...',
         text: 'Please Enter all the required* feilds',
-      })      }
+      })
+
+
+    }
   }
   const [value, setValue] = useState("");
   const options = [
     {
-      detterCode: "121",
+      debtorCode: "121",
       clientName: "FLYER"
     },
     {
-      detterCode: "122",
+      debtorCode: "122",
       clientName: "VP-FISCAL"
     },
     {
-      detterCode: "123",
+      debtorCode: "123",
       clientName: "VP-BMS"
     },
     {
-      detterCode: "124",
+      debtorCode: "124",
       clientName: "RAM TECH"
     },
     {
-      detterCode: "125",
+      debtorCode: "125",
       clientName: "FIC"
     }
     // ...
