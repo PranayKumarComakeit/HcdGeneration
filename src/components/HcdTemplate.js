@@ -34,7 +34,7 @@ function HcdTemplate(props) {
         >
           <div className="row">
             <div className="d-flex justify-content-start" style={{ color: '#D3D3D3' }}>
-              <b> HR/F/8</b>
+              <b> HR/F/{props.data.debtorcode}</b>
             </div>
             <div className="d-flex justify-content-end">
               <img
@@ -171,7 +171,7 @@ function HcdTemplate(props) {
 
         </div>
 
-        
+
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
