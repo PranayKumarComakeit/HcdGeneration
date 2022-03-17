@@ -44,7 +44,7 @@ const HcdHourlyTemplate = (props) => {
               <div className="row">
 
               <div className="d-flex justify-content-start" style={{color:'#D3D3D3'}}>
-            <b> HR/F/{props.data.debtorcode}</b>  <br /> <br />
+            <b> HR/F/{props.data.debtorcode[0]}</b>  <br /> <br />
             </div>
                 <div className="d-flex justify-content-start">
                   Date: <b>&nbsp;{today}</b> <br /> <br />

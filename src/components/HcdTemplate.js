@@ -34,7 +34,7 @@ function HcdTemplate(props) {
         >
           <div className="row">
             <div className="d-flex justify-content-start" style={{ color: '#D3D3D3' }}>
-              <b> HR/F/{props.data.debtorcode}</b>
+              <b> HR/F/{props.data.debtorcode[0]}</b>
             </div>
             <div className="d-flex justify-content-end">
               <img

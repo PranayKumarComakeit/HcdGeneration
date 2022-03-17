@@ -81,8 +81,9 @@ const HcdHome = (props) => {
     clientname.unshift(cname);
     setclientname(clientname)
     let option = options.find(option => option.clientName === cname)
-
-    setdebtorcode(option.debtorCode)
+    debtorcode.unshift(option.debtorCode)
+    setdebtorcode(debtorcode)
+    //alert(debtorcode)
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation = document.forms["homeform"]["mDesignation"].value;
     let sign = signature.length
