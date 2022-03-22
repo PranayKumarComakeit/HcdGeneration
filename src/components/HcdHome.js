@@ -81,7 +81,7 @@ const HcdHome = (props) => {
     clientname.unshift(cname);
     setclientname(clientname)
     let option = options.find(option => option.clientName === cname)
-    console.log(option)
+
 
     //alert(debtorcode)
     let managername = document.forms["homeform"]["mname"].value;
