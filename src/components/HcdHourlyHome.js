@@ -84,8 +84,7 @@ const HCDHourlyHome = (props) => {
     clientname.unshift(cname);
     setclientname(clientname)
     let option = options.find(option => option.clientName === cname)
-    debtorcode.unshift(option.debtorCode)
-    setdebtorcode(debtorcode)
+
 
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation=document.forms["homeform"]["mDesignation"].value;
@@ -93,6 +92,8 @@ const HCDHourlyHome = (props) => {
     // console.log(sign)
     let edata = empdata.length
     if(cname!=="" && managername!=="" && mDesignation!=="" && sign!==0 && edata!== 0){
+      debtorcode.unshift(option.debtorCode)
+    setdebtorcode(debtorcode)
 
       props.datatoApp(data);
       navigate("/HourlyTemplate")
