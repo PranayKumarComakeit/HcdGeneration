@@ -81,15 +81,17 @@ const HcdHome = (props) => {
     clientname.unshift(cname);
     setclientname(clientname)
     let option = options.find(option => option.clientName === cname)
-    debtorcode.unshift(option.debtorCode)
-    setdebtorcode(debtorcode)
+    console.log(option)
+
     //alert(debtorcode)
     let managername = document.forms["homeform"]["mname"].value;
     let mDesignation = document.forms["homeform"]["mDesignation"].value;
     let sign = signature.length
     // console.log(sign)
     let edata = empdata.length
-    if (cname !== "" && managername !== "" && mDesignation !== "" && sign !== 0 && edata !== 0) {
+    if (cname !== "" && managername !== "" && mDesignation !== "" && sign !== 0 && edata !== 0 ) {
+      debtorcode.unshift(option.debtorCode)
+    setdebtorcode(debtorcode)
       props.datatoApp(data);
       navigate("/OpenTemplate");
 
