@@ -31,7 +31,7 @@ function App() {
          <Route exact path="/Error" element={<ErrorPage />}/>
       </Routes>
       </BrowserRouter>
-</AuthState>
+      </AuthState>
     </div>
   );
 }
