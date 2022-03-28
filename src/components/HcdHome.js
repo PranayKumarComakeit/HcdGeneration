@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, use } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import Select from "react-select";
@@ -6,20 +6,8 @@ import Swal from "sweetalert2";
 import shortid from "shortid";
 import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from "react-router-dom";
-import authContext from "../contexts/authContext";
+
 const HcdHome = (props) => {
-  const context = useContext(authContext);
-  const { getKeyAndToken } = context;
-  useEffect(() => {
-    getKeyAndToken();
-    // eslint-disable-next-line
-  }, []);
-
-
-
-
-
-
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
@@ -28,8 +16,7 @@ const HcdHome = (props) => {
   const [clientname, setclientname] = useState([]);
   const [condition, setcondition] = useState(false);
   const forceUpdate = React.useReducer((bool) => !bool)[1];
-  const [hiringmanagername, sethiringmanagername] = useState("");
-  const [Mdesignation, setMdesignation] = useState("");
+  const [hiringmanagername, sethiringmanagername] = useState([]);
   const [filename, setfilename] = useState("");
   const datatohcdhome = (data) => {
     //console.log(data);
@@ -70,40 +57,36 @@ const HcdHome = (props) => {
     seturl(URL.createObjectURL(signature[0]));
     console.log(url);
   };
-  const onclientnamechange = (e) => {
-    setclientname(e.target.value);
-  };
-  const onhiringmanagername = (e) => {
-    sethiringmanagername(e.target.value);
-  };
-  const onMdesignation = (e) => {
-    setMdesignation(e.target.value);
-  };
+  
   const [debtorcode, setdebtorcode] = useState([]);
+  const [designation, setdesignation] = useState([]);
   const data = {
     clientname: clientname,
-    hiringmanagername: hiringmanagername,
-    Mdesignation: Mdesignation,
     empdata: empdata,
     url: url,
-    debtorcode: debtorcode
+    debtorcode: debtorcode,
+    hiringmanagername: hiringmanagername,
+    designation:designation
   };
   const generatePdf = (event) => {
     let cname = document.forms["homeform"]["cname"].value;
     clientname.unshift(cname);
     setclientname(clientname)
+    let mname = document.forms["homeform"]["mname"].value;
+    hiringmanagername.unshift(mname);
+    sethiringmanagername(hiringmanagername)
     let option = options.find(option => option.clientName === cname)
-
-
-    //alert(debtorcode)
-    let managername = document.forms["homeform"]["mname"].value;
-    let mDesignation = document.forms["homeform"]["mDesignation"].value;
+    let hoption = hoptions.find(option => option.hmname === mname)
+    
     let sign = signature.length
     // console.log(sign)
     let edata = empdata.length
-    if (cname !== "" && managername !== "" && mDesignation !== "" && sign !== 0 && edata !== 0 ) {
+    if (cname !== "" && mname !== ""  && sign !== 0 && edata !== 0 ) {
+      
       debtorcode.unshift(option.debtorCode)
     setdebtorcode(debtorcode)
+    designation.unshift(hoption.hmdesignation)
+    setdesignation(designation)
       props.datatoApp(data);
       navigate("/OpenTemplate");
 
@@ -142,9 +125,24 @@ const HcdHome = (props) => {
     }
     // ...
   ];
+  const [hval, setHval] = useState("");
+  const hoptions = [
+    {
+      hmname: "Ganesh A K",
+      hmdesignation: "Associate Director"
+    },
+    {
+      hmname: "Sanjay A",
+      hmdesignation: "VP"
+    },
+    {
+      hmname: "Jyothsna M S",
+      hmdesignation: "SVP"
+    }
+    // ...
+  ];
   return (
     <>
-
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
@@ -214,57 +212,33 @@ const HcdHome = (props) => {
                     getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
                   />
                 </div>
-                {/* <input
-                  name="cname"
-                  type="text"
-                  className="form-control"
-                  aria-label="Default"
-                  aria-describedby="inputGroup-sizing-default"
-                  onChange={onclientnamechange}
-                  required
-                /> */}
+               
               </div>
-
               <div className="input-group mb-3">
-                <div className="input-group-prepend">
+                <div className="input-group-prepend" >
                   <span
                     className="input-group-text"
                     id="inputGroup-sizing-default"
                   >
-                    <b>Hiring Manager for coMakeIT</b>&nbsp;
+                    <b>Hiring Manager Name </b>&nbsp;
                     <i style={{ color: 'red' }}>*</i>
                   </span>
                 </div>
-                <input
-                  name="mname"
-                  type="text"
-                  className="form-control"
-                  aria-label="Default"
-                  aria-describedby="inputGroup-sizing-default"
-                  onChange={onhiringmanagername}
-                  required
-                />
-              </div>
-              <div className="input-group mb-3">
-                <div className="input-group-prepend">
-                  <span
-                    className="input-group-text"
-                    id="inputGroup-sizing-default"
-                  >
-                    <b>Designation of Hiring Manager</b>&nbsp;
-                    <i style={{ color: 'red' }}>*</i>
-                  </span>
+                <div className="form-control"
+                  style={{ padding: '0', borderRadius: '100%' }}>
+                  <Select
+                    name="mname"
+                    options={hoptions}
+                    value={hval}
+                    placeholder="Select Hiring Manager Name"
+                    onChange={setHval}
+                    getOptionLabel={(option) => option.hmname}
+                    getOptionValue={(option) => option.hmname} // It should be unique value in the options. E.g. ID
+                  />
                 </div>
-                <input
-                  name="mDesignation"
-                  type="text"
-                  className="form-control"
-                  aria-label="Default"
-                  aria-describedby="inputGroup-sizing-default"
-                  onChange={onMdesignation}
-                  required
-                />
+               
               </div>
+              
               <div className="container">
                 <ImageUploader
                   withIcon={true}

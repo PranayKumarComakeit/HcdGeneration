@@ -121,8 +121,8 @@ const HcdHourlyTemplate = (props) => {
                       }}
                     />
                     <br /> <br />
-                    Name: <b>{props.data.hiringmanagername}</b> <br />
-                    Designation: <b>{props.data.Mdesignation}</b> <br />
+                    Name: <b>{props.data.hiringmanagername[0]}</b> <br />
+                    Designation: <b>{props.data.designation[0]}</b> <br />
                   </div>
                 </div>
                 <div className="col-2"></div>

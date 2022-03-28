@@ -12,16 +12,15 @@ import {
 const HCDHourlyHome = (props) => {
   const navigate = useNavigate();
     const [modalOpen, setModalOpen] = useState(false);
-  const [showEmp, setShowEmp] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
   const [signature, setsignature] = useState([]);
   const [clientname, setclientname] = useState([]);
   const [condition, setcondition] = useState(false);
   const forceUpdate = React.useReducer(bool => !bool)[1];
-  const [hiringmanagername, sethiringmanagername] = useState("");
-  const [Mdesignation, setMdesignation] = useState("");
+  const [hiringmanagername, sethiringmanagername] = useState([]);
   const [filename, setfilename] = useState("");
+  const [designation, setdesignation] = useState([]);
   const datatohcdhome = (data) => {
     //console.log(data);
     empdata.unshift(data);
@@ -61,39 +60,35 @@ const HCDHourlyHome = (props) => {
         return i;
     }
   }
-  const onhiringmanagername = (e) => {
-    sethiringmanagername(e.target.value)
-  }
-  const onMdesignation = (e) => {
-    setMdesignation(e.target.value)
-  }
   const [debtorcode, setdebtorcode] = useState([]);
-  const data={
-      clientname:clientname,
-      hiringmanagername:hiringmanagername,
-      Mdesignation:Mdesignation,
-      empdata:empdata,
-      url:url,
-      debtorcode:debtorcode
-  }
-
+  const data = {
+    clientname: clientname,
+    empdata: empdata,
+    url: url,
+    debtorcode: debtorcode,
+    hiringmanagername: hiringmanagername,
+    designation:designation
+  };
 
   const generatePdf = (event) => {
     let cname = document.forms["homeform"]["cname"].value;
 
     clientname.unshift(cname);
     setclientname(clientname)
+    let mname = document.forms["homeform"]["mname"].value;
+    hiringmanagername.unshift(mname);
+    sethiringmanagername(hiringmanagername)
     let option = options.find(option => option.clientName === cname)
-
-
-    let managername = document.forms["homeform"]["mname"].value;
-    let mDesignation=document.forms["homeform"]["mDesignation"].value;
+    let hoption = hoptions.find(option => option.hmname === mname)
     let sign = signature.length
     // console.log(sign)
     let edata = empdata.length
-    if(cname!=="" && managername!=="" && mDesignation!=="" && sign!==0 && edata!== 0){
+    if(cname!=="" && mname!=="" && sign!==0 && edata!== 0){
       debtorcode.unshift(option.debtorCode)
-    setdebtorcode(debtorcode)
+      setdebtorcode(debtorcode);
+
+      designation.unshift(hoption.hmdesignation)
+      setdesignation(designation)
 
       props.datatoApp(data);
       navigate("/HourlyTemplate")
@@ -130,6 +125,22 @@ const HCDHourlyHome = (props) => {
     {
       debtorCode: "125",
       clientName: "FIC"
+    }
+    // ...
+  ];
+  const [hval, setHval] = useState("");
+  const hoptions = [
+    {
+      hmname: "Ganesh A K",
+      hmdesignation: "Associate Director"
+    },
+    {
+      hmname: "Sanjay A",
+      hmdesignation: "VP"
+    },
+    {
+      hmname: "Jyothsna M S",
+      hmdesignation: "SVP"
     }
     // ...
   ];
@@ -200,41 +211,30 @@ const HCDHourlyHome = (props) => {
             />
           </div>
             </div>
-
             <div className="input-group mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-default">
-                  <b>Hiring Manager for coMakeIT</b>&nbsp;
-                    <i style={{color:'red'}}>*</i>
-                </span>
+                <div className="input-group-prepend" >
+                  <span
+                    className="input-group-text"
+                    id="inputGroup-sizing-default"
+                  >
+                    <b>Hiring Manager Name </b>&nbsp;
+                    <i style={{ color: 'red' }}>*</i>
+                  </span>
+                </div>
+                <div className="form-control"
+                  style={{ padding: '0', borderRadius: '100%' }}>
+                  <Select
+                    name="mname"
+                    options={hoptions}
+                    value={hval}
+                    placeholder="Select Hiring Manager Name"
+                    onChange={setHval}
+                    getOptionLabel={(option) => option.hmname}
+                    getOptionValue={(option) => option.hmname} // It should be unique value in the options. E.g. ID
+                  />
+                </div>
+               
               </div>
-              <input
-                name="mname"
-                type="text"
-                className="form-control"
-                aria-label="Default"
-                aria-describedby="inputGroup-sizing-default"
-                onChange={onhiringmanagername}
-                required
-              />
-            </div>
-            <div className="input-group mb-3">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroup-sizing-default">
-                  <b>Designation of Hiring Manager</b>&nbsp;
-                    <i style={{color:'red'}}>*</i>
-                </span>
-              </div>
-              <input
-              name="mDesignation"
-                type="text"
-                className="form-control"
-                aria-label="Default"
-                aria-describedby="inputGroup-sizing-default"
-                onChange={onMdesignation}
-                required
-              />
-            </div>
            <div className="container">
            <ImageUploader
               withIcon={true}
