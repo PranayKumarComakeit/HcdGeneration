@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import HcdHome from './components/HcdHome';
 import HcdTemplate from './components/HcdTemplate';
@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import { Routes, Route } from 'react-router-dom';
 import HcdHourlyHome from './components/HcdHourlyHome';
-import HcdHourlyForm from './components/HcdHourlyForm';
 import HCDHourlyTemplate from './components/HCDHourlyTemplate';
 import ErrorPage from './components/ErrorPage';
 import AuthState from './contexts/AuthState';
@@ -25,18 +24,21 @@ function App() {
     <AuthState>
       <BrowserRouter>
       <Routes>
-      <Route exact path="/" element={<HcdHome datatoApp={datatoApp} />}/>
+         <Route exact path="/" element={<HcdHome datatoApp={datatoApp} />}/>
          <Route exact path="/HCDHourly" element={<HcdHourlyHome datatoApp={datatoApp} />}/>
          <Route exact path="/OpenTemplate" element={<HcdTemplate data={data} />}/>
          <Route exact path="/HourlyTemplate" element={<HCDHourlyTemplate data={data} />}/>
          <Route exact path="/Error" element={<ErrorPage />}/>
       </Routes>
       </BrowserRouter>
+<<<<<<< HEAD
     </AuthState>
 
 {/* {!condition && <HcdHome datatoApp={datatoApp} />}
       {condition && <HcdTemplate data={data} condition={"Pranay"}/>}
        */}
+=======
+>>>>>>> 385a273710fba2d88c0b3d504985358ddcbff52a
     </div>
   );
 }
