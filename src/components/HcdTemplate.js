@@ -119,10 +119,10 @@ function HcdTemplate(props) {
                 />
                 <br /><br />
                 Name:
-                <b>{props.data.hiringmanagername}</b>
+                <b>{props.data.hiringmanagername[0]}</b>
                 <br />
                 Designation:
-                <b>{props.data.Mdesignation}</b>
+                <b>{props.data.designation[0]}</b>
               </div>
             </div>
             <div className="col-2"></div>
