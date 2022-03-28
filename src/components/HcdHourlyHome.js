@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdHourlyForm from "./HcdHourlyForm";
@@ -6,10 +6,20 @@ import toast, { Toaster } from 'react-hot-toast';
 import './Modal.css'
 import Select from "react-select";
 import Swal from "sweetalert2";
+import authContext from "../contexts/authContext";
 import {
   Link, useNavigate
 } from "react-router-dom";
 const HCDHourlyHome = (props) => {
+  const context = useContext(authContext);
+  const { authFunc, clientData, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
+  useEffect(() => {
+    getKeyAndToken();
+    authFunc();
+    getClientDetails();
+    getManagerDetails();
+    // eslint-disable-next-line
+  }, []);
   const navigate = useNavigate();
     const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
@@ -79,7 +89,7 @@ const HCDHourlyHome = (props) => {
     hiringmanagername.unshift(mname);
     sethiringmanagername(hiringmanagername)
     let option = options.find(option => option.clientName === cname)
-    let hoption = hoptions.find(option => option.hmname === mname)
+    let hoption = hoptions.find(option => option.hiringManagerName === mname)
     let sign = signature.length
     // console.log(sign)
     let edata = empdata.length
@@ -87,7 +97,7 @@ const HCDHourlyHome = (props) => {
       debtorcode.unshift(option.debtorCode)
       setdebtorcode(debtorcode);
 
-      designation.unshift(hoption.hmdesignation)
+      designation.unshift(hoption.designation)
       setdesignation(designation)
 
       props.datatoApp(data);
@@ -105,45 +115,9 @@ const HCDHourlyHome = (props) => {
     }
   }
   const [value, setValue] = useState("");
-  const options = [
-    {
-      debtorCode: "121",
-      clientName: "FLYER"
-    },
-    {
-      debtorCode: "122",
-      clientName: "VP-FISCAL"
-    },
-    {
-      debtorCode: "123",
-      clientName: "VP-BMS"
-    },
-    {
-      debtorCode: "124",
-      clientName: "RAM TECH"
-    },
-    {
-      debtorCode: "125",
-      clientName: "FIC"
-    }
-    // ...
-  ];
+  const options = clientData
   const [hval, setHval] = useState("");
-  const hoptions = [
-    {
-      hmname: "Ganesh A K",
-      hmdesignation: "Associate Director"
-    },
-    {
-      hmname: "Sanjay A",
-      hmdesignation: "VP"
-    },
-    {
-      hmname: "Jyothsna M S",
-      hmdesignation: "SVP"
-    }
-    // ...
-  ];
+  const hoptions = managerData
   return (
     <>
       <nav
@@ -229,11 +203,11 @@ const HCDHourlyHome = (props) => {
                     value={hval}
                     placeholder="Select Hiring Manager Name"
                     onChange={setHval}
-                    getOptionLabel={(option) => option.hmname}
-                    getOptionValue={(option) => option.hmname} // It should be unique value in the options. E.g. ID
+                    getOptionLabel={(option) => option.hiringManagerName}
+                    getOptionValue={(option) => option.hiringManagerName} // It should be unique value in the options. E.g. ID
                   />
                 </div>
-               
+
               </div>
            <div className="container">
            <ImageUploader
