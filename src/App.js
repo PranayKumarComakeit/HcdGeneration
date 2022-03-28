@@ -11,6 +11,7 @@ import { Routes, Route } from 'react-router-dom';
 import HcdHourlyHome from './components/HcdHourlyHome';
 import HCDHourlyTemplate from './components/HCDHourlyTemplate';
 import ErrorPage from './components/ErrorPage';
+import AuthState from './contexts/AuthState';
 function App() {
   const [data, setEmpdata] = useState({});
   const [condition, setcondition] = useState(false);
@@ -20,6 +21,7 @@ function App() {
   }
   return (
     <div className="App">
+    <AuthState>
       <BrowserRouter>
       <Routes>
          <Route exact path="/" element={<HcdHome datatoApp={datatoApp} />}/>
@@ -29,6 +31,7 @@ function App() {
          <Route exact path="/Error" element={<ErrorPage />}/>
       </Routes>
       </BrowserRouter>
+      </AuthState>
     </div>
   );
 }

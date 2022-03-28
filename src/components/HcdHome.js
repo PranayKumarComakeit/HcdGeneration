@@ -1,4 +1,4 @@
-import React, { useState, use } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import Select from "react-select";
@@ -6,8 +6,20 @@ import Swal from "sweetalert2";
 import shortid from "shortid";
 import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from "react-router-dom";
-
+import authContext from "../contexts/authContext";
 const HcdHome = (props) => {
+  const context = useContext(authContext);
+  const { getKeyAndToken } = context;
+  useEffect(() => {
+    getKeyAndToken();
+    // eslint-disable-next-line
+  }, []);
+
+
+
+
+
+
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
@@ -149,6 +161,7 @@ const HcdHome = (props) => {
 
   return (
     <>
+
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
