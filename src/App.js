@@ -31,14 +31,7 @@ function App() {
          <Route exact path="/Error" element={<ErrorPage />}/>
       </Routes>
       </BrowserRouter>
-<<<<<<< HEAD
-    </AuthState>
-
-{/* {!condition && <HcdHome datatoApp={datatoApp} />}
-      {condition && <HcdTemplate data={data} condition={"Pranay"}/>}
-       */}
-=======
->>>>>>> 385a273710fba2d88c0b3d504985358ddcbff52a
+      </AuthState>
     </div>
   );
 }
