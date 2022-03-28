@@ -130,6 +130,23 @@ const HcdHome = (props) => {
     }
     // ...
   ];
+  const [val,setVal]=useState("");
+  const opt=[
+    {
+      managerName:"Ganesh A",
+      designation: "Associate Director"
+    },
+    {
+      managerName:"Sanjay A",
+      designation: "Vice President"
+    },
+    {
+      managerName:"Jyothsna M S",
+      designation: "SVP-Delivery & Operational Excellence"
+    }
+  ];
+
+
   return (
     <>
       <nav
@@ -222,7 +239,19 @@ const HcdHome = (props) => {
                     <i style={{ color: 'red' }}>*</i>
                   </span>
                 </div>
-                <input
+                <div className="form-control"
+                  style={{ padding: '0', borderRadius: '100%' }}>
+                  <Select
+                    name="mname"
+                    opt={opt}
+                    value={val}
+                    placeholder="Select Hiring Manager Name"
+                    onChange={setVal}
+                    getOptionLabel={(option) => option. managerName}
+                    getOptionValue={(option) => option.managerName} // It should be unique value in the options. E.g. ID
+                  />
+                </div>
+                {/* <input
                   name="mname"
                   type="text"
                   className="form-control"
@@ -230,7 +259,7 @@ const HcdHome = (props) => {
                   aria-describedby="inputGroup-sizing-default"
                   onChange={onhiringmanagername}
                   required
-                />
+                /> */}
               </div>
               <div className="input-group mb-3">
                 <div className="input-group-prepend">
