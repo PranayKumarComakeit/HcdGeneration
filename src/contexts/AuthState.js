@@ -4,6 +4,7 @@ import AuthContext from "./authContext";
 const AuthState = (props) =>{
     const [clientData, setclientData] = useState([]);
     const [managerData, setmanagerData] = useState([]);
+    const [authStatus, setauthStatus] = useState([]);
     const [key, setkey] = useState("");
     const [token, settoken] = useState("");
 
@@ -37,8 +38,7 @@ const AuthState = (props) =>{
         });
         const json = await response.json()
         console.log(json);
-        // console.log(json.status);
-        setclientData(json.data);
+        setauthStatus(json.status)
       }
       const getClientDetails = async () =>{
         const url = "https://webhrapi.comakeit.net/api/clientdetails";
@@ -69,7 +69,7 @@ const AuthState = (props) =>{
         setmanagerData(json.data);
       }
     return(
-        <AuthContext.Provider value={{clientData, managerData, authFunc ,getKeyAndToken, getClientDetails, getManagerDetails}}>
+        <AuthContext.Provider value={{clientData, managerData, authStatus, authFunc ,getKeyAndToken, getClientDetails, getManagerDetails}}>
             {props.children}
         </AuthContext.Provider>
     )
