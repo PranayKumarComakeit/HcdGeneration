@@ -24,12 +24,13 @@ const AuthState = (props) =>{
         const token = urlParams.get('token');
         // console.log(token)
         settoken(token)
+
       };
       const authFunc = async () =>{
         const url = `https://webhrapi.comakeit.net/api/checkhcdarglink?key=${key}`;
         const response = await fetch(url, {
             // mode:'no-cors',
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
