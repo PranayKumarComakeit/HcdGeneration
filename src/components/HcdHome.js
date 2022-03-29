@@ -10,16 +10,21 @@ import authContext from "../contexts/authContext";
 
 const HcdHome = (props) => {
   const context = useContext(authContext);
-  const { clientData, authFunc, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
+  const navigate = useNavigate();
+  const { clientData, authStatus, authFunc, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
   useEffect(() => {
     getKeyAndToken();
     authFunc();
-    getClientDetails();
+    if(authStatus===200){
+      getClientDetails();
     getManagerDetails();
-
+    }
+    else{
+      navigate("/Error")
+    }
     // eslint-disable-next-line
   }, []);
-  const navigate = useNavigate();
+
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);

@@ -12,15 +12,21 @@ import {
 } from "react-router-dom";
 const HCDHourlyHome = (props) => {
   const context = useContext(authContext);
-  const { authFunc, clientData, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
+  const navigate = useNavigate();
+  const { authFunc, authStatus, clientData, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
   useEffect(() => {
     getKeyAndToken();
     authFunc();
-    getClientDetails();
+    if(authStatus===200){
+      getClientDetails();
     getManagerDetails();
+    }
+    else{
+      navigate("/Error")
+    }
     // eslint-disable-next-line
   }, []);
-  const navigate = useNavigate();
+
     const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
