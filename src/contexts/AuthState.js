@@ -23,12 +23,13 @@ const AuthState = (props) =>{
         const token = urlParams.get('token');
         // console.log(token)
         settoken(token)
+
       };
       const authFunc = async () =>{
         const url = `https://webhrapi.comakeit.net/api/checkhcdarglink?key=${key}`;
         const response = await fetch(url, {
             // mode:'no-cors',
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
@@ -36,6 +37,7 @@ const AuthState = (props) =>{
         });
         const json = await response.json()
         console.log(json);
+        // console.log(json.status);
         setclientData(json.data);
       }
       const getClientDetails = async () =>{
@@ -45,7 +47,7 @@ const AuthState = (props) =>{
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjRmMWcyM2ExMmFhIn0.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dlYmhyXC8iLCJhdWQiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dlYmhyXC8iLCJqdGkiOiI0ZjFnMjNhMTJhYSIsImlhdCI6MTY0ODQ2MDMwMywiZXhwIjoxNjQ4NDYzOTAzLCJ1aWQiOjEwMCwidXNlcmlkIjoxNTEsInJvbGVpZCI6NX0.xbFTjtKPWy6YOn9DQeFJl-j4YFkS1Vc-hE5PZlyjOJs"
+            "Authorization": `Bearer ${token}`
           }
         });
         const json = await response.json()
@@ -59,7 +61,7 @@ const AuthState = (props) =>{
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6IjRmMWcyM2ExMmFhIn0.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dlYmhyXC8iLCJhdWQiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dlYmhyXC8iLCJqdGkiOiI0ZjFnMjNhMTJhYSIsImlhdCI6MTY0ODQ2MDMwMywiZXhwIjoxNjQ4NDYzOTAzLCJ1aWQiOjEwMCwidXNlcmlkIjoxNTEsInJvbGVpZCI6NX0.xbFTjtKPWy6YOn9DQeFJl-j4YFkS1Vc-hE5PZlyjOJs"
+            "Authorization": `Bearer ${token}`
           }
         });
         const json = await response.json()
