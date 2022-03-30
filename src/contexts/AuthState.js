@@ -33,16 +33,17 @@ const AuthState = (props) =>{
       // console.log(authUrl)
       const authFunc = async () =>{
         getKeyAndToken();
-        // console.log(key)
+        console.log(key[0])
+        console.log(token[0])
         const authUrl = `https://webhrapi.comakeit.net/api/checkhcdarglink?key=${key[0]}`;
-        console.log(authUrl)
+        // console.log(authUrl)
         const response = await fetch(authUrl, {
             mode:'no-cors',
           method: "POST",
           headers: {
 
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            "Authorization": `Bearer ${token[0]}`
           }
         });
         const json = await response.json();
@@ -52,7 +53,7 @@ const AuthState = (props) =>{
       }
       const getClientDetails = async () =>{
         const url = "https://webhrapi.comakeit.net/api/clientdetails";
-        // console.log(token[0])
+        console.log(token[0])
         const response = await fetch(url, {
             // mode:'no-cors',
           method: "GET",
