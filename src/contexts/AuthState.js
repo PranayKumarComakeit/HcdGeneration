@@ -10,7 +10,7 @@ const AuthState = (props) =>{
 
     const getKeyAndToken = async () => {
         //Api call
-        const url = window.location.href();
+        const url = window.location.href;
         //for dynamic url we will use window.location.search() like below
 //         const queryString = window.location.search;
 // console.log(queryString);
