@@ -12,9 +12,10 @@ const HcdHome = (props) => {
   const context = useContext(authContext);
   const navigate = useNavigate();
   const { clientData, authStatus, authFunc, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
-  useEffect(() => {
+  useEffect(async() => {
     getKeyAndToken();
     authFunc();
+    // getClientDetails();
     if(authStatus===200){
       getClientDetails();
     getManagerDetails();
