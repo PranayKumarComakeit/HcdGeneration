@@ -38,8 +38,8 @@ const AuthState = (props) =>{
         const authUrl = `https://webhrapi.comakeit.net/api/checkhcdarglink?key=${key[0]}`;
         // console.log(authUrl)
         const response = await fetch(authUrl, {
-            mode:'no-cors',
-          method: "POST",
+            // mode:'no-cors',
+          method: "GET",
           headers: {
 
             "Content-Type": "application/json",
