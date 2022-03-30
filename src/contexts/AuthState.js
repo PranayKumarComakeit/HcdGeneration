@@ -48,8 +48,9 @@ const AuthState = (props) =>{
         });
         const json = await response.json();
         console.log(json);
-        setauthStatus(json.status)
-        console.log(authStatus)
+        authStatus.unshift(json.status)
+        setauthStatus(authStatus[0])
+        console.log(authStatus[0])
       }
       const getClientDetails = async () =>{
         const url = "https://webhrapi.comakeit.net/api/clientdetails";
