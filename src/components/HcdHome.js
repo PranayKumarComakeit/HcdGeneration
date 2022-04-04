@@ -17,17 +17,21 @@ const HcdHome = (props) => {
     authFunc();
     console.log(authStatus[0])
     getClientDetails();
+    getManagerDetails();
+    console.log("AuthStatus array:",authStatus[0])
+
     console.log(clientData)
     let temp = authStatus[0];
+    console.log("temp variable assigned:",temp)
     if(temp === 200){
-      console.log("Auth success");
+      console.log("Auth success", authStatus[0]);
     }
     else{
-      console.log("Auth fail")
+      console.log("Auth fail", authStatus[0])
     }
     // if(authStatus[0]===200){
     //   getClientDetails();
-    // getManagerDetails();
+
 
     // }
     // else{
