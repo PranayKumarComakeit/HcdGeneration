@@ -15,15 +15,24 @@ const HcdHome = (props) => {
   useEffect(async() => {
     getKeyAndToken();
     authFunc();
-    // getClientDetails();
-    console.log(authStatus)
-    if(authStatus[0]===200){
-      getClientDetails();
-    getManagerDetails();
+    console.log(authStatus[0])
+    getClientDetails();
+    console.log(clientData)
+    let temp = authStatus[0];
+    if(temp === 200){
+      console.log("Auth success");
     }
     else{
-      navigate("/Error")
+      console.log("Auth fail")
     }
+    // if(authStatus[0]===200){
+    //   getClientDetails();
+    // getManagerDetails();
+
+    // }
+    // else{
+    //   navigate("/Error")
+    // }
     // eslint-disable-next-line
   }, []);
 
