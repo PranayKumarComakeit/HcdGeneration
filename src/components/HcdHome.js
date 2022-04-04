@@ -15,19 +15,19 @@ const HcdHome = (props) => {
   useEffect(async() => {
     getKeyAndToken();
     authFunc();
-    console.log(authStatus[0])
+    console.log(authStatus)
     getClientDetails();
     getManagerDetails();
-    console.log("AuthStatus array:",authStatus[0])
+    console.log("AuthStatus array:",authStatus)
 
     console.log(clientData)
-    let temp = authStatus[0];
+    let temp = authStatus;
     console.log("temp variable assigned:",temp)
     if(temp === 200){
-      console.log("Auth success", authStatus[0]);
+      console.log("Auth success", authStatus);
     }
     else{
-      console.log("Auth fail", authStatus[0])
+      console.log("Auth fail", authStatus)
     }
     // if(authStatus[0]===200){
     //   getClientDetails();
