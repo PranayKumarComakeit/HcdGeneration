@@ -16,6 +16,7 @@ const HcdHome = (props) => {
     getKeyAndToken();
     authFunc();
     // getClientDetails();
+    console.log(authStatus)
     if(authStatus[0]===200){
       getClientDetails();
     getManagerDetails();
