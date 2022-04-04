@@ -50,6 +50,7 @@ const AuthState = (props) =>{
         console.log(json);
         authStatus.unshift(json.status)
         setauthStatus(authStatus[0])
+        console.log(authStatus)
         console.log(authStatus[0])
         console.log("Build check")
       }
