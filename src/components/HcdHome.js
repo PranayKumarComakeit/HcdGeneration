@@ -11,23 +11,20 @@ import authContext from "../contexts/authContext";
 const HcdHome = (props) => {
   const context = useContext(authContext);
   const navigate = useNavigate();
-  const { clientData, authStatus, authFunc, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
+  const { clientData, authData, authFunc, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
   useEffect(async() => {
     getKeyAndToken();
     authFunc();
     // console.log(authStatus)
     getClientDetails();
     getManagerDetails();
-    console.log("AuthStatus array:",authStatus)
-
-    // console.log(clientData)
-    const temp = authStatus.pop();
-    console.log("temp variable assigned:",temp)
-    if(temp === 200){
-      console.log("Auth success", temp);
+    console.log("AuthData array:",authData)
+    console.log("AuthData status:",authData.status)
+    if(authData.status === 200){
+      console.log("Auth success", authData.status);
     }
     else{
-      console.log("Auth fail", temp)
+      console.log("Auth fail", authData.status)
     }
     // if(authStatus[0]===200){
     //   getClientDetails();
