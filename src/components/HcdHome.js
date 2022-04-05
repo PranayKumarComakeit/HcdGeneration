@@ -18,7 +18,7 @@ const HcdHome = (props) => {
     // console.log(authStatus)
     getClientDetails();
     getManagerDetails();
-    console.log("AuthData array:",authData)
+    console.log("AuthData:",authData)
     console.log("AuthData status:",authData.status)
     if(authData.status === 200){
       console.log("Auth success", authData.status);
