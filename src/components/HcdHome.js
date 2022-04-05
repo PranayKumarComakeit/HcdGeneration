@@ -21,7 +21,7 @@ const HcdHome = (props) => {
     console.log("AuthStatus array:",authStatus)
 
     // console.log(clientData)
-    const temp = authStatus.at(0);
+    const temp = authStatus[0];
     console.log("temp variable assigned:",temp)
     if(temp === 200){
       console.log("Auth success", temp);
