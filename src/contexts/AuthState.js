@@ -49,11 +49,12 @@ const AuthState = (props) =>{
         const json = await response.json();
         console.log(json);
         authStatus.unshift(json.status)
-        setauthStatus(authStatus[0])
+        setauthStatus(authStatus)
         console.log(authStatus)
-        console.log(authStatus[0])
+
         console.log("Build check")
       }
+
       const getClientDetails = async () =>{
         const url = "https://webhrapi.comakeit.net/api/clientdetails";
         console.log(token[0])
