@@ -16,15 +16,16 @@ const HcdHome = (props) => {
     getKeyAndToken();
     authFunc();
     // console.log(authStatus)
-    getClientDetails();
-    getManagerDetails();
+
     console.log("AuthData:",authData)
-    console.log("AuthData status:",authData.status)
-    if(authData.status === 200){
-      console.log("Auth success", authData.status);
+    console.log("AuthData status:",authData)
+    // getClientDetails();
+    // getManagerDetails();
+    if(authData === 200){
+      console.log("Auth success", authData);
     }
     else{
-      console.log("Auth fail", authData.status)
+      console.log("Auth fail", authData)
     }
     // if(authStatus[0]===200){
     //   getClientDetails();
