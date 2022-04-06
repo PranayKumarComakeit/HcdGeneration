@@ -17,15 +17,15 @@ const HcdHome = (props) => {
     await authFunc();
     // console.log(authStatus)
 
-    console.log("AuthData:",authData[0])
-    console.log("AuthData status:",authData[0])
+    console.log("AuthData:",authData)
+    console.log("AuthData status:",authData)
     // getClientDetails();
     // getManagerDetails();
-    if(authData[0] === 200){
-      console.log("Auth success", authData[0]);
+    if(authData === 200){
+      console.log("Auth success", authData);
     }
     else{
-      console.log("Auth fail", authData[0])
+      console.log("Auth fail", authData)
     }
     // if(authStatus[0]===200){
     //   getClientDetails();
