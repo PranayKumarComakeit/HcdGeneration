@@ -21,12 +21,7 @@ const HcdHome = (props) => {
     console.log("AuthData status:",authData)
     // getClientDetails();
     // getManagerDetails();
-    if(authData === 200){
-      console.log("Auth success", authData);
-    }
-    else{
-      console.log("Auth fail", authData)
-    }
+
     // if(authStatus[0]===200){
     //   getClientDetails();
 
@@ -37,7 +32,14 @@ const HcdHome = (props) => {
     // }
     // eslint-disable-next-line
   }, []);
-
+  if(authData === 200){
+    console.log("Auth success", authData);
+    getClientDetails();
+    getManagerDetails();
+  }
+  else{
+    console.log("Auth fail", authData)
+  }
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
