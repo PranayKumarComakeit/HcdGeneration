@@ -19,27 +19,17 @@ const HcdHome = (props) => {
 
     console.log("AuthData:",authData)
     console.log("AuthData status:",authData)
-    // getClientDetails();
-    // getManagerDetails();
-
-    // if(authStatus[0]===200){
-    //   getClientDetails();
-
-
-    // }
-    // else{
-    //   navigate("/Error")
-    // }
-    // eslint-disable-next-line
   }, []);
-  if(authData === 200){
-    console.log("Auth success", authData);
-    getClientDetails();
-    getManagerDetails();
-  }
-  else{
-    console.log("Auth fail", authData)
-  }
+  useEffect(async () => {
+    if(authData === 200){
+      console.log("Auth success", authData);
+      getClientDetails();
+      getManagerDetails();
+    }
+    else{
+      console.log("Auth fail", authData)
+    }
+  }, [authData, getClientDetails, getManagerDetails]);
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
