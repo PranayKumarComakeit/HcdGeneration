@@ -4,7 +4,7 @@ import AuthContext from "./authContext";
 const AuthState = (props) =>{
     const [clientData, setclientData] = useState([]);
     const [managerData, setmanagerData] = useState([]);
-    const [authData, setauthData] = useState([]);
+    const [authData, setauthData] = useState();
     const [key, setkey] = useState([]);
     const [token, settoken] = useState([]);
 
