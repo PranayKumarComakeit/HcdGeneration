@@ -10,21 +10,16 @@ import authContext from "../contexts/authContext";
 import {
   Link, useNavigate
 } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
 const HCDHourlyHome = (props) => {
   const context = useContext(authContext);
   const navigate = useNavigate();
-  const { authFunc, authStatus, clientData, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
-  useEffect(() => {
+  const { authFunc, authData, clientData, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
+  useEffect(async() => {
     getKeyAndToken();
-    authFunc();
-    if(authStatus===200){
-      getClientDetails();
+    await authFunc();
+    getClientDetails();
     getManagerDetails();
-    }
-    else{
-      navigate("/Error")
-    }
-    // eslint-disable-next-line
   }, []);
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -125,6 +120,8 @@ const HCDHourlyHome = (props) => {
   const [hval, setHval] = useState("");
   const hoptions = managerData
   return (
+    <>
+    {(authData === 200) ? (
     <>
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
@@ -282,6 +279,9 @@ const HCDHourlyHome = (props) => {
         </form>
       </div>
       <Toaster/>
+    </>
+    ) : ( <ErrorPage/>)
+      }
     </>
   )
 }
