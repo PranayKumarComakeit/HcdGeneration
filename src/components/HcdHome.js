@@ -8,7 +8,12 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from "react-router-dom";
 import authContext from "../contexts/authContext";
 import ErrorPage from './ErrorPage'
+import dataContext from "../contexts/dataContext";
+
 const HcdHome = (props) => {
+  const [clientDataToHourly, setclientDataToHourly] = useState();
+  const [managerDataToHourly, setmanagerDataToHourly] = useState();
+  const [authStatus, setauthStatus] = useState();
   const context = useContext(authContext);
   const navigate = useNavigate();
   const { clientData, authData, authFunc, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
@@ -18,6 +23,11 @@ const HcdHome = (props) => {
     getClientDetails();
     getManagerDetails();
   }, []);
+  const dataToHourly = () => {
+    setclientDataToHourly(clientData);
+    setmanagerDataToHourly(managerData);
+    setauthStatus(authData);
+  }
   // useEffect(async () => {
   //   if(authData === 200){
   //     console.log("Auth success", authData);
@@ -329,6 +339,9 @@ const HcdHome = (props) => {
       ) : ( <ErrorPage/>)
 
     }
+    <dataContext.Provider value={{authStatus,managerDataToHourly, clientDataToHourly}}>
+    {props.children}
+    </dataContext.Provider>
     </>
   );
 };
