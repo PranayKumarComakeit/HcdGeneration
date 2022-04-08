@@ -28,8 +28,9 @@ const HcdHome = (props) => {
     }
     else{
       console.log("Auth fail", authData)
+
     }
-  }, [authData, getClientDetails, getManagerDetails]);
+  });
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
