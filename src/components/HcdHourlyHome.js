@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdHourlyForm from "./HcdHourlyForm";
@@ -6,23 +6,16 @@ import toast, { Toaster } from 'react-hot-toast';
 import './Modal.css'
 import Select from "react-select";
 import Swal from "sweetalert2";
-import authContext from "../contexts/authContext";
+import dataContext from "../contexts/dataContext";
 import {
   Link, useNavigate
 } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 const HCDHourlyHome = (props) => {
-  const context = useContext(authContext);
+  const context = useContext(dataContext);
   const navigate = useNavigate();
-  const { authFunc, authData, clientData, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
-  useEffect(async() => {
-    getKeyAndToken();
-    await authFunc();
-    getClientDetails();
-    getManagerDetails();
-  }, []);
-
-    const [modalOpen, setModalOpen] = useState(false);
+  const { managerDataToHourly, clientDataToHourly, authStatus } = context;
+  const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
   const [signature, setsignature] = useState([]);
@@ -116,13 +109,13 @@ const HCDHourlyHome = (props) => {
     }
   }
   const [value, setValue] = useState("");
-  const options = clientData
+  const options = clientDataToHourly
   const [hval, setHval] = useState("");
-  const hoptions = managerData
+  const hoptions = managerDataToHourly
   return (
     <>
-    {(authData === 200) ? (
-    <>
+    {(authStatus === 200)? (
+      <>
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
@@ -280,8 +273,8 @@ const HCDHourlyHome = (props) => {
       </div>
       <Toaster/>
     </>
-    ) : ( <ErrorPage/>)
-      }
+    ) : (<ErrorPage/> )
+  }
     </>
   )
 }
