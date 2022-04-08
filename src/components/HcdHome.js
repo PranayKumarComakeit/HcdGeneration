@@ -7,7 +7,7 @@ import shortid from "shortid";
 import toast, { Toaster } from 'react-hot-toast';
 import { Link, useNavigate } from "react-router-dom";
 import authContext from "../contexts/authContext";
-
+import ErrorPage from './ErrorPage'
 const HcdHome = (props) => {
   const context = useContext(authContext);
   const navigate = useNavigate();
@@ -15,12 +15,9 @@ const HcdHome = (props) => {
   useEffect(async() => {
     getKeyAndToken();
     await authFunc();
-    // console.log(authStatus)
-
-    console.log("AuthData:",authData)
-    console.log("AuthData status:",authData)
+    getClientDetails();
+    getManagerDetails();
   }, []);
-  const stop = ["stop"]
   // useEffect(async () => {
   //   if(authData === 200){
   //     console.log("Auth success", authData);
@@ -131,8 +128,6 @@ const HcdHome = (props) => {
   return (
     <>
       {(authData === 200) ? (
-        getClientDetails(),
-        getManagerDetails(),
         <>
         <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
@@ -331,7 +326,7 @@ const HcdHome = (props) => {
       </div>
       <Toaster />
         </>
-      ) : ( navigate('/Error'))
+      ) : ( <ErrorPage/>)
 
     }
     </>
