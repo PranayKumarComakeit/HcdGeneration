@@ -20,17 +20,18 @@ const HcdHome = (props) => {
     console.log("AuthData:",authData)
     console.log("AuthData status:",authData)
   }, []);
-  useEffect(async () => {
-    if(authData === 200){
-      console.log("Auth success", authData);
-      getClientDetails();
-      getManagerDetails();
-    }
-    else{
-      console.log("Auth fail", authData)
+  const stop = ["stop"]
+  // useEffect(async () => {
+  //   if(authData === 200){
+  //     console.log("Auth success", authData);
+  //     getClientDetails();
+  //     getManagerDetails();
+  //   }
+  //   else{
+  //     console.log("Auth fail", authData)
 
-    }
-  });
+  //   }
+  // }, [stop]);
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
@@ -129,7 +130,11 @@ const HcdHome = (props) => {
   const hoptions = managerData
   return (
     <>
-      <nav
+      {(authData === 200) ? (
+        getClientDetails(),
+        getManagerDetails(),
+        <>
+        <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
         id="navbar"
         style={{ maxWidth: '100%' }}
@@ -325,6 +330,10 @@ const HcdHome = (props) => {
         </form>
       </div>
       <Toaster />
+        </>
+      ) : ( navigate('/Error'))
+
+    }
     </>
   );
 };
