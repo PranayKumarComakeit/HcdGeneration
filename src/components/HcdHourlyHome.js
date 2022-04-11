@@ -14,10 +14,11 @@ import ErrorPage from "./ErrorPage";
 const HCDHourlyHome = (props) => {
   const context = useContext(dataContext);
   const navigate = useNavigate();
-  const {authStatus, hmData, clData, dataToHourly} = context;
-  useEffect(async () => {
+  const { authStatus, hmData, clData, dataToHourly } = context;
+  useEffect(async() => {
     await dataToHourly();
-  }, []);
+  });
+
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);

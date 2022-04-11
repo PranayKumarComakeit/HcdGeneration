@@ -130,13 +130,12 @@ const HcdHome = (props) => {
   const options = clientData
   const [hval, setHval] = useState("");
   const hoptions = managerData
-  const [clData, setClData] = useState([]);
-  const [hmData, setHmData] = useState([]);
-  const [authStatus, setauthStatus] = useState([]);
+  const clData = clientData;
+  const hmData = managerData
+  const authStatus = authData
   const dataToHourly = () => {
-    setauthStatus(authData);
-    setClData(clientData);
-    setHmData(managerData)
+    console.log("hi")
+    console.log(clData,hmData, authStatus)
   }
 
   return (
