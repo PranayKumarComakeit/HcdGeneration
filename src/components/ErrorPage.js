@@ -72,9 +72,6 @@ const ErrorPage = () => {
           <polygon className="cls-5" points="90.92 30.25 77.46 29.69 77.46 28.64 90.92 29.22 90.92 30.25"></polygon>
           <text id="title" transform="matrix(1 0 0 1 44.7249 78)">404 Page not found</text>
         </svg>
-
-
-
     </div>
   )
 }

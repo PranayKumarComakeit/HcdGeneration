@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdHourlyForm from "./HcdHourlyForm";
@@ -14,7 +14,10 @@ import ErrorPage from "./ErrorPage";
 const HCDHourlyHome = (props) => {
   const context = useContext(dataContext);
   const navigate = useNavigate();
-  const { managerDataToHourly, clientDataToHourly, authStatus } = context;
+  const { managerDataToHourly, clientDataToHourly, authStatus, dataToHourly } = context;
+  useEffect(() => {
+    dataToHourly();
+  }, []);
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);

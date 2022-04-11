@@ -339,7 +339,7 @@ const HcdHome = (props) => {
       ) : ( <ErrorPage/>)
 
     }
-    <dataContext.Provider value={{authStatus,managerDataToHourly, clientDataToHourly}}>
+    <dataContext.Provider value={{authStatus,managerDataToHourly, clientDataToHourly, dataToHourly}}>
     {props.children}
     </dataContext.Provider>
     </>
