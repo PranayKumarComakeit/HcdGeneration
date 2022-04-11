@@ -130,6 +130,14 @@ const HcdHome = (props) => {
   const options = clientData
   const [hval, setHval] = useState("");
   const hoptions = managerData
+  const [clData, setClData] = useState();
+  const [hmData, setHmData] = useState();
+  const dataToHourly = () => {
+    setauthStatus(authData);
+    setClData(clientData);
+    setHmData(managerData)
+  }
+
   return (
     <>
       {(authData === 200) ? (
@@ -334,8 +342,8 @@ const HcdHome = (props) => {
       ) : ( <ErrorPage/>)
 
     }
-    <dataContext.Provider value={{authData, clientData, managerData}}>
-      {console.log("AuthStatus:",authData, "Manager Data:",managerData, "client data:", clientData)}
+    <dataContext.Provider value={{authStatus, hmData, clData, dataToHourly}}>
+      {console.log("AuthStatus:",authStatus, "Manager Data:",hmData, "client data:", clData)}
     {props.children}
     </dataContext.Provider>
     </>
