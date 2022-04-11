@@ -15,8 +15,8 @@ const HCDHourlyHome = (props) => {
   const context = useContext(dataContext);
   const navigate = useNavigate();
   const {authStatus, hmData, clData, dataToHourly} = context;
-  useEffect(() => {
-    dataToHourly();
+  useEffect(async () => {
+    await dataToHourly();
   }, []);
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();

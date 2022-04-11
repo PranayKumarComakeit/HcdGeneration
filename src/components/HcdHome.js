@@ -12,7 +12,7 @@ import dataContext from "../contexts/dataContext";
 
 const HcdHome = (props) => {
 
-  const [authStatus, setauthStatus] = useState();
+
   const context = useContext(authContext);
   const navigate = useNavigate();
   const { clientData, authData, authFunc, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
@@ -130,8 +130,9 @@ const HcdHome = (props) => {
   const options = clientData
   const [hval, setHval] = useState("");
   const hoptions = managerData
-  const [clData, setClData] = useState();
-  const [hmData, setHmData] = useState();
+  const [clData, setClData] = useState([]);
+  const [hmData, setHmData] = useState([]);
+  const [authStatus, setauthStatus] = useState([]);
   const dataToHourly = () => {
     setauthStatus(authData);
     setClData(clientData);
