@@ -11,8 +11,7 @@ import ErrorPage from './ErrorPage'
 import dataContext from "../contexts/dataContext";
 
 const HcdHome = (props) => {
-  const [clientDataToHourly, setclientDataToHourly] = useState();
-  const [managerDataToHourly, setmanagerDataToHourly] = useState();
+
   const [authStatus, setauthStatus] = useState();
   const context = useContext(authContext);
   const navigate = useNavigate();
@@ -23,11 +22,7 @@ const HcdHome = (props) => {
     getClientDetails();
     getManagerDetails();
   }, []);
-  const dataToHourly = () => {
-    setclientDataToHourly(clientData);
-    setmanagerDataToHourly(managerData);
-    setauthStatus(authData);
-  }
+
   // useEffect(async () => {
   //   if(authData === 200){
   //     console.log("Auth success", authData);
@@ -339,7 +334,8 @@ const HcdHome = (props) => {
       ) : ( <ErrorPage/>)
 
     }
-    <dataContext.Provider value={{authStatus,managerDataToHourly, clientDataToHourly, dataToHourly}}>
+    <dataContext.Provider value={{authData, clientData, managerData}}>
+      {console.log("AuthStatus:",authData, "Manager Data:",managerData, "client data:", clientData)}
     {props.children}
     </dataContext.Provider>
     </>

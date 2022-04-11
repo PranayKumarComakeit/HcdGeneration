@@ -14,10 +14,8 @@ import ErrorPage from "./ErrorPage";
 const HCDHourlyHome = (props) => {
   const context = useContext(dataContext);
   const navigate = useNavigate();
-  const { managerDataToHourly, clientDataToHourly, authStatus, dataToHourly } = context;
-  useEffect(() => {
-    dataToHourly();
-  }, []);
+  const {authData, clientData, managerData} = context;
+
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
@@ -112,12 +110,12 @@ const HCDHourlyHome = (props) => {
     }
   }
   const [value, setValue] = useState("");
-  const options = clientDataToHourly
+  const options = clientData;
   const [hval, setHval] = useState("");
-  const hoptions = managerDataToHourly
+  const hoptions = managerData;
   return (
     <>
-    {(authStatus === 200)? (
+    {(authData === 200)? (
       <>
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
