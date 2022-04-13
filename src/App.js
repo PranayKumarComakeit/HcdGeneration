@@ -23,7 +23,6 @@ function App() {
   return (
     <div className="App">
     <AuthState>
-      <dataContext>
       <BrowserRouter>
       <Routes>
          <Route exact path="/" element={<HcdHome datatoApp={datatoApp} />}/>
@@ -33,7 +32,6 @@ function App() {
          <Route exact path="/Error" element={<ErrorPage />}/>
       </Routes>
       </BrowserRouter>
-      </dataContext>
       </AuthState>
     </div>
   );

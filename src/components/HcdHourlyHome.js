@@ -11,14 +11,11 @@ import {
   Link, useNavigate
 } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
+import AuthState from "../contexts/AuthState";
 const HCDHourlyHome = (props) => {
-  const context = useContext(dataContext);
+  const context = useContext(AuthState);
   const navigate = useNavigate();
-  const { authStatus, hmData, clData, dataToHourly } = context;
-  useEffect(async() => {
-    await dataToHourly();
-  });
-
+  const { clientData, authData, managerData} = context;
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
@@ -113,12 +110,12 @@ const HCDHourlyHome = (props) => {
     }
   }
   const [value, setValue] = useState("");
-  const options = clData;
+  const options = clientData;
   const [hval, setHval] = useState("");
-  const hoptions = hmData;
+  const hoptions = managerData;
   return (
     <>
-    {(authStatus === 200)? (
+    {(authData === 200)? (
       <>
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
