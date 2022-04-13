@@ -1,5 +1,5 @@
 import { createContext } from "react";
-
-const dataContext = createContext();
+const authStatus = undefined
+const dataContext = createContext({authStatus});
 
 export default dataContext;
