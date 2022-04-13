@@ -18,7 +18,7 @@ const HcdHome = (props) => {
   const { clientData, authData, authFunc, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
   useEffect(async() => {
     getKeyAndToken();
-    await authFunc();
+    authFunc();
     getClientDetails();
     getManagerDetails();
   }, []);
@@ -129,10 +129,13 @@ const HcdHome = (props) => {
   const [value, setValue] = useState("");
   const options = clientData
   const [hval, setHval] = useState("");
-  const hoptions = managerData
-  const clData = clientData;
+  const hoptions =  managerData
+  const clData = clientData
   const hmData = managerData
-  const authStatus = authData
+  const authStatus = 1000
+  // const [clData, setclData] = useState([]);
+  // const [hmData, sethmData] = useState([]);
+  // const [authStatus, setauthStatus] = useState([]);
   const dataToHourly = () => {
     console.log("hi")
     console.log(clData,hmData, authStatus)
