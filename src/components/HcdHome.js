@@ -130,18 +130,8 @@ const HcdHome = (props) => {
   const options = clientData
   const hoptions =  managerData
   const [hval, setHval] = useState("");
-  const [clData, setclData] = useState([]);
-  const [hmData, sethmData] = useState([]);
-  const [authStatus, setauthStatus] = useState();
 
-  // const [clData, setclData] = useState([]);
-  // const [hmData, sethmData] = useState([]);
-  // const [authStatus, setauthStatus] = useState([]);
-  const dataToHourly = () => {
-   setclData(clientData)
-   sethmData(managerData)
-   setauthStatus(authData)
-  }
+
 
   return (
     <>
@@ -347,10 +337,6 @@ const HcdHome = (props) => {
       ) : ( <ErrorPage/>)
 
     }
-    <dataContext.Provider value={{authStatus, hmData, clData, dataToHourly}}>
-      {console.log("AuthStatus:",authStatus, "Manager Data:",hmData, "client data:", clData)}
-    {props.children}
-    </dataContext.Provider>
     </>
   );
 };
