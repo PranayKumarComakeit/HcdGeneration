@@ -12,6 +12,7 @@ import HcdHourlyHome from './components/HcdHourlyHome';
 import HCDHourlyTemplate from './components/HCDHourlyTemplate';
 import ErrorPage from './components/ErrorPage';
 import AuthState from './contexts/AuthState';
+import dataContext from './contexts/dataContext';
 function App() {
   const [data, setEmpdata] = useState({});
   const [condition, setcondition] = useState(false);
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="App">
     <AuthState>
+      <dataContext>
       <BrowserRouter>
       <Routes>
          <Route exact path="/" element={<HcdHome datatoApp={datatoApp} />}/>
@@ -31,6 +33,7 @@ function App() {
          <Route exact path="/Error" element={<ErrorPage />}/>
       </Routes>
       </BrowserRouter>
+      </dataContext>
       </AuthState>
     </div>
   );
