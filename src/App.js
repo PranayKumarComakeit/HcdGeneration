@@ -23,19 +23,20 @@ function App() {
   const context = useContext(authContext);
   const {  authFunc ,getKeyAndToken, getClientDetails, getManagerDetails, clientData, managerData, authData } = context;
   useEffect(async() => {
-    getKeyAndToken();
-    authFunc();
-    getClientDetails();
-    getManagerDetails();
-  }, []);
-  const [apiData, setapiData] = useState({
-    clientData: [],
-    managerData: [],
-    authData: 0,
-  });
+    console.log("Im in useEffect", authData, clientData, managerData)
+    await getKeyAndToken();
+    await authFunc();
+    await getClientDetails();
+    await getManagerDetails();
+  },[]);
+  const apiData = {
+    authData:authData,
+    clientData:clientData,
+    managerData:managerData,
+  }
 
-    console.log("AuthData",authData, "cl data", clientData, "m data", managerData);
-    setapiData({clientData:clientData, managerData:managerData, authData:authData})
+    console.log("Outside useEffect AuthData",authData, "cl data", clientData, "m data", managerData);
+    console.log(apiData)
 
 
   return (
