@@ -34,8 +34,10 @@ function App() {
     authData: 0,
   });
   const dataToHome = () => {
-    setapiData(...apiData, {clientData:clientData, managerData:managerData, authData:authData})
+    console.log("AuthData",authData, "cl data", clientData, "m data", managerData)
+    setapiData({clientData:clientData, managerData:managerData, authData:authData})
   }
+  console.log(apiData)
   return (
     <div className="App">
       <BrowserRouter>
