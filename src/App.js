@@ -2,7 +2,7 @@
 import './App.css';
 import HcdHome from './components/HcdHome';
 import HcdTemplate from './components/HcdTemplate';
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   BrowserRouter,
   BrowserRouter as Router
@@ -12,7 +12,7 @@ import HcdHourlyHome from './components/HcdHourlyHome';
 import HCDHourlyTemplate from './components/HCDHourlyTemplate';
 import ErrorPage from './components/ErrorPage';
 import AuthState from './contexts/AuthState';
-import dataContext from './contexts/dataContext';
+import authContext from "./contexts/authContext";
 function App() {
   const [data, setEmpdata] = useState({});
   const [condition, setcondition] = useState(false);
@@ -20,19 +20,33 @@ function App() {
     setEmpdata(data);
     setcondition(true);
   }
+  const context = useContext(authContext);
+  const {  authFunc ,getKeyAndToken, getClientDetails, getManagerDetails, clientData, managerData, authData } = context;
+  useEffect(async() => {
+    getKeyAndToken();
+    authFunc();
+    getClientDetails();
+    getManagerDetails();
+  }, []);
+  const [apiData, setapiData] = useState({
+    clientData: [],
+    managerData: [],
+    authData: 0,
+  });
+  const dataToHome = () => {
+    setapiData(...apiData, {clientData:clientData, managerData:managerData, authData:authData})
+  }
   return (
     <div className="App">
-    <AuthState>
       <BrowserRouter>
       <Routes>
-         <Route exact path="/" element={<HcdHome datatoApp={datatoApp} />}/>
-         <Route exact path="/HCDHourly" element={<HcdHourlyHome datatoApp={datatoApp} />}/>
+         <Route exact path="/" element={<HcdHome datatoApp={datatoApp} dataToHome={dataToHome} />}/>
+         <Route exact path="/HCDHourly" element={<HcdHourlyHome datatoApp={datatoApp} dataToHome={dataToHome} />}/>
          <Route exact path="/OpenTemplate" element={<HcdTemplate data={data} />}/>
          <Route exact path="/HourlyTemplate" element={<HCDHourlyTemplate data={data} />}/>
          <Route exact path="/Error" element={<ErrorPage />}/>
       </Routes>
       </BrowserRouter>
-      </AuthState>
     </div>
   );
 }
