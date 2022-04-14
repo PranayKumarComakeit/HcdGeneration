@@ -108,13 +108,15 @@ const HCDHourlyHome = (props) => {
 
     }
   }
+  console.log(props)
+  console.log(props.apiData)
   const [value, setValue] = useState("");
-  const options = props.dataToHome.clientData;
+  const options = props.apiData.clientData;
   const [hval, setHval] = useState("");
-  const hoptions = props.dataToHome.managerData;
+  const hoptions = props.apiData.managerData;
   return (
     <>
-    {(props.dataToHome.authData === 200)? (
+    {(props.apiData.authData === 200)? (
       <>
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
