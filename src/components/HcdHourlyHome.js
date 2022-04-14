@@ -15,7 +15,6 @@ import AuthState from "../contexts/AuthState";
 const HCDHourlyHome = (props) => {
   const context = useContext(AuthState);
   const navigate = useNavigate();
-  const { clientData, authData, managerData} = context;
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
@@ -110,12 +109,12 @@ const HCDHourlyHome = (props) => {
     }
   }
   const [value, setValue] = useState("");
-  const options = clientData;
+  const options = props.dataToHome.clientData;
   const [hval, setHval] = useState("");
-  const hoptions = managerData;
+  const hoptions = props.dataToHome.managerData;
   return (
     <>
-    {(authData === 200)? (
+    {(props.dataToHome.authData === 200)? (
       <>
       <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"

@@ -12,16 +12,8 @@ import dataContext from "../contexts/dataContext";
 
 const HcdHome = (props) => {
 
-
-  const context = useContext(authContext);
   const navigate = useNavigate();
-  const { clientData, authData, authFunc, managerData ,getKeyAndToken, getClientDetails, getManagerDetails } = context;
-  useEffect(async() => {
-    getKeyAndToken();
-    authFunc();
-    getClientDetails();
-    getManagerDetails();
-  }, []);
+
 
   // useEffect(async () => {
   //   if(authData === 200){
@@ -127,15 +119,15 @@ const HcdHome = (props) => {
   };
 
   const [value, setValue] = useState("");
-  const options = clientData
-  const hoptions =  managerData
+  const options = props.dataToHome.clientData
+  const hoptions =  props.dataToHome.managerData
   const [hval, setHval] = useState("");
 
 
 
   return (
     <>
-      {(authData === 200) ? (
+      {(props.dataToHome.authData === 200) ? (
         <>
         <nav
         className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
