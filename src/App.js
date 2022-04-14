@@ -33,17 +33,18 @@ function App() {
     managerData: [],
     authData: 0,
   });
-  const dataToHome = () => {
-    console.log("AuthData",authData, "cl data", clientData, "m data", managerData)
+
+    console.log("AuthData",authData, "cl data", clientData, "m data", managerData);
     setapiData({clientData:clientData, managerData:managerData, authData:authData})
-  }
-  console.log(apiData)
+
+
   return (
     <div className="App">
+      {console.log(apiData)}
       <BrowserRouter>
       <Routes>
-         <Route exact path="/" element={<HcdHome datatoApp={datatoApp} dataToHome={dataToHome} />}/>
-         <Route exact path="/HCDHourly" element={<HcdHourlyHome datatoApp={datatoApp} dataToHome={dataToHome} />}/>
+         <Route exact path="/" element={<HcdHome datatoApp={datatoApp} apiData={apiData} />}/>
+         <Route exact path="/HCDHourly" element={<HcdHourlyHome datatoApp={datatoApp} apiData={apiData} />}/>
          <Route exact path="/OpenTemplate" element={<HcdTemplate data={data} />}/>
          <Route exact path="/HourlyTemplate" element={<HCDHourlyTemplate data={data} />}/>
          <Route exact path="/Error" element={<ErrorPage />}/>
