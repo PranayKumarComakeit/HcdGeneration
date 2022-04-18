@@ -116,10 +116,10 @@ const HCDHourlyHome = (props) => {
   const hoptions = props.apiData.managerData;
   return (
     <>
-    {(props.apiData.authData === 200)? (
+    {/* {(props.apiData.authData === 200)? ( */}
       <>
       <nav
-        className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
+        className="py-1 navbar navbar-lg navbar-dark bg-dark"
         id="navbar"
       >
         <div >
@@ -128,9 +128,6 @@ const HCDHourlyHome = (props) => {
             id="mainText"
             style={{color:'#0096FF'}}
           >
-            <span style={{fontWeight:'bolder'}} >
-            HCD generation
-            </span>
             <Link
             className="navbar-brand  text-lg"
             id="mainText"
@@ -149,6 +146,16 @@ const HCDHourlyHome = (props) => {
           </Link>
           </div>
         </div>
+        <img id="img"
+                src="https://www.telligent.com/content/uploads/2019/08/coMakeIT-Logo.jpg"
+                alt=""
+                style={{
+                  width: "150px",
+                  height: "50px",
+                  marginRight:"5px",
+                  borderRadius:"5px"
+                }}
+              />
       </nav>
       <div className="container">
       <div className="d-flex justify-content-center" >
@@ -225,8 +232,8 @@ const HCDHourlyHome = (props) => {
                   <tr className="table-dark">
                     <th><b>Candidate Name</b></th>
                     <th><b>Role</b></th>
-                    <th><b>Hourly Rate</b></th>
-                    <th><b>Monthly Cost</b></th>
+                    <th><b>Hourly Cost(In Euros)</b></th>
+                    <th><b>Monthly Cost(In Euros)</b></th>
                     <th><b>Billable Date</b></th>
                     <th><b>Remarks</b></th>
                   </tr>
@@ -275,8 +282,8 @@ const HCDHourlyHome = (props) => {
       </div>
       <Toaster/>
     </>
-    ) : (<ErrorPage/> )
-  }
+     {/* ) : (<ErrorPage/> )
+   } */}
     </>
   )
 }
