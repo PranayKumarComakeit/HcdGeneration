@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import './submit.css'
+import logo from '../logo.png'
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdHourlyForm from "./HcdHourlyForm";
@@ -117,7 +118,7 @@ const HCDHourlyHome = (props) => {
   const hoptions = props.apiData.managerData;
   return (
     <>
-    {/* {(props.apiData.authData === 200)? ( */}
+    {(props.apiData.authData === 200)? (
       <>
       <nav
         className="py-1 navbar"
@@ -150,7 +151,7 @@ const HCDHourlyHome = (props) => {
           </div>
         </div>
         <img id="img"
-                src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_380/https://video.comakeit.com/wp-content/uploads/2022/01/comakeIT-xebia-website-logo.png"
+        src={logo}
                 alt=""
                 style={{
                   padding:'15px 0px',
@@ -289,8 +290,8 @@ const HCDHourlyHome = (props) => {
       </div>
       <Toaster/>
     </>
-     {/* ) : (<ErrorPage/> )
-   } */}
+      ) : (<ErrorPage/> )
+   } 
     </>
   )
 }
