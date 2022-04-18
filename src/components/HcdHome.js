@@ -131,17 +131,14 @@ const HcdHome = (props) => {
       {(props.apiData.authData === 200) ? (
         <>
         <nav
-        className="px-1 navbar navbar-expand-lg navbar-dark bg-dark"
+        className="py-1 navbar navbar-lg navbar-dark bg-dark"
         id="navbar"
-        style={{ maxWidth: '100%' }}
       >
         <div>
           <div
-            className="navbar-brand  "
             id="mainText"
-            style={{ color: "#0096FF" }}
+            style={{ color: "#0096FF",width:"100%"}}
           >
-            <span style={{ fontWeight: "bolder" }}>HCD generation</span>
             <Link
               className="navbar-brand fw-bold text-lg"
               id="mainText"
@@ -157,8 +154,19 @@ const HcdHome = (props) => {
             >
               HCD Hourly
             </Link>
+            
           </div>
         </div>
+        <img id="img"
+                src="https://www.telligent.com/content/uploads/2019/08/coMakeIT-Logo.jpg"
+                alt=""
+                style={{
+                  width: "150px",
+                  height: "50px",
+                  marginRight:"5px",
+                  borderRadius:"5px"
+                }}
+              />
       </nav>
       <div className="container">
         <div className="d-flex justify-content-center">
@@ -327,9 +335,10 @@ const HcdHome = (props) => {
       </div>
       <Toaster />
         </>
-      ) : ( <ErrorPage/>)
+       ) : ( <ErrorPage/>)
+              }
 
-    }
+    
     </>
   );
 };

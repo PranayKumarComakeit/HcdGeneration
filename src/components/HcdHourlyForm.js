@@ -100,7 +100,7 @@ const HcdHourlyForm = (props) => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="validationCustom02" className="form-label">Hourly Rate</label>
+              <label htmlFor="validationCustom02" className="form-label">Hourly Cost(In Euros)</label>
               <input
                 type="number"
                 name="hourlyRate"
@@ -114,7 +114,7 @@ const HcdHourlyForm = (props) => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="validationCustom02" className="form-label">Monthly Cost</label>
+              <label htmlFor="validationCustom02" className="form-label">Monthly Cost(In Euros)</label>
               <input
                 type="number"
                 name="monthlyCost"
