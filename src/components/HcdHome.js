@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authContext from "../contexts/authContext";
 import ErrorPage from './ErrorPage'
 import dataContext from "../contexts/dataContext";
+import logo from '../logo.png'
 
 const HcdHome = (props) => {
 
@@ -129,7 +130,7 @@ const HcdHome = (props) => {
 
   return (
     <>
-      {/* {(props.apiData.authData === 200) ? ( */}
+      {(props.apiData.authData === 200) ? (
         <>
         <nav
         className="py-1 navbar navbar-lg" style={{background:"#003366"}}
@@ -160,7 +161,7 @@ const HcdHome = (props) => {
           </div>
         </div>
         <img id="img"
-                src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_380/https://video.comakeit.com/wp-content/uploads/2022/01/comakeIT-xebia-website-logo.png"
+                src={logo}
                 alt=""
                 style={{
                   padding:'15px 0px',
@@ -330,8 +331,8 @@ const HcdHome = (props) => {
       </div>
       <Toaster />
         </>
-       {/* ) : ( <ErrorPage/>)
-              } */}
+        ) : ( <ErrorPage/>)
+              } 
 
     
     </>
