@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import './submit.css'
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import Select from "react-select";
@@ -128,10 +129,10 @@ const HcdHome = (props) => {
 
   return (
     <>
-      {(props.apiData.authData === 200) ? (
+      {/* {(props.apiData.authData === 200) ? ( */}
         <>
         <nav
-        className="py-1 navbar navbar-lg navbar-dark bg-dark"
+        className="py-1 navbar navbar-lg" style={{background:"#003366"}}
         id="navbar"
       >
         <div>
@@ -143,7 +144,7 @@ const HcdHome = (props) => {
               className="navbar-brand fw-bold text-lg"
               id="mainText"
               to="/"
-              style={{ marginLeft: "50px", color: 'yellow' }}
+              style={{ marginLeft: "50px", color: '#FF9800' }}
             >
               HCD Open
             </Link>
@@ -151,6 +152,7 @@ const HcdHome = (props) => {
               className="navbar-brand  text-lg"
               id="mainText"
               to="/HCDHourly"
+              style={{color: 'white' }}
             >
               HCD Hourly
             </Link>
@@ -158,19 +160,18 @@ const HcdHome = (props) => {
           </div>
         </div>
         <img id="img"
-                src="https://www.telligent.com/content/uploads/2019/08/coMakeIT-Logo.jpg"
+                src="https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_380/https://video.comakeit.com/wp-content/uploads/2022/01/comakeIT-xebia-website-logo.png"
                 alt=""
                 style={{
-                  width: "150px",
-                  height: "50px",
-                  marginRight:"5px",
-                  borderRadius:"5px"
+                  padding:'15px 0px',
+                  width:'202px',
+                  height:'70px'
                 }}
               />
       </nav>
       <div className="container">
         <div className="d-flex justify-content-center">
-          <h1>HCD Open Format</h1>
+          <h1 style={{color:'#FF9800', fontWeight:'bolder'}}>HCD Open Format</h1>
         </div>
         <section className="mt-4">
           <div className="row justify-content-center mt-4">
@@ -190,14 +191,16 @@ const HcdHome = (props) => {
                   <span
                     className="input-group-text"
                     id="inputGroup-sizing-default"
+                    style={{background:"#003366",color:"white"}}
                   >
                     <b>Client Name </b>&nbsp;
-                    <i style={{ color: 'red' }}>*</i>
+                    <i style={{ color:'#FF9800' }}>*</i>
                   </span>
                 </div>
                 <div className="form-control"
                   style={{ padding: '0', borderRadius: '100%' }}>
                   <Select
+                    
                     name="cname"
                     options={options}
                     value={value}
@@ -214,9 +217,10 @@ const HcdHome = (props) => {
                   <span
                     className="input-group-text"
                     id="inputGroup-sizing-default"
+                    style={{background:"#003366",color:"white"}}
                   >
                     <b>Hiring Manager Name </b>&nbsp;
-                    <i style={{ color: 'red' }}>*</i>
+                    <i style={{ color:'#FF9800' }}>*</i>
                   </span>
                 </div>
                 <div className="form-control"
@@ -248,10 +252,10 @@ const HcdHome = (props) => {
               </div>
 
               {condition && (
-                <table className="table table-striped caption-top table-hover">
+                <table className="table table-striped caption-top table-hover" >
                   <caption>List of Employee's</caption>
                   <thead >
-                    <tr className="table-dark">
+                    <tr style={{background:'#003366',color:'white'}}>
                       <th>
                         <b>Candidate Name</b>
                       </th>
@@ -300,12 +304,7 @@ const HcdHome = (props) => {
               <br />
               <button
                 type="button"
-                style={{
-                  color: "white",
-                  fontSize: "20px",
-                  marginLeft: "10px",
-                  width: "98%",
-                }}
+                style={{"color":"white","fontSize":"20px","marginLeft":  "10px","width":"98%", background:'#003366'}}
                 className="btn btn-dark"
                 onClick={() => {
                   setModalOpen(true);
@@ -313,7 +312,7 @@ const HcdHome = (props) => {
               >
                 <i className="fas fa-plus me-2"></i>
                 Add Employee&nbsp;
-                <i style={{ color: 'red' }}>*</i>
+                <i style={{ color:'#FF9800' }}>*</i>
               </button>
               {modalOpen && (
                 <HcdForm
@@ -324,19 +323,15 @@ const HcdHome = (props) => {
             </div>
           </section>
           <br />
-          <button
-            type="submit"
-            className="btn btn-primary btn-dark"
-            onClick={generatePdf}
-          >
-            Click Here to Download PDF
-          </button>
+          <button type="submit" className="btn submitBtn" onClick={generatePdf} 
+          style={{"fontSize":"20px","width":"100%", background:'#003366'}}
+          >Click Here to Download PDF</button>
         </form>
       </div>
       <Toaster />
         </>
-       ) : ( <ErrorPage/>)
-              }
+       {/* ) : ( <ErrorPage/>)
+              } */}
 
     
     </>

@@ -58,7 +58,7 @@ const HcdForm = ( props) => {
         <form class="row g-3 needs-validation" name="empForm" method='post' novalidate>
            <div className="body">
               <div className="mb-3">
-                <label className="form-label" htmlFor="validationCustom01">Candidate Name</label>
+                <label className="form-label" htmlFor="validationCustom01">Candidate Name<i style={{ color:'#FF9800' }}>*</i></label>
                 <input
                   type="text"
                   name="cname"
@@ -71,7 +71,7 @@ const HcdForm = ( props) => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="validationCustom02" className="form-label">Monthly Gross Salary(Indian Rupees)</label>
+                <label htmlFor="validationCustom02" className="form-label">Monthly Gross Salary (Indian Rupees)<i style={{ color:'#FF9800' }}>*</i></label>
                 <input
                   type="number"
                   name="grossSalary"
@@ -85,7 +85,7 @@ const HcdForm = ( props) => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="validationCustom03" className="form-label">Date of joining</label>
+                <label htmlFor="validationCustom03" className="form-label">Date of joining<i style={{ color:'#FF9800' }}>*</i></label>
                 <input
                   type="date"
                   name="startDate"
@@ -99,7 +99,7 @@ const HcdForm = ( props) => {
                   />
                 </div>
               <div className="mb-3">
-                <label htmlFor="validationCustom04" className="form-label">Remarks</label>
+                <label htmlFor="validationCustom04" className="form-label">Remarks<i style={{ color:'#FF9800' }}>*</i> </label>
                 <input
                   type="text"
                   name="remarks"
@@ -119,10 +119,12 @@ const HcdForm = ( props) => {
               props.setOpenModal(false);
             }}
             id="cancelBtn"
+            style={{background:'#FF9800'}}
           >
             Cancel
           </button>
-          <button data-bs-dismiss="modal" className='btn btn-success' type="submit" onClick={onsavehandler}>Save</button>
+          <button data-bs-dismiss="modal" className='btn btn-success' type="submit" onClick={onsavehandler}
+          style={{background:'#003366'}}>Save</button>
 
         </div>
         </form>
