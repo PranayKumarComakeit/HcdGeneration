@@ -35,8 +35,8 @@ function App() {
     managerData:managerData,
   }
 
-    console.log("Outside useEffect AuthData",authData, "cl data", clientData, "m data", managerData);
-    console.log(apiData)
+    // console.log("Outside useEffect AuthData",authData, "cl data", clientData, "m data", managerData);
+    // console.log(apiData)
 
 
   return (
