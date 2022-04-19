@@ -110,8 +110,8 @@ const HCDHourlyHome = (props) => {
 
     }
   }
-  console.log(props)
-  console.log(props.apiData)
+  // console.log(props)
+  // console.log(props.apiData)
   const [value, setValue] = useState("");
   const options = props.apiData.clientData;
   const [hval, setHval] = useState("");
