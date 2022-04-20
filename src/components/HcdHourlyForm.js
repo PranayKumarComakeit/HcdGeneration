@@ -17,24 +17,26 @@ const HcdHourlyForm = (props) => {
   var fteHandler = () => {
     var c = document.getElementById('fte');
     if (c.checked != false) {
+      setfteValue(1.0);
       setfteShow(false);
-    } 
+    }
     else {
+      setfteValue(1.0);
       setfteShow(true);
     }
   }
   var ftevalueHandler = (e) => {
     if (e.target.value > 1 || e.target.value < 0) {
-      setfteValue(1);
+      setfteValue(1.0);
       toast.error('FTE percentage should be less than 1', {
         position: 'bottom-center',
       });
-      
+
     }
-    else{    
+    else {
       setfteValue(e.target.value);
-      setmonthlyCost(e.target.value*160*hourlyRate)
-      
+      setmonthlyCost(e.target.value * 160 * hourlyRate)
+
     }
   }
   var currencyHandler = (e) => {
@@ -47,11 +49,11 @@ const HcdHourlyForm = (props) => {
     setRole(e.target.value);
   }
   var onHourlyRateChange = (e) => {
-    sethourlyRate(e.target.value); 
-      setmonthlyCost(e.target.value*160*ftevalue);
+    sethourlyRate(e.target.value);
+    setmonthlyCost(e.target.value * 160 * ftevalue);
 
-  
-    
+
+
   }
   var onBillableDateChange = (e) => {
     setbillableDate(e.target.value);
@@ -60,7 +62,7 @@ const HcdHourlyForm = (props) => {
     setRemarks(e.target.value);
   }
 
-  const onsavehandler = (e) => {
+  const onsavehandler = () => {
     // e.preventDefault();
     let cname = document.forms["empForm"]["cname"].value;
     let role = document.forms["empForm"]["role"].value;
@@ -68,8 +70,7 @@ const HcdHourlyForm = (props) => {
     let billableDate = document.forms["empForm"]["billableDate"].value;
     let monthlyCost = document.forms["empForm"]["monthlyCost"].value;
     let hourlyRate = document.forms["empForm"]["hourlyRate"].value;
-    let ftevalue = document.forms["empForm"]["ftevalue"].value;
-    if (cname !== "" && role !== "" && remarks !== "" && billableDate !== "" && monthlyCost !== 0 && hourlyRate !== 0 && ftevalue !== "") {
+    if (cname !== "" && role !== "" && remarks !== "" && billableDate !== "" && monthlyCost !== 0 && hourlyRate !== 0 && ftevalue <= 1.0) {
       const empdata =
       {
         clientname: clientname,
@@ -86,7 +87,6 @@ const HcdHourlyForm = (props) => {
       props.datatohcdhome(empdata);
       props.setOpenModal(false);
     }
-  
   }
   return (
     <>
@@ -196,7 +196,7 @@ const HcdHourlyForm = (props) => {
                       /></div>
                     <div className="col"><div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" role="switch" id="fte" defaultChecked onChange={fteHandler} />
-                      <label class="form-check-label " for="flexSwitchCheckChecked" >Standard Hours</label>
+                      <label class="form-check-label " for="fte" >Standard Hours</label>
                     </div></div>
                   </div>
                 </div>
