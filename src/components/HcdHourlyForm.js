@@ -68,7 +68,8 @@ const HcdHourlyForm = (props) => {
     let billableDate = document.forms["empForm"]["billableDate"].value;
     let monthlyCost = document.forms["empForm"]["monthlyCost"].value;
     let hourlyRate = document.forms["empForm"]["hourlyRate"].value;
-    if (cname !== "" && role !== "" && remarks !== "" && billableDate !== "" && monthlyCost !== 0 && hourlyRate !== 0) {
+    let ftevalue = document.forms["empForm"]["ftevalue"].value;
+    if (cname !== "" && role !== "" && remarks !== "" && billableDate !== "" && monthlyCost !== 0 && hourlyRate !== 0 && ftevalue !== "") {
       const empdata =
       {
         clientname: clientname,
@@ -78,7 +79,8 @@ const HcdHourlyForm = (props) => {
         hourlyRate: hourlyRate,
         monthlyCost: monthlyCost,
         remarks: remarks,
-        currency:currency
+        currency: currency,
+        ftevalue: ftevalue
       }
       console.log(empdata);
       props.datatohcdhome(empdata);
@@ -119,7 +121,7 @@ const HcdHourlyForm = (props) => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="validationCustom02" className="form-label">Role<i style={{ color: '#FF9800' }}>*</i></label>
+                <label htmlFor="validationCustom01" className="form-label">Role<i style={{ color: '#FF9800' }}>*</i></label>
                 <input
                   type="text"
                   name="role"
@@ -165,12 +167,13 @@ const HcdHourlyForm = (props) => {
 
                     <input
                       type="decimal"
-                      name="fte%"
+                      name="ftevalue"
                       className="form-control mt-2"
                       id="Ftepercentage"
                       aria-describedby="textHelp"
                       placeholder="percentage"
                       onChange={ftevalueHandler}
+                      value={ftevalue}
                       required
                     />
 
@@ -199,7 +202,7 @@ const HcdHourlyForm = (props) => {
                 </div>
               </div>
               <div className="mb-3">
-                <label htmlFor="validationCustom03" className="form-label">Billable Date<i style={{ color: '#FF9800' }}>*</i></label>
+                <label htmlFor="taskDesc" className="form-label">Billable Date<i style={{ color: '#FF9800' }}>*</i></label>
                 <input
                   type="date"
                   name="billableDate"
@@ -213,7 +216,7 @@ const HcdHourlyForm = (props) => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="validationCustom04" className="form-label">Remarks<i style={{ color: '#FF9800' }}>*</i></label>
+                <label htmlFor="taskType" className="form-label">Remarks<i style={{ color: '#FF9800' }}>*</i></label>
                 <input
                   type="text"
                   name="remarks"

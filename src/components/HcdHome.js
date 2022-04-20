@@ -130,7 +130,7 @@ const HcdHome = (props) => {
 
   return (
     <>
-      {(props.apiData.authData === 200) ? (
+      {/* {(props.apiData.authData === 200) ? ( */}
         <>
         <nav
         className="py-1 navbar navbar-lg" style={{background:"#003366"}}
@@ -331,8 +331,8 @@ const HcdHome = (props) => {
       </div>
       <Toaster/>
         </>
-        ) : ( <ErrorPage/>)
-              } 
+        {/* ) : ( <ErrorPage/>)
+              }  */}
 
     
     </>

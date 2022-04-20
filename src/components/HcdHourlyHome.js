@@ -239,6 +239,7 @@ const HCDHourlyHome = (props) => {
                     <th><b>Role</b></th>
                     <th><b>Hourly Cost(In  {empdata[0].currency})</b></th>
                     <th><b>Monthly Cost(In {empdata[0].currency})</b></th>
+                    <th><b>FTE</b></th>
                     <th><b>Billable Date</b></th>
                     <th><b>Remarks</b></th>
                   </tr>
@@ -252,6 +253,7 @@ const HCDHourlyHome = (props) => {
                         <td>{element.role}</td>
                         <td>{element.hourlyRate}</td>
                         <td>{element.monthlyCost}</td>
+                        <td>{element.ftevalue}</td>
                         <td>
                         {element.billableDate[8] + '' + element.billableDate[9] + '/' + element.billableDate[5] + '' + element.billableDate[6] + '/' + element.billableDate[0] + '' + element.billableDate[1] + '' + element.billableDate[2] + '' + element.billableDate[3]}
                         </td>
