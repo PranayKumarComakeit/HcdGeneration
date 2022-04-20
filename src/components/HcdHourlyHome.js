@@ -118,7 +118,7 @@ const HCDHourlyHome = (props) => {
   const hoptions = props.apiData.managerData;
   return (
     <>
-    {(props.apiData.authData === 200)? (
+    {/* {(props.apiData.authData === 200)? ( */}
       <>
       <nav
         className="py-1 navbar"
@@ -237,8 +237,8 @@ const HCDHourlyHome = (props) => {
                   <tr style={{background:'#003366',color:'white'}}>
                     <th><b>Candidate Name</b></th>
                     <th><b>Role</b></th>
-                    <th><b>Hourly Cost(In Euros)</b></th>
-                    <th><b>Monthly Cost(In Euros)</b></th>
+                    <th><b>Hourly Cost(In  {empdata[0].currency})</b></th>
+                    <th><b>Monthly Cost(In {empdata[0].currency})</b></th>
                     <th><b>Billable Date</b></th>
                     <th><b>Remarks</b></th>
                   </tr>
@@ -290,8 +290,8 @@ const HCDHourlyHome = (props) => {
       </div>
       <Toaster/>
     </>
-      ) : (<ErrorPage/> )
-   } 
+      {/* ) : (<ErrorPage/> )
+   }  */}
     </>
   )
 }

@@ -71,10 +71,10 @@ const HcdHourlyTemplate = (props) => {
                       <b>Role</b>
                     </th>
                     <th>
-                      <b>Hourly Cost(In Euros)</b>
+                      <b>Hourly Cost(In {props.data.empdata[0].currency})</b>
                     </th>
                     <th>
-                      <b>Monthly Cost(In Euros)</b>
+                      <b>Monthly Cost(In {props.data.empdata[0].currency})</b>
                     </th>
                     <th>
                       <b>Billable Date</b>
