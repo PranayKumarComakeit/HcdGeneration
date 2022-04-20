@@ -16,18 +16,6 @@ const HcdHome = (props) => {
 
   const navigate = useNavigate();
 
-
-  // useEffect(async () => {
-  //   if(authData === 200){
-  //     console.log("Auth success", authData);
-  //     getClientDetails();
-  //     getManagerDetails();
-  //   }
-  //   else{
-  //     console.log("Auth fail", authData)
-
-  //   }
-  // }, [stop]);
   const [modalOpen, setModalOpen] = useState(false);
   const [url, seturl] = useState();
   const [empdata, setempdata] = useState([]);
@@ -38,7 +26,7 @@ const HcdHome = (props) => {
   const [hiringmanagername, sethiringmanagername] = useState([]);
   const [filename, setfilename] = useState("");
   const datatohcdhome = (data) => {
-    //console.log(data);
+    
     empdata.unshift(data);
     setempdata(empdata);
     toast.success('Employee added succesfully', {
@@ -46,7 +34,7 @@ const HcdHome = (props) => {
     });
     setcondition(true);
     forceUpdate();
-    //console.log(empdata);
+    
   };
   const findindex = (obj) => {
     for (let i = 0; i < empdata.length; i++) {
@@ -130,7 +118,7 @@ const HcdHome = (props) => {
 
   return (
     <>
-      {/* {(props.apiData.authData === 200) ? ( */}
+      {(props.apiData.authData === 200) ? (
         <>
         <nav
         className="py-1 navbar navbar-lg" style={{background:"#003366"}}
@@ -331,8 +319,8 @@ const HcdHome = (props) => {
       </div>
       <Toaster/>
         </>
-        {/* ) : ( <ErrorPage/>)
-              }  */}
+         ) : ( <ErrorPage/>)
+              } 
 
     
     </>
