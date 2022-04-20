@@ -329,7 +329,7 @@ const HcdHome = (props) => {
           >Click Here to Download PDF</button>
         </form>
       </div>
-      <Toaster />
+      <Toaster/>
         </>
         ) : ( <ErrorPage/>)
               } 
