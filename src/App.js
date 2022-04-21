@@ -41,7 +41,6 @@ function App() {
 
   return (
     <div className="App">
-      {console.log(apiData)}
       <BrowserRouter>
       <Routes>
          <Route exact path="/" element={<HcdHome datatoApp={datatoApp} apiData={apiData} />}/>

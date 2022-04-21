@@ -1,7 +1,9 @@
-import React from "react";
+import React,{useState} from "react";
 import "./HcdTemplate.css";
-
+import logo from '../logo.png';
+import { Link } from 'react-router-dom';
 function HcdTemplate(props) {
+  const [condition, setCondition] = useState(true);
   var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1;
@@ -24,6 +26,46 @@ function HcdTemplate(props) {
 
   return (
     <>
+     {condition && <nav
+        className="py-1 navbar"
+        id="navbar"
+        style={{background:"#003366"}}
+      >
+        <div >
+          <div
+            className="navbar-brand  "
+            id="mainText"
+            style={{color:'#0096FF'}}
+          >
+            <Link
+            className="navbar-brand  text-lg"
+            id="mainText"
+            to="/"
+            style={{ marginLeft: "50px",color:'white'}}
+          >
+            HCD Open
+          </Link>
+          <Link
+            className="navbar-brand fw-bold text-lg"
+            id="mainText"
+            to="/HCDHourly"
+            
+            style={{  color: 'orange' }}
+          >
+            HCD Hourly
+          </Link>
+          </div>
+        </div>
+        <img id="img"
+        src={logo}
+                alt=""
+                style={{
+                  padding:'15px 0px',
+                  width:'202px',
+                  height:'70px'
+                }}
+              />
+      </nav>}
       <div id="Template">
         <div
           className="container"
