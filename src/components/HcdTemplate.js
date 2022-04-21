@@ -1,9 +1,8 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./HcdTemplate.css";
 import logo from '../logo.png';
 import { Link } from 'react-router-dom';
 function HcdTemplate(props) {
-  const [condition, setCondition] = useState(true);
   var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1;
@@ -20,52 +19,54 @@ function HcdTemplate(props) {
 
   const downloadPdf = () => {
     var c = (document.getElementById("button").style.display = "none");
+    var navbar = (document.getElementById("navbar").style.display = "none");
     window.print();
     var c = (document.getElementById("button").style.display = "block");
+    var navbar = (document.getElementById("navbar").style.display = "block");
   };
 
   return (
     <>
-     {condition && <nav
+      <nav
         className="py-1 navbar"
         id="navbar"
-        style={{background:"#003366"}}
+        style={{ background: "#003366" }}
       >
         <div >
           <div
             className="navbar-brand  "
             id="mainText"
-            style={{color:'#0096FF'}}
+            style={{ color: '#0096FF' }}
           >
             <Link
-            className="navbar-brand  text-lg"
-            id="mainText"
-            to="/"
-            style={{ marginLeft: "50px",color:'white'}}
-          >
-            HCD Open
-          </Link>
-          <Link
-            className="navbar-brand fw-bold text-lg"
-            id="mainText"
-            to="/HCDHourly"
-            
-            style={{  color: 'orange' }}
-          >
-            HCD Hourly
-          </Link>
+              className="navbar-brand  text-lg"
+              id="mainText"
+              to="/"
+              style={{ marginLeft: "50px", color: 'white' }}
+            >
+              HCD Open
+            </Link>
+            <Link
+              className="navbar-brand fw-bold text-lg"
+              id="mainText"
+              to="/HCDHourly"
+
+              style={{ color: 'orange' }}
+            >
+              HCD Hourly
+            </Link>
           </div>
         </div>
         <img id="img"
-        src={logo}
-                alt=""
-                style={{
-                  padding:'15px 0px',
-                  width:'202px',
-                  height:'70px'
-                }}
-              />
-      </nav>}
+          src={logo}
+          alt=""
+          style={{
+            padding: '15px 0px',
+            width: '202px',
+            height: '70px'
+          }}
+        />
+      </nav>
       <div id="Template">
         <div
           className="container"
@@ -195,7 +196,7 @@ function HcdTemplate(props) {
               <b>NETHERLANDS</b><br />
               coMakeIT B.V
               Stationsplein 62, 3743 KM Baarn
-              The Netherlands <br/>
+              The Netherlands <br />
               <b>P</b> +31 35 303 5630
 
             </div>
@@ -205,7 +206,7 @@ function HcdTemplate(props) {
               Plot No.654/4 39, Road No.92, Jubilee Hills,
               Hyderabad 500 03, India
               <br /><br />
-              9th Floor, A wing, Aurobindo Galaxy, Madhapur, Hyderabad 500019, India <br/>
+              9th Floor, A wing, Aurobindo Galaxy, Madhapur, Hyderabad 500019, India <br />
               <b>P</b> +91 40 40351000, +91 45454757
 
             </div>
@@ -221,14 +222,14 @@ function HcdTemplate(props) {
         ></script>
       </div>
       <button
-          type="button"
-          className="btn btn-primary btn-dark"
-          onClick={downloadPdf}
-          id="button"
-          style={{ right:'0',bottom:'0', position: 'absolute', marginRight:'10px', marginBottom:'10px' }}
-        >
-          Click Here To Download
-        </button>
+        type="button"
+        className="btn btn-primary btn-dark"
+        onClick={downloadPdf}
+        id="button"
+        style={{ right: '0', bottom: '0', position: 'absolute', marginRight: '10px', marginBottom: '10px' }}
+      >
+        Click Here To Download
+      </button>
     </>
   );
 }

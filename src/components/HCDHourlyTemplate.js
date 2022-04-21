@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import logo from '../logo.png'
 import "./HcdTemplate.css";
 const HcdHourlyTemplate = (props) => {
-  const [condition, setCondition] = useState(true);
   var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1;
@@ -19,14 +18,14 @@ const HcdHourlyTemplate = (props) => {
   var today = dd + '/' + mm + '/' + yyyy;
     const downloadPdf = () => {
       var c = (document.getElementById("button").style.display = "none");
-      setCondition(false);
+      var navbar = (document.getElementById("navbar").style.display = "none");
       window.print();
-      setCondition(true);
       var c = (document.getElementById("button").style.display = "block");
+      var navbar = (document.getElementById("navbar").style.display = "block");
       };
       return (
         <>
-          {condition && <nav
+    <nav
         className="py-1 navbar"
         id="navbar"
         style={{background:"#003366"}}
@@ -65,7 +64,7 @@ const HcdHourlyTemplate = (props) => {
                   height:'70px'
                 }}
               />
-      </nav>}
+      </nav>
           <div id="Template">
             <div
               className="container"
