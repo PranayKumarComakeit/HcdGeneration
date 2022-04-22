@@ -28,33 +28,31 @@ function HcdTemplate(props) {
   return (
     <>
       <nav
-        className="py-1 navbar"
+        className="py-1 navbar navbar-lg" style={{ background: "#003366" }}
         id="navbar"
-        style={{ background: "#003366" }}
       >
-        <div >
+        <div>
           <div
-            className="navbar-brand  "
             id="mainText"
-            style={{ color: '#0096FF' }}
+            style={{ color: "#0096FF", width: "100%" }}
           >
             <Link
-              className="navbar-brand  text-lg"
+              className="navbar-brand fw-bold text-lg"
               id="mainText"
               to="/"
-              style={{ marginLeft: "50px", color: 'white' }}
+              style={{ marginLeft: "50px", color: '#FF9800' }}
             >
               HCD Open
             </Link>
             <Link
-              className="navbar-brand fw-bold text-lg"
+              className="navbar-brand  text-lg"
               id="mainText"
               to="/HCDHourly"
-
-              style={{ color: 'orange' }}
+              style={{ color: 'white' }}
             >
               HCD Hourly
             </Link>
+
           </div>
         </div>
         <img id="img"

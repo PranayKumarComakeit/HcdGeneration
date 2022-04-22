@@ -18,12 +18,12 @@ const HcdHourlyForm = (props) => {
     var c = document.getElementById('fte');
     if (c.checked != false) {
       setfteValue(1.0);
-      setmonthlyCost(hourlyRate*160)
+      setmonthlyCost(hourlyRate * 160)
       setfteShow(false);
     }
     else {
       setfteValue(1.0);
-      setmonthlyCost(hourlyRate*160)
+      setmonthlyCost(hourlyRate * 160)
       setfteShow(true);
     }
   }
