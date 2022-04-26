@@ -23,7 +23,7 @@ function App() {
   const context = useContext(authContext);
   const {  authFunc ,getKeyAndToken, getClientDetails, getManagerDetails, clientData, managerData, authData } = context;
   useEffect(async() => {
-    console.log("Im in useEffect", authData, clientData, managerData)
+    // console.log("Im in useEffect", authData, clientData, managerData)
     await getKeyAndToken();
     await authFunc();
     await getClientDetails();
