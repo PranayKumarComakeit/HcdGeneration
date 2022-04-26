@@ -22,7 +22,7 @@ function HcdTemplate(props) {
     var navbar = (document.getElementById("navbar").style.display = "none");
     window.print();
     var c = (document.getElementById("button").style.display = "block");
-    var navbar = (document.getElementById("navbar").style.display = "block");
+    var navbar = (document.getElementById("navbar").style.display = "");
   };
 
   return (
