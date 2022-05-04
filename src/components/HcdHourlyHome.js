@@ -160,24 +160,28 @@ const HCDHourlyHome = (props) => {
               }}
             />
           </nav>
-          <div className="container">
+          <div className="container" style={{border: "3px solid #003366",marginTop:"5%",padding:"0 4%",paddingBottom:"4%",borderRadius:"15px",
+        
+        paddingLeft: '200px',
+        paddingRight: '200px'
+      }}><br />
             <div className="d-flex justify-content-center" >
-              <h1 style={{ color: '#FF9800', fontWeight: 'bolder' }}>HCD Hourly Format</h1>
+              <h3 style={{ color: '#FF9800'}}>HCD Hourly Format</h3>
             </div>
             <section className="mt-4">
               <div className="row justify-content-center mt-4">
                 <div className="col-md-6 col-lg-4 mt-3"></div>
               </div>
             </section>
-
+            <br /><br />
             <form className="row g-3 needs-validation" name="homeform" method="POST">
               <section className="mt-1" sty>
                 <div className="row task__container">
                   <div className="input-group mb-3">
                     <div className="input-group-inline">
                       <span className="input-group-text" id="inputGroup-sizing-default"
-                        style={{ background: "#003366", color: "white" }}>
-                        <b>Client Name</b>&nbsp;
+                        style={{ background: "#003366", color: "white" ,height:"40px"}}>
+                        Client Name&nbsp;
                         <i style={{ color: '#FF9800' }}>*</i>
                       </span>
                     </div>
@@ -199,9 +203,9 @@ const HCDHourlyHome = (props) => {
                       <span
                         className="input-group-text"
                         id="inputGroup-sizing-default"
-                        style={{ background: "#003366", color: "white" }}
+                        style={{ background: "#003366", color: "white",height:"40px" }}
                       >
-                        <b>Hiring Manager Name </b>&nbsp;
+                        Hiring Manager Name &nbsp;
                         <i style={{ color: '#FF9800' }}>*</i>
                       </span>
                     </div>
@@ -270,7 +274,7 @@ const HCDHourlyHome = (props) => {
                   <br />
                   <button
                     type="button"
-                    style={{ "color": "white", "fontSize": "20px", "marginLeft": "10px", "width": "98%", background: '#003366' }}
+                    style={{ "color": "white", "fontSize": "13.2px", "marginLeft": "10px", "width": "98%", background: '#003366',borderRadius:"30px" }}
                     className="btn"
                     onClick={() => {
                       setModalOpen(true);
@@ -286,14 +290,14 @@ const HCDHourlyHome = (props) => {
               </section>
               <br />
               <button type="submit" className="btn submitBtn" onClick={generatePdf}
-                style={{ "fontSize": "20px", "width": "100%", background: '#003366' }}
+                style={{ "fontSize": "13.2px", "width": "99%", background: '#003366',borderRadius:"30px",marginLeft:"5px" }}
               >Click Here to Download PDF</button>
             </form>
           </div>
           <Toaster />
         </>
-      ) : (<ErrorPage />)
-      }
+       ) : (<ErrorPage />)
+      } 
     </>
   )
 }

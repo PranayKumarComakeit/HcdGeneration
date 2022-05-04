@@ -93,7 +93,7 @@ const HcdHourlyForm = (props) => {
   return (
     <>
 
-      <div className="modalBackground">
+      <div className="modalBackground" style={{paddingTop:"8%"}}>
         <div className="modalContainer">
           <div className="titleCloseBtn">
             <button
@@ -105,7 +105,7 @@ const HcdHourlyForm = (props) => {
             </button>
           </div>
           <div className="title">
-            <h1>Add Employee Details</h1>
+            <h3>Add Employee Details</h3>
           </div>
           <form class="row g-3 needs-validation" name="empForm" novalidate>
             <div className="body">

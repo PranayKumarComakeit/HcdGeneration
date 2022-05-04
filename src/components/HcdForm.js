@@ -53,7 +53,7 @@ const HcdForm = ( props) => {
           </button>
         </div>
         <div className="title">
-          <h1>Add Employee Details</h1>
+          <h3>Add Employee Details</h3>
         </div>
         <form class="row g-3 needs-validation" name="empForm" method='post' novalidate>
            <div className="body">
