@@ -4,3 +4,14 @@
 .submitBtn{
     color: white;
 }
+.fileContainer p {
+    font-size: 10px !important;
+}
+.fileContainer .chooseFileButton {
+    background: #003366 !important;
+    border-radius: 10px !important;
+    height: 45px;
+}
+.fileContainer .uploadIcon {
+    display: none;
+}

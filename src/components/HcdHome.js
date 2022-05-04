@@ -116,7 +116,7 @@ const HcdHome = (props) => {
 
   return (
     <>
-      {(props.apiData.authData === 200) ? (
+      {/* {(props.apiData.authData === 200) ? ( */}
       <>
         <nav
           className="py-1 navbar navbar-lg" style={{ background: "#003366" }}
@@ -185,7 +185,7 @@ const HcdHome = (props) => {
                       id="inputGroup-sizing-default"
                       style={{ background: "#003366", color: "white", height: "40px" }}
                     >
-                      Client Name &nbsp;
+                      Client Name&nbsp;
                       <i style={{ color: '#FF9800' }}>*</i>
                     </span>
                   </div>
@@ -295,7 +295,7 @@ const HcdHome = (props) => {
                 <br />
                 <button
                   type="button"
-                  style={{ "color": "white", "fontSize": "13.2px", "marginLeft": "10px", "width": "98%", background: '#003366',borderRadius:"30px" }}
+                  style={{ "color": "white", "fontSize": "13.2px", "marginLeft": "25%", "width": "26%", background: '#003366',borderRadius:"10px",height:'45px' }}
                   className="btn btn-dark"
                   onClick={() => {
                     setModalOpen(true);
@@ -311,18 +311,17 @@ const HcdHome = (props) => {
                     datatohcdhome={datatohcdhome}
                   />
                 )}
+                <button type="submit" className="btn submitBtn justify-content-center" onClick={generatePdf}
+              style={{ "fontSize": "13.2px", "width": "30%", background: '#003366',borderRadius:"10px",marginLeft:"5px",height:"45px",float:'right' }}
+            >Click Here to Download PDF</button>
               </div>
             </section>
-            <br />
-            <button type="submit" className="btn submitBtn" onClick={generatePdf}
-              style={{ "fontSize": "13.2px", "width": "99%", background: '#003366',borderRadius:"30px",marginLeft:"5px" }}
-            >Click Here to Download PDF</button>
           </form>
         </div>
         <Toaster />
       </>
-       ) : ( <ErrorPage/>)
-              }  
+       {/* ) : ( <ErrorPage/>)
+              }   */}
 
 
     </>

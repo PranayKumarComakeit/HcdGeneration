@@ -118,186 +118,188 @@ const HCDHourlyHome = (props) => {
   const hoptions = props.apiData.managerData;
   return (
     <>
-      {(props.apiData.authData === 200) ? (
-        <>
-          <nav
-            className="py-1 navbar navbar-lg"
-            id="navbar"
-            style={{ background: "#003366" }}
-          >
-            <div >
-              <div
-                className="navbar-brand  "
+      {/* {(props.apiData.authData === 200) ? ( */}
+      <>
+        <nav
+          className="py-1 navbar navbar-lg"
+          id="navbar"
+          style={{ background: "#003366" }}
+        >
+          <div >
+            <div
+              className="navbar-brand  "
+              id="mainText"
+              style={{ color: '#0096FF' }}
+            >
+              <Link
+                className="navbar-brand  text-lg"
                 id="mainText"
-                style={{ color: '#0096FF' }}
+                to="/"
+                style={{ marginLeft: "50px", color: 'white' }}
               >
-                <Link
-                  className="navbar-brand  text-lg"
-                  id="mainText"
-                  to="/"
-                  style={{ marginLeft: "50px", color: 'white' }}
-                >
-                  HCD Open
-                </Link>
-                <Link
-                  className="navbar-brand fw-bold text-lg"
-                  id="mainText"
-                  to="/HCDHourly"
+                HCD Open
+              </Link>
+              <Link
+                className="navbar-brand fw-bold text-lg"
+                id="mainText"
+                to="/HCDHourly"
 
-                  style={{ color: 'orange' }}
+                style={{ color: 'orange' }}
+              >
+                HCD Hourly
+              </Link>
+            </div>
+          </div>
+          <img id="img"
+            src={logo}
+            alt=""
+            style={{
+              padding: '15px 0px',
+              width: '202px',
+              height: '70px'
+            }}
+          />
+        </nav>
+        <div className="container" style={{
+          border: "3px solid #003366", marginTop: "5%", padding: "0 4%", paddingBottom: "4%", borderRadius: "15px",
+
+          paddingLeft: '200px',
+          paddingRight: '200px'
+        }}><br />
+          <div className="d-flex justify-content-center" >
+            <h3 style={{ color: '#FF9800' }}>HCD Hourly Format</h3>
+          </div>
+          <section className="mt-4">
+            <div className="row justify-content-center mt-4">
+              <div className="col-md-6 col-lg-4 mt-3"></div>
+            </div>
+          </section>
+          <br /><br />
+          <form className="row g-3 needs-validation" name="homeform" method="POST">
+            <section className="mt-1" sty>
+              <div className="row task__container">
+                <div className="input-group mb-3">
+                  <div className="input-group-inline">
+                    <span className="input-group-text" id="inputGroup-sizing-default"
+                      style={{ background: "#003366", color: "white", height: "40px" }}>
+                      Client Name&nbsp;
+                      <i style={{ color: '#FF9800' }}>*</i>
+                    </span>
+                  </div>
+                  <div className="form-control"
+                    style={{ padding: '0', borderRadius: '100%' }}>
+                    <Select
+                      name="cname"
+                      options={options}
+                      value={value}
+                      onChange={setValue}
+                      placeholder="Select Client Name"
+                      getOptionLabel={(option) => option.clientName}
+                      getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
+                    />
+                  </div>
+                </div>
+                <div className="input-group mb-3">
+                  <div className="input-group-prepend" >
+                    <span
+                      className="input-group-text"
+                      id="inputGroup-sizing-default"
+                      style={{ background: "#003366", color: "white", height: "40px" }}
+                    >
+                      Hiring Manager Name &nbsp;
+                      <i style={{ color: '#FF9800' }}>*</i>
+                    </span>
+                  </div>
+                  <div className="form-control"
+                    style={{ padding: '0', borderRadius: '100%' }}>
+                    <Select
+                      name="mname"
+                      options={hoptions}
+                      value={hval}
+                      placeholder="Select Hiring Manager Name"
+                      onChange={setHval}
+                      getOptionLabel={(option) => option.hiringManagerName}
+                      getOptionValue={(option) => option.hiringManagerName} // It should be unique value in the options. E.g. ID
+                    />
+                  </div>
+
+                </div>
+                <div className="container">
+                  <ImageUploader
+                    withIcon={true}
+                    buttonText="Upload Signature"
+                    onChange={onDrop}
+                    imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
+                    maxFileSize={5242880}
+                  />
+                  <div style={{ fontSize: '20px', fontWeight: 'bold' }}>{filename}</div>
+                </div>
+
+                {
+                  condition && <table className="table table-striped caption-top table-hover" id="empTable">
+                    <caption>List of Employee's</caption>
+                    <thead>
+                      <tr style={{ background: '#003366', color: 'white' }}>
+                        <th><b>Candidate Name</b></th>
+                        <th><b>Role</b></th>
+                        <th><b>Hourly Cost(In  {empdata[0].currency})</b></th>
+                        <th><b>Monthly Cost(In {empdata[0].currency})</b></th>
+                        <th><b>FTE</b></th>
+                        <th><b>Billable Date</b></th>
+                        <th><b>Remarks</b></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      {
+                        empdata.map((element) => {
+                          return <tr className="table" key={element.name}>
+                            <td>{element.candidatename}</td>
+                            <td>{element.role}</td>
+                            <td>{element.hourlyRate}</td>
+                            <td>{element.monthlyCost}</td>
+                            <td>{element.ftevalue}</td>
+                            <td>
+                              {element.billableDate[8] + '' + element.billableDate[9] + '/' + element.billableDate[5] + '' + element.billableDate[6] + '/' + element.billableDate[0] + '' + element.billableDate[1] + '' + element.billableDate[2] + '' + element.billableDate[3]}
+                            </td>
+                            <td>{element.remarks}</td>
+                            <td style={{ border: '0px', borderColor: '#ebf2ff', padding: '0', margin: '0px' }}><i style={{ paddingLeft: '50px', paddingTop: '10px' }} onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
+                          </tr>
+                        }
+                        )
+
+                      }
+                    </tbody>
+                  </table>
+                }
+                <br />
+                <button
+                  type="button"
+                  style={{ "color": "white", "fontSize": "13.2px", "marginLeft": "25%", "width": "26%", background: '#003366', borderRadius: "10px", height: '45px' }}
+                  className="btn"
+                  onClick={() => {
+                    setModalOpen(true);
+                  }}
+
                 >
-                  HCD Hourly
-                </Link>
-              </div>
-            </div>
-            <img id="img"
-              src={logo}
-              alt=""
-              style={{
-                padding: '15px 0px',
-                width: '202px',
-                height: '70px'
-              }}
-            />
-          </nav>
-          <div className="container" style={{border: "3px solid #003366",marginTop:"5%",padding:"0 4%",paddingBottom:"4%",borderRadius:"15px",
-        
-        paddingLeft: '200px',
-        paddingRight: '200px'
-      }}><br />
-            <div className="d-flex justify-content-center" >
-              <h3 style={{ color: '#FF9800'}}>HCD Hourly Format</h3>
-            </div>
-            <section className="mt-4">
-              <div className="row justify-content-center mt-4">
-                <div className="col-md-6 col-lg-4 mt-3"></div>
+                  <i className="fas fa-plus me-2"></i>
+                  Add Employee&nbsp;
+                  <i style={{ color: '#FF9800' }}>*</i>
+                </button>
+                {modalOpen && <HcdHourlyForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome} />}
+                <button type="submit" className="btn submitBtn" onClick={generatePdf}
+                  style={{ "fontSize": "13.2px", "width": "30%", background: '#003366', borderRadius: "10px", marginLeft: "5px", height: '45px' }}
+                >Click Here to Download PDF</button>
               </div>
             </section>
-            <br /><br />
-            <form className="row g-3 needs-validation" name="homeform" method="POST">
-              <section className="mt-1" sty>
-                <div className="row task__container">
-                  <div className="input-group mb-3">
-                    <div className="input-group-inline">
-                      <span className="input-group-text" id="inputGroup-sizing-default"
-                        style={{ background: "#003366", color: "white" ,height:"40px"}}>
-                        Client Name&nbsp;
-                        <i style={{ color: '#FF9800' }}>*</i>
-                      </span>
-                    </div>
-                    <div className="form-control"
-                      style={{ padding: '0', borderRadius: '100%' }}>
-                      <Select
-                        name="cname"
-                        options={options}
-                        value={value}
-                        onChange={setValue}
-                        placeholder="Select Client Name"
-                        getOptionLabel={(option) => option.clientName}
-                        getOptionValue={(option) => option.clientName} // It should be unique value in the options. E.g. ID
-                      />
-                    </div>
-                  </div>
-                  <div className="input-group mb-3">
-                    <div className="input-group-prepend" >
-                      <span
-                        className="input-group-text"
-                        id="inputGroup-sizing-default"
-                        style={{ background: "#003366", color: "white",height:"40px" }}
-                      >
-                        Hiring Manager Name &nbsp;
-                        <i style={{ color: '#FF9800' }}>*</i>
-                      </span>
-                    </div>
-                    <div className="form-control"
-                      style={{ padding: '0', borderRadius: '100%' }}>
-                      <Select
-                        name="mname"
-                        options={hoptions}
-                        value={hval}
-                        placeholder="Select Hiring Manager Name"
-                        onChange={setHval}
-                        getOptionLabel={(option) => option.hiringManagerName}
-                        getOptionValue={(option) => option.hiringManagerName} // It should be unique value in the options. E.g. ID
-                      />
-                    </div>
 
-                  </div>
-                  <div className="container">
-                    <ImageUploader
-                      withIcon={true}
-                      buttonText="Upload Signature"
-                      onChange={onDrop}
-                      imgExtension={[".jpg", ".gif", ".png", ".gif", ".jpeg"]}
-                      maxFileSize={5242880}
-                    />
-                    <div style={{ fontSize: '20px', fontWeight: 'bold' }}>{filename}</div>
-                  </div>
 
-                  {
-                    condition && <table className="table table-striped caption-top table-hover" id="empTable">
-                      <caption>List of Employee's</caption>
-                      <thead>
-                        <tr style={{ background: '#003366', color: 'white' }}>
-                          <th><b>Candidate Name</b></th>
-                          <th><b>Role</b></th>
-                          <th><b>Hourly Cost(In  {empdata[0].currency})</b></th>
-                          <th><b>Monthly Cost(In {empdata[0].currency})</b></th>
-                          <th><b>FTE</b></th>
-                          <th><b>Billable Date</b></th>
-                          <th><b>Remarks</b></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-
-                        {
-                          empdata.map((element) => {
-                            return <tr className="table" key={element.name}>
-                              <td>{element.candidatename}</td>
-                              <td>{element.role}</td>
-                              <td>{element.hourlyRate}</td>
-                              <td>{element.monthlyCost}</td>
-                              <td>{element.ftevalue}</td>
-                              <td>
-                                {element.billableDate[8] + '' + element.billableDate[9] + '/' + element.billableDate[5] + '' + element.billableDate[6] + '/' + element.billableDate[0] + '' + element.billableDate[1] + '' + element.billableDate[2] + '' + element.billableDate[3]}
-                              </td>
-                              <td>{element.remarks}</td>
-                              <td style={{ border: '0px', borderColor: '#ebf2ff', padding: '0', margin: '0px' }}><i style={{ paddingLeft: '50px', paddingTop: '10px' }} onClick={() => deletedata(element)} className="fa fa-trash"></i></td>
-                            </tr>
-                          }
-                          )
-
-                        }
-                      </tbody>
-                    </table>
-                  }
-                  <br />
-                  <button
-                    type="button"
-                    style={{ "color": "white", "fontSize": "13.2px", "marginLeft": "10px", "width": "98%", background: '#003366',borderRadius:"30px" }}
-                    className="btn"
-                    onClick={() => {
-                      setModalOpen(true);
-                    }}
-
-                  >
-                    <i className="fas fa-plus me-2"></i>
-                    Add Employee&nbsp;
-                    <i style={{ color: '#FF9800' }}>*</i>
-                  </button>
-                  {modalOpen && <HcdHourlyForm setOpenModal={setModalOpen} datatohcdhome={datatohcdhome} />}
-                </div>
-              </section>
-              <br />
-              <button type="submit" className="btn submitBtn" onClick={generatePdf}
-                style={{ "fontSize": "13.2px", "width": "99%", background: '#003366',borderRadius:"30px",marginLeft:"5px" }}
-              >Click Here to Download PDF</button>
-            </form>
-          </div>
-          <Toaster />
-        </>
-       ) : (<ErrorPage />)
-      } 
+          </form>
+        </div>
+        <Toaster />
+      </>
+      {/* ) : (<ErrorPage />)
+      }  */}
     </>
   )
 }
