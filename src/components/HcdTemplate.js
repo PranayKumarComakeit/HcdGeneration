@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./HcdTemplate.css";
-import logo from '../logo.png';
+import logo from '../coMakeIT-logo.png';
+import pdflogo from '../logo.png'
 import { Link } from 'react-router-dom';
 function HcdTemplate(props) {
   var today = new Date();
@@ -59,9 +60,9 @@ function HcdTemplate(props) {
           src={logo}
           alt=""
           style={{
-            padding: '15px 0px',
-            width: '202px',
-            height: '70px'
+            padding: '10px',
+            width: '160px',
+            height: '55px'
           }}
         />
       </nav>
@@ -79,7 +80,7 @@ function HcdTemplate(props) {
             </div>
             <div className="d-flex justify-content-end">
               <img
-                src="https://www.telligent.com/content/uploads/2019/08/coMakeIT-Logo.jpg"
+                src={pdflogo}
                 alt=""
                 style={{
                   width: "200px",

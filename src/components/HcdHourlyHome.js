@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import './submit.css'
-import logo from '../logo.png'
+import logo from '../coMakeIT-logo.png'
 import HcdForm from "./HcdForm";
 import ImageUploader from "react-images-upload";
 import HcdHourlyForm from "./HcdHourlyForm";
@@ -154,9 +154,9 @@ const HCDHourlyHome = (props) => {
             src={logo}
             alt=""
             style={{
-              padding: '15px 0px',
-              width: '202px',
-              height: '70px'
+              padding: '10px',
+              width: '160px',
+              height: '55px'
             }}
           />
         </nav>
@@ -298,8 +298,8 @@ const HCDHourlyHome = (props) => {
         </div>
         <Toaster />
       </>
-       ) : (<ErrorPage />)
-      }  
+         ) : (<ErrorPage />)
+      }    
     </>
   )
 }

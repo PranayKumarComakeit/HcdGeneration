@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import authContext from "../contexts/authContext";
 import ErrorPage from './ErrorPage'
 import dataContext from "../contexts/dataContext";
-import logo from '../logo.png'
+import logo from '../coMakeIT-logo.png'
 
 const HcdHome = (props) => {
 
@@ -150,9 +150,9 @@ const HcdHome = (props) => {
             src={logo}
             alt=""
             style={{
-              padding: '15px 0px',
-              width: '202px',
-              height: '70px'
+              padding: '10px',
+              width: '160px',
+              height: '55px'
             }}
           />
         </nav>
@@ -320,8 +320,8 @@ const HcdHome = (props) => {
         </div>
         <Toaster />
       </>
-        ) : ( <ErrorPage/>)
-              }  
+          ) : ( <ErrorPage/>)
+              }    
 
 
     </>
