@@ -118,7 +118,7 @@ const HCDHourlyHome = (props) => {
   const hoptions = props.apiData.managerData;
   return (
     <>
-      {/* {(props.apiData.authData === 200) ? ( */}
+      {(props.apiData.authData === 200) ? (
       <>
         <nav
           className="py-1 navbar navbar-lg"
@@ -298,8 +298,8 @@ const HCDHourlyHome = (props) => {
         </div>
         <Toaster />
       </>
-      {/* ) : (<ErrorPage />)
-      }  */}
+       ) : (<ErrorPage />)
+      }  
     </>
   )
 }
