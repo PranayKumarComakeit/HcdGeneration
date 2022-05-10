@@ -20,7 +20,11 @@ const HcdHourlyTemplate = (props) => {
   const downloadPdf = () => {
     var c = (document.getElementById("button").style.display = "none");
     var navbar = (document.getElementById("navbar").style.display = "none");
+    document.getElementsByClassName("client")[0].style.border = "none";
+    document.getElementsByClassName("client")[1].style.border = "none";
     window.print();
+    document.getElementsByClassName("client")[0].style.border = "";
+    document.getElementsByClassName("client")[1].style.border = "";
     var c = (document.getElementById("button").style.display = "block");
     var navbar = (document.getElementById("navbar").style.display = "");
   };
@@ -76,12 +80,12 @@ const HcdHourlyTemplate = (props) => {
         >
           <div className="row">
             <div className="d-flex justify-content-end">
-              <img
+            <img
                 src={pdflogo}
                 alt=""
                 style={{
-                  width: "200px",
-                  height: "80px",
+                  width: "150px",
+                  height: "50px",
                 }}
               />
             </div>
@@ -163,32 +167,40 @@ const HcdHourlyTemplate = (props) => {
                 <br />
                 <img
                   src={props.data.url}
-                  alt="Hiring Manager Signature"
+                  alt=""
                   style={{
                     width: "70px",
                     height: "30px",
                   }}
                 />
-                <br /> <br />
-                Name: <b>{props.data.hiringmanagername[0]}</b> <br />
+                <br /><br />
+                Name: <b>{props.data.hiringmanagername[0]}</b><br />
                 Designation: <b>{props.data.designation[0]}</b> <br />
               </div>
             </div>
             <div className="col-2"></div>
             <div className="col-5">
               <div>
-                For {props.data.clientname[0]}
+              For {props.data.clientname[0]}
                 <br />
-                <div
-
-                  alt=""
+                <span
                   style={{
                     width: "70px",
                     height: "30px",
                   }}
-                /> <br />
-                Name:  <br />
-                Designation:  <br />
+                >
+                </span>
+                <br />
+                <div>
+                  <br /><br />
+                  Name:
+                  <input className="client" style={{ fontWeight: "bold" }} />
+                  <br />
+                  <div className="row" style={{ alignContent: "left" }}>
+                    <div className="col-3"> Designation:</div>
+                    <div className="col-6" ><input className="client" style={{ fontWeight: "bold", marginLeft: "12px" }} /></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

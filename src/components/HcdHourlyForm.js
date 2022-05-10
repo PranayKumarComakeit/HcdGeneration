@@ -72,7 +72,7 @@ const HcdHourlyForm = (props) => {
     let billableDate = document.forms["empForm"]["billableDate"].value;
     let monthlyCost = document.forms["empForm"]["monthlyCost"].value;
     let hourlyRate = document.forms["empForm"]["hourlyRate"].value;
-    if (cname !== "" && role !== "" && remarks !== "" && billableDate !== "" && monthlyCost !== 0 && hourlyRate !== 0 && ftevalue <= 1.0) {
+    if (cname !== "" && role !== ""  && billableDate !== "" && monthlyCost !== 0 && hourlyRate !== 0 && ftevalue <= 1.0) {
       const empdata =
       {
         clientname: clientname,
@@ -218,7 +218,7 @@ const HcdHourlyForm = (props) => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="taskType" className="form-label">Remarks<i style={{ color: '#FF9800' }}>*</i></label>
+                <label htmlFor="taskType" className="form-label">Remarks</label>
                 <input
                   type="text"
                   name="remarks"
@@ -228,7 +228,6 @@ const HcdHourlyForm = (props) => {
                   placeholder="Remarks if any"
                   onChange={onRemarkchange}
                   value={remarks}
-                  required
                 />
               </div>
             </div>

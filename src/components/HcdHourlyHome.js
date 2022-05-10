@@ -298,8 +298,8 @@ const HCDHourlyHome = (props) => {
         </div>
         <Toaster />
       </>
-         ) : (<ErrorPage />)
-      }    
+          ) : (<ErrorPage />)
+      }     
     </>
   )
 }
