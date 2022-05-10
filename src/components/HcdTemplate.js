@@ -4,6 +4,8 @@ import logo from '../coMakeIT-logo.png';
 import pdflogo from '../logo.png'
 import { Link } from 'react-router-dom';
 function HcdTemplate(props) {
+
+
   var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth() + 1;
@@ -21,7 +23,11 @@ function HcdTemplate(props) {
   const downloadPdf = () => {
     var c = (document.getElementById("button").style.display = "none");
     var navbar = (document.getElementById("navbar").style.display = "none");
+    document.getElementsByClassName("client")[0].style.border = "none";
+    document.getElementsByClassName("client")[1].style.border = "none";
     window.print();
+    document.getElementsByClassName("client")[0].style.border = "";
+    document.getElementsByClassName("client")[1].style.border = "";
     var c = (document.getElementById("button").style.display = "block");
     var navbar = (document.getElementById("navbar").style.display = "");
   };
@@ -83,8 +89,8 @@ function HcdTemplate(props) {
                 src={pdflogo}
                 alt=""
                 style={{
-                  width: "200px",
-                  height: "80px",
+                  width: "150px",
+                  height: "50px",
                 }}
               />
             </div>
@@ -160,30 +166,33 @@ function HcdTemplate(props) {
                   }}
                 />
                 <br /><br />
-                Name:
-                <b>{props.data.hiringmanagername[0]}</b>
-                <br />
-                Designation:
-                <b>{props.data.designation[0]}</b>
+                Name: <b>{props.data.hiringmanagername[0]}</b><br />
+                Designation: <b>{props.data.designation[0]}</b> <br />
               </div>
             </div>
             <div className="col-2"></div>
             <div className="col-5">
               <div>
-                For {props.data.clientname[0]}
+              For {props.data.clientname[0]}
                 <br />
-                <div
-
-                  alt=""
+                <span
                   style={{
                     width: "70px",
                     height: "30px",
                   }}
-                />
+                >
+                </span>
                 <br />
-                Name:  <br />
-                Designation:
-
+                <div>
+                  <br /><br />
+                  Name:
+                  <input className="client" style={{ fontWeight: "bold" }} />
+                  <br />
+                  <div className="row" style={{ alignContent: "left" }}>
+                    <div className="col-3"> Designation:</div>
+                    <div className="col-6" ><input className="client" style={{ fontWeight: "bold", marginLeft: "12px" }} /></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

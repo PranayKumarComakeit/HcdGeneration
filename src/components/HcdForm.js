@@ -24,7 +24,7 @@ const HcdForm = ( props) => {
     let grossSalary = document.forms["empForm"]["grossSalary"].value;
     let remarks = document.forms["empForm"]["remarks"].value;
     let startDate = document.forms["empForm"]["startDate"].value;
-    if(cname!=="" && grossSalary!=="" && remarks!=="" && startDate!==""){
+    if(cname!=="" && grossSalary!==""  && startDate!==""){
       const empdata=
       {
         clientname:clientname,
@@ -99,7 +99,7 @@ const HcdForm = ( props) => {
                   />
                 </div>
               <div className="mb-3">
-                <label htmlFor="validationCustom04" className="form-label">Remarks<i style={{ color:'#FF9800' }}>*</i> </label>
+                <label htmlFor="validationCustom04" className="form-label">Remarks </label>
                 <input
                   type="text"
                   name="remarks"
@@ -109,7 +109,6 @@ const HcdForm = ( props) => {
                   placeholder="Remarks if any"
                   onChange={onRemarkchange}
                   value={remarks}
-                  required
                 />
               </div>
         </div>
